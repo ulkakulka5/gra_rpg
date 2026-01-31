@@ -24,9 +24,10 @@ public partial class MainPage : ContentPage
         await newGameButton.ScaleToAsync(1.0, 120, Easing.CubicIn);
     }
 
-    private void OnNewGameClicked(object sender, EventArgs e)
+    async void OnNewGameClicked(object sender, EventArgs e)
     {
         // start
-       
+        await Shell.Current.GoToAsync(nameof(Page1));
+
     }
 }
