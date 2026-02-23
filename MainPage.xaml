@@ -1,0 +1,34 @@
+﻿<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="gra_rpg.MainPage"
+    BackgroundColor="Black">
+
+    <Grid>
+
+      
+        <Image Source="chapel_bg.png" Aspect="AspectFill" />
+
+        
+        <ImageButton
+            x:Name="newGameButton"
+            Source="button_newgame.png"
+            WidthRequest="500"
+           
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="0,0,0,80"
+            BackgroundColor="Transparent"
+            Clicked="OnNewGameClicked">
+
+            <ImageButton.GestureRecognizers>
+                <PointerGestureRecognizer
+                    PointerEntered="OnPointerEntered"
+                    PointerExited="OnPointerExited" />
+            </ImageButton.GestureRecognizers>
+
+        </ImageButton>
+
+    </Grid>
+
+</ContentPage>
