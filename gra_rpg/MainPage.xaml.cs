@@ -14,14 +14,14 @@ public partial class MainPage : ContentPage
         if (ishovered) return;
         ishovered = true;
 
-        await newGameButton.ScaleToAsync(1.08, 120, Easing.CubicOut);
+        await newGameButton.ScaleTo(1.08, 120, Easing.CubicOut);
     }
 
     private async void OnPointerExited(object sender, EventArgs e)
     {
         ishovered = false;
 
-        await newGameButton.ScaleToAsync(1.0, 120, Easing.CubicIn);
+        await newGameButton.ScaleTo(1.0, 120, Easing.CubicIn);
     }
 
     async void OnNewGameClicked(object sender, EventArgs e)

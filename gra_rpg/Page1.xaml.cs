@@ -20,7 +20,7 @@ public partial class Page1 : ContentPage
         Loaded += OnLoaded;
 #endif
     }
-    //test
+   
 #if WINDOWS
     void OnLoaded(object? sender, EventArgs e)
     {

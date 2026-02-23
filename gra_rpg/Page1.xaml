@@ -7,7 +7,7 @@
     <Grid>
 
 
-        <Image Source="page1_bg.png" Aspect="AspectFill" />
+        <Image Source="page1_bg2.png" Aspect="AspectFill" />
         <Image x:Name="rozia"
                Source="rozia_walk.png"
                WidthRequest="50"
