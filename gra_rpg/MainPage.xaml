@@ -4,7 +4,7 @@
     x:Class="gra_rpg.MainPage"
     BackgroundColor="Black">
 
-    <Grid>
+    <Grid WidthRequest="1280" HeightRequest="832" >
 
       
         <Image Source="chapel_bg.png" Aspect="AspectFill" />

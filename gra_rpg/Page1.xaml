@@ -2,12 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="gra_rpg.Page1"
-              Loaded="OnLoaded"
+             Loaded="OnLoaded"
             >
-    <Grid>
+    
+    
+    <Grid WidthRequest="1280" HeightRequest="832" x:Name="MainGrid" >
 
 
-        <Image Source="page1_bg2.png" Aspect="AspectFill" />
+        <Image Source="page1_bg.png"  WidthRequest="1280" HeightRequest="832"/>
         <Image x:Name="rozia"
                Source="rozia_walk.png"
                WidthRequest="50"
@@ -17,9 +19,9 @@
 
         <Image x:Name="rozia_mouse"
                Source="rozia_walk.png"
-               WidthRequest="50"
-               HorizontalOptions="End"
-               VerticalOptions="End">
+               WidthRequest="100"
+               HorizontalOptions="Start"
+               VerticalOptions="Start">
             <Image.GestureRecognizers>
                 <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
             </Image.GestureRecognizers>
