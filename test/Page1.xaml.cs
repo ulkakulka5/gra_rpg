@@ -24,9 +24,12 @@ public partial class Page1 : ContentPage
         InitializeComponent();
 
         // przykładowe przeszkody
-        blockedAreas.Add(new Rect(100, 100, 200, 150));
-        blockedAreas.Add(new Rect(400, 50, 150, 250));
-
+        blockedAreas.Add(new Rect(163, 535, 457, 157));
+ blockedAreas.Add(new Rect(33, 152, 270, 168));
+ blockedAreas.Add(new Rect(306, 196, 144, 127));
+ blockedAreas.Add(new Rect(1000, 535, 239, 167));
+ blockedAreas.Add(new Rect(0, 0, 1280, 161));
+ blockedAreas.Add(new Rect(993, 142, 237, 151));
 #if WINDOWS
         Loaded += OnLoaded;
 #endif
