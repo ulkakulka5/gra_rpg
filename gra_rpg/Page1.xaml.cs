@@ -16,9 +16,9 @@ public partial class Page1 : ContentPage
     double step = 10;
     double startX;
     double startY;
+    bool isNavigating = false;
 
     List<Rect> blockedAreas = new List<Rect>();
-    List<Rect> openAreas = new List<Rect>();
 
     public Page1()
     {
@@ -106,6 +106,8 @@ public partial class Page1 : ContentPage
     }
     private async void MoveCharacter(Image character, double newX, double newY, bool checkCollision)
     {
+        if (isNavigating)
+            return;
         if (MainGrid.Width <= 0 || MainGrid.Height <= 0)
         {
             character.TranslationX = newX;
@@ -129,12 +131,14 @@ public partial class Page1 : ContentPage
     private async Task<bool> IsBlocked(double x, double y, double width, double height)
     {
         Rect characterRect = new Rect(x, y, width, height);
+        
         var door1 = new Rect(139, 323, 64, 87);
 
-        if (characterRect.IntersectsWith(door1))
+        if (characterRect.IntersectsWith(door1) && !isNavigating)
         {
+            isNavigating = true;
             await Shell.Current.GoToAsync(nameof(Page2));
-            return false; 
+            return false;
         }
 
         foreach (var area in blockedAreas)

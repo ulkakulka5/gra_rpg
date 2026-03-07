@@ -9,19 +9,50 @@
         <Image Source="page2_bg.png"  WidthRequest="1280" HeightRequest="832"/>
         <Image x:Name="rozia"
            Source="rozia_walk.png"
-           WidthRequest="50"
+           WidthRequest="150"
            HorizontalOptions="Start"
            VerticalOptions="Start"/>
 
+        <Border x:Name="ChestCode"
+           IsVisible="False"
+           BackgroundColor="RosyBrown"
+           Padding="20"
+           WidthRequest="300"
+           HorizontalOptions="Center"
+           VerticalOptions="Center">
 
-        <Image x:Name="rozia_mouse"
-           Source="rozia_walk.png"
-           WidthRequest="100"
-           HorizontalOptions="Start"
-           VerticalOptions="Start">
-            <Image.GestureRecognizers>
-                <!--<PanGestureRecognizer PanUpdated="OnPanUpdated"/>-->
-            </Image.GestureRecognizers>
-        </Image>
+            <VerticalStackLayout Spacing="10">
+
+                <Label Text="Wpisz kod"
+                   TextColor="SaddleBrown"
+                   HorizontalOptions="Center"/>
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Entry x:Name="CodeEntry" />
+                    <Image Source="closed.png"
+                       x:Name="Closed"
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       IsVisible="False"/>
+                    <Image Source="opened.png"
+                       x:Name="Opened"    
+                       WidthRequest="30"
+                       HeightRequest="30"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       IsVisible="False"/>      
+
+                </HorizontalStackLayout>
+
+                <Button Text="Otwórz"
+                    Clicked="OnCodeSubmit"
+                    BackgroundColor="ForestGreen"    />
+
+            </VerticalStackLayout>
+        </Border>
+
+
     </Grid>
 </ContentPage>
