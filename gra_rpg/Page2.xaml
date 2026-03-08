@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="gra_rpg.Page2"
              Title="Page2">
+
     <Grid WidthRequest="1280" HeightRequest="832" x:Name="MainGrid" >
 
 
@@ -13,46 +14,90 @@
            HorizontalOptions="Start"
            VerticalOptions="Start"/>
 
-        <Border x:Name="ChestCode"
-           IsVisible="False"
-           BackgroundColor="RosyBrown"
-           Padding="20"
-           WidthRequest="300"
-           HorizontalOptions="Center"
-           VerticalOptions="Center">
+        <Grid x:Name="ChestCode"
+      IsVisible="False"
+      WidthRequest="320"
+      HorizontalOptions="Center"
+      VerticalOptions="Center">
 
-            <VerticalStackLayout Spacing="10">
+      
 
-                <Label Text="Wpisz kod"
-                   TextColor="SaddleBrown"
-                   HorizontalOptions="Center"/>
+             
+                <Image Source="chest_panel.png"
+           Aspect="AspectFit"/>
 
-                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
-                    <Entry x:Name="CodeEntry" />
+              
+                <VerticalStackLayout
+        VerticalOptions="Center"
+        HorizontalOptions="Center"
+        Spacing="20"
+                    Margin="0,0,10,55"
+        >
+
+
+                    <HorizontalStackLayout Spacing="2"
+                                Margin="0,50,0,0"
+                               HorizontalOptions="Center"
+                                           HeightRequest="60"
+                                           WidthRequest="160">
+
+                        <Entry x:Name="CodeEntry1"
+                   WidthRequest="20"
+                   HeightRequest="20"
+                   BackgroundColor="Transparent"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="End"
+                   TextChanged="CodeEntry1_TextChanged"
+                               />
+
+                    <Entry x:Name="CodeEntry2"
+                  WidthRequest="30"
+                  HeightRequest="20"
+                  BackgroundColor="Transparent"
+                  TextColor="black"
+                  HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="End"
+                    TextChanged="CodeEntry2_TextChanged"
+                              />
+
+                    <Entry x:Name="CodeEntry3"
+                  WidthRequest="30"
+                  HeightRequest="20"
+                  BackgroundColor="Transparent"
+                  TextColor="black"
+                  HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="End" 
+                           TextChanged="CodeEntry3_TextChanged"
+
+            />
+
                     <Image Source="closed.png"
-                       x:Name="Closed"
-                       WidthRequest="30"
-                       HeightRequest="30"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center"
-                       IsVisible="False"/>
-                    <Image Source="opened.png"
-                       x:Name="Opened"    
-                       WidthRequest="30"
-                       HeightRequest="30"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center"
-                       IsVisible="False"/>      
+                   x:Name="Closed"
+                   WidthRequest="15"
+                   HeightRequest="15"
+                   IsVisible="False"/>
 
-                </HorizontalStackLayout>
+                        <Image Source="opened.png"
+                   x:Name="Opened"
+                   WidthRequest="15"
+                   HeightRequest="15"
+                   IsVisible="False"/>
 
-                <Button Text="Otwórz"
-                    Clicked="OnCodeSubmit"
-                    BackgroundColor="ForestGreen"    />
+                    </HorizontalStackLayout>
 
-            </VerticalStackLayout>
-        </Border>
+               <!--     <Button Text="Otwórz"
+                Clicked="OnCodeSubmit"
+                BackgroundColor="#8B5A2B"
+                TextColor="White"
+                CornerRadius="10"/>-->
+
+                </VerticalStackLayout>
+
+            </Grid>
+        </Grid>
 
 
-    </Grid>
+
+  
 </ContentPage>
