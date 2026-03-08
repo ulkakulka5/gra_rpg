@@ -24,7 +24,7 @@ public partial class Page1 : ContentPage
     {
         InitializeComponent();
 
-        // przyk³adowe przeszkody
+       
         blockedAreas.Add(new Rect(163, 535, 457, 157));
         blockedAreas.Add(new Rect(33, 152, 270, 168));
         blockedAreas.Add(new Rect(306, 196, 144, 127));
@@ -32,7 +32,7 @@ public partial class Page1 : ContentPage
         blockedAreas.Add(new Rect(0, 0, 1280, 161));
         blockedAreas.Add(new Rect(993, 142, 237, 151));
 
-        
+
 
 
 #if WINDOWS
@@ -70,7 +70,7 @@ public partial class Page1 : ContentPage
             case VirtualKey.Down:  newY += step; break;
         }
 
-        // TYLKO rozia ma kolizjê
+        // TYLKO rozia ma kolizjÃª
         MoveCharacter(rozia, newX, newY, true);
     }
 #endif
@@ -99,8 +99,8 @@ public partial class Page1 : ContentPage
     {
         base.OnAppearing();
 
-        rozia_mouse.TranslationX = 400;
-        rozia_mouse.TranslationY = 200;
+       // rozia_mouse.TranslationX = 400;
+        //rozia_mouse.TranslationY = 200;
         rozia.TranslationX = 1087;
         rozia.TranslationY = 308;
     }
@@ -131,7 +131,7 @@ public partial class Page1 : ContentPage
     private async Task<bool> IsBlocked(double x, double y, double width, double height)
     {
         Rect characterRect = new Rect(x, y, width, height);
-        
+
         var door1 = new Rect(139, 323, 64, 87);
 
         if (characterRect.IntersectsWith(door1) && !isNavigating)
