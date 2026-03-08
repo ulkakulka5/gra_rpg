@@ -30,15 +30,15 @@ public partial class Page2 : ContentPage
 
 
 
-    List<Rect> clickableAreas = new List<Rect>();
-    
+
+
 
     public Page2()
-	{
-		InitializeComponent();
-        clickableAreas.Add(new Rect(1111, 392, 169, 195));
+    {
+        InitializeComponent();
 
-        
+
+
 
 #if WINDOWS
         Loaded += OnLoaded;
@@ -78,8 +78,6 @@ public partial class Page2 : ContentPage
 
         
     }
-
-
     private void Content_PointerPressed(object? sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
     {
         var point = e.GetCurrentPoint((Microsoft.UI.Xaml.UIElement)sender);
@@ -87,23 +85,17 @@ public partial class Page2 : ContentPage
         double mouseY = point.Position.Y;
 
         Point mouse = new Point(mouseX, mouseY);
-
-        foreach (var rect in clickableAreas)
-        {
-            if (rect.Contains(mouse))
-            {
-                ChestCode.IsVisible = true;
-                Closed.IsVisible = true;
-
-                CodeEntry1.Text = "";
-                CodeEntry2.Text = "";
-                CodeEntry3.Text = "";
-                CodeEntry1.Focus();
-
-               
-
-            }
         }
+
+    private void OnChestClicked(object sender, EventArgs e)
+    {
+
+        ChestCode.IsVisible = true;
+        Closed.IsVisible = true;
+        CodeEntry1.Text = "";
+        CodeEntry2.Text = "";
+        CodeEntry3.Text = "";
+        CodeEntry1.Focus();
 
     }
 
@@ -118,24 +110,28 @@ public partial class Page2 : ContentPage
 
         CodeEntry1.TranslationX = 12;
         CodeEntry2.TranslationX = 12;
-        CodeEntry3.TranslationX =12;
-        CodeEntry1.TranslationY =-5;
+        CodeEntry3.TranslationX = 12;
+        CodeEntry1.TranslationY = -5;
         CodeEntry2.TranslationY = -5;
         CodeEntry3.TranslationY = -5;
         Closed.TranslationX = 5;
         Opened.TranslationX = 5;
-
-        
+        Chest_close.TranslationX = 0; //ogarnac te rzeczy zanim pokazac
+        Chest_close.TranslationY = 0;
+        Chest_open.TranslationX = 0;
+        Chest_open.TranslationY = 0;
+        Chleb.TranslationX = 0;
+        Chleb.TranslationY = 0;
 
         rozia.TranslationX = 549;
         rozia.TranslationY = 270;
 
     }
-    private async  void OnCodeSubmit(object sender, EventArgs e)
+    /*private async  void OnCodeSubmit(object sender, EventArgs e)
     {
 
         
-    }
+    }*/
 
 
     private void CodeEntry1_TextChanged(object sender, TextChangedEventArgs e)
@@ -169,8 +165,12 @@ public partial class Page2 : ContentPage
             await Task.Delay(800);
             ChestCode.IsVisible = false;
             Opened.IsVisible = false;
+            Chest_close.IsVisible = false;
+            Chest_close.IsEnabled = false;
+            Chest_open.IsVisible = true;
+            Chleb.IsVisible = true;
         }
-        else if (first!="" && second!="" && third!="" && code!="158")
+        else if (first != "" && second != "" && third != "" && code != "158")
         {
             PlayError();
             Opened.IsVisible = false;
@@ -179,34 +179,36 @@ public partial class Page2 : ContentPage
             ChestCode.IsVisible = false;
             Closed.IsVisible = false;
             CodeEntry1.Focus();
-    }
-
-    async void PlayOK()
-    {
-        var audioManager = AudioManager.Current;
-
-        var stream = await FileSystem.OpenAppPackageFileAsync("chest_succes.mp3");
-
-        player = audioManager.CreatePlayer(stream);
-
-        player.Loop = false;
-        player.Play();
-    }
-
-    async void PlayError()
-    {
-        var audioManager = AudioManager.Current;
-
-        var stream = await FileSystem.OpenAppPackageFileAsync("chest_error.mp3");
-
-        player = audioManager.CreatePlayer(stream);
-
-        player.Loop = false;
-        player.Play();
-    }
-
         }
+
+        async void PlayOK()
+        {
+            var audioManager = AudioManager.Current;
+
+            var stream = await FileSystem.OpenAppPackageFileAsync("chest_succes.mp3");
+
+            player = audioManager.CreatePlayer(stream);
+
+            player.Loop = false;
+            player.Play();
+        }
+
+        async void PlayError()
+        {
+            var audioManager = AudioManager.Current;
+
+            var stream = await FileSystem.OpenAppPackageFileAsync("chest_error.mp3");
+
+            player = audioManager.CreatePlayer(stream);
+
+            player.Loop = false;
+            player.Play();
+        }
+
     }
 
 
+    
+
+}
 

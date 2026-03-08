@@ -9,7 +9,7 @@
     <Grid WidthRequest="1280" HeightRequest="832" x:Name="MainGrid" >
 
 
-        <Image Source="page1_bg.png"  WidthRequest="1280" HeightRequest="832"/>
+        <Image Source="page1_bg.jpg"  WidthRequest="1280" HeightRequest="832"/>
         <Image x:Name="rozia"
                Source="rozia_walk.png"
                WidthRequest="50"

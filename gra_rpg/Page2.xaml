@@ -5,86 +5,99 @@
              Title="Page2">
 
     <Grid WidthRequest="1280" HeightRequest="832" x:Name="MainGrid" >
-
-
-        <Image Source="page2_bg.png"  WidthRequest="1280" HeightRequest="832"/>
+        
+        <Image Source="page2_bg.jpg"  WidthRequest="1280" HeightRequest="832"/>
+        
         <Image x:Name="rozia"
            Source="rozia_walk.png"
            WidthRequest="150"
            HorizontalOptions="Start"
            VerticalOptions="Start"/>
 
+        <ImageButton
+            x:Name="Chest_close"
+            Source="chest_close.png"
+            WidthRequest="100"
+            Clicked="OnChestClicked"
+            IsVisible="True"/>
+        <Image
+            x:Name="Chest_open"
+            Source="chest_open.png"
+            WidthRequest="100"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            IsVisible="False"/>
+        <Image 
+           Source="Chleb.png"
+           x:Name="Chleb"
+           WidthRequest="100"
+           HeightRequest="100"
+           IsVisible="False"/>   
+
+
         <Grid x:Name="ChestCode"
-      IsVisible="False"
-      WidthRequest="320"
-      HorizontalOptions="Center"
-      VerticalOptions="Center">
+          IsVisible="False"
+          WidthRequest="320"
+          HorizontalOptions="Center"
+          VerticalOptions="Center">
 
-      
-
-             
-                <Image Source="chest_panel.png"
-           Aspect="AspectFit"/>
+            <Image Source="chest_panel.png"
+               Aspect="AspectFit"/>
 
               
                 <VerticalStackLayout
-        VerticalOptions="Center"
-        HorizontalOptions="Center"
-        Spacing="20"
-                    Margin="0,0,10,55"
-        >
-
-
-                    <HorizontalStackLayout Spacing="2"
-                                Margin="0,50,0,0"
-                               HorizontalOptions="Center"
-                                           HeightRequest="60"
-                                           WidthRequest="160">
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Spacing="20"
+                    Margin="0,0,10,55">
+                    <HorizontalStackLayout 
+                        Spacing="2"
+                        Margin="0,50,0,0"
+                        HorizontalOptions="Center"
+                        HeightRequest="60"
+                        WidthRequest="160">
 
                         <Entry x:Name="CodeEntry1"
-                   WidthRequest="20"
-                   HeightRequest="20"
-                   BackgroundColor="Transparent"
-                   TextColor="Black"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="End"
-                   TextChanged="CodeEntry1_TextChanged"
-                               />
+                          WidthRequest="20"
+                          HeightRequest="20"
+                          BackgroundColor="Transparent"
+                          TextColor="Black"
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="End"
+                          TextChanged="CodeEntry1_TextChanged"/>
 
-                    <Entry x:Name="CodeEntry2"
-                  WidthRequest="30"
-                  HeightRequest="20"
-                  BackgroundColor="Transparent"
-                  TextColor="black"
-                  HorizontalTextAlignment="Center"
-                           VerticalTextAlignment="End"
-                    TextChanged="CodeEntry2_TextChanged"
-                              />
+                        <Entry x:Name="CodeEntry2"
+                          WidthRequest="30"
+                          HeightRequest="20"
+                          BackgroundColor="Transparent"
+                          TextColor="black"
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="End"
+                          TextChanged="CodeEntry2_TextChanged"/>
 
-                    <Entry x:Name="CodeEntry3"
-                  WidthRequest="30"
-                  HeightRequest="20"
-                  BackgroundColor="Transparent"
-                  TextColor="black"
-                  HorizontalTextAlignment="Center"
-                           VerticalTextAlignment="End" 
-                           TextChanged="CodeEntry3_TextChanged"
+                        <Entry x:Name="CodeEntry3"
+                          WidthRequest="30"
+                          HeightRequest="20"
+                          BackgroundColor="Transparent"
+                          TextColor="black"
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="End" 
+                          TextChanged="CodeEntry3_TextChanged"/>
 
-            />
-
-                    <Image Source="closed.png"
-                   x:Name="Closed"
-                   WidthRequest="15"
-                   HeightRequest="15"
-                   IsVisible="False"/>
+                        <Image Source="closed.png"
+                           x:Name="Closed"
+                           WidthRequest="15"
+                           HeightRequest="15"
+                           IsVisible="False"
+                           IsEnabled="True"    />
 
                         <Image Source="opened.png"
-                   x:Name="Opened"
-                   WidthRequest="15"
-                   HeightRequest="15"
-                   IsVisible="False"/>
+                           x:Name="Opened"
+                           WidthRequest="15"
+                           HeightRequest="15"
+                           IsVisible="False"/>
 
-                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
 
                <!--     <Button Text="Otwórz"
                 Clicked="OnCodeSubmit"
