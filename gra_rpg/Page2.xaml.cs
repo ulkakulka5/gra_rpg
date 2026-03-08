@@ -5,6 +5,10 @@ using Microsoft.Maui.Graphics;
 using System.Threading;
 using Microsoft.Maui.Dispatching;
 
+using Plugin.Maui.Audio;
+
+
+
 
 #if WINDOWS
 using Microsoft.Maui.Platform;
@@ -21,6 +25,10 @@ public partial class Page2 : ContentPage
     double startX;
     double startY;
     bool isNavigating = false;
+
+    IAudioPlayer? player;
+
+
 
     List<Rect> clickableAreas = new List<Rect>();
     
@@ -86,8 +94,14 @@ public partial class Page2 : ContentPage
             {
                 ChestCode.IsVisible = true;
                 Closed.IsVisible = true;
-                CodeEntry.Text = "";
-                CodeEntry.Focus();
+
+                CodeEntry1.Text = "";
+                CodeEntry2.Text = "";
+                CodeEntry3.Text = "";
+                CodeEntry1.Focus();
+
+               
+
             }
         }
 
@@ -101,39 +115,98 @@ public partial class Page2 : ContentPage
     {
         base.OnAppearing();
 
+
+        CodeEntry1.TranslationX = 12;
+        CodeEntry2.TranslationX = 12;
+        CodeEntry3.TranslationX =12;
+        CodeEntry1.TranslationY =-5;
+        CodeEntry2.TranslationY = -5;
+        CodeEntry3.TranslationY = -5;
+        Closed.TranslationX = 5;
+        Opened.TranslationX = 5;
+
         
+
         rozia.TranslationX = 549;
         rozia.TranslationY = 270;
 
     }
     private async  void OnCodeSubmit(object sender, EventArgs e)
     {
-        string code = CodeEntry.Text;
+
+        
+    }
+
+
+    private void CodeEntry1_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(CodeEntry1.Text) && CodeEntry1.Text.Length == 1)
+        {
+            CodeEntry2.Focus();
+        }
+    }
+
+    private void CodeEntry2_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(CodeEntry2.Text) && CodeEntry2.Text.Length == 1)
+        {
+            CodeEntry3.Focus();
+        }
+    }
+
+    private async void CodeEntry3_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        string first = CodeEntry1.Text;
+        string second = CodeEntry2.Text;
+        string third = CodeEntry3.Text;
+        string code = first + second + third;
 
         if (code == "158")
         {
+            PlayOK();
             Closed.IsVisible = false;
             Opened.IsVisible = true;
-            await Task.Delay(2000);
+            await Task.Delay(800);
             ChestCode.IsVisible = false;
             Opened.IsVisible = false;
         }
-        else
+        else if (first!="" && second!="" && third!="" && code!="158")
         {
+            PlayError();
             Opened.IsVisible = false;
             Closed.IsVisible = true;
             await Task.Delay(2000);
             ChestCode.IsVisible = false;
             Closed.IsVisible = false;
+            CodeEntry1.Focus();
+    }
+
+    async void PlayOK()
+    {
+        var audioManager = AudioManager.Current;
+
+        var stream = await FileSystem.OpenAppPackageFileAsync("chest_succes.mp3");
+
+        player = audioManager.CreatePlayer(stream);
+
+        player.Loop = false;
+        player.Play();
+    }
+
+    async void PlayError()
+    {
+        var audioManager = AudioManager.Current;
+
+        var stream = await FileSystem.OpenAppPackageFileAsync("chest_error.mp3");
+
+        player = audioManager.CreatePlayer(stream);
+
+        player.Loop = false;
+        player.Play();
+    }
+
         }
     }
 
 
 
-
-
-
-
-
-
-}
