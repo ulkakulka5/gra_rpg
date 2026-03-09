@@ -116,12 +116,14 @@ public partial class Page2 : ContentPage
         CodeEntry3.TranslationY = -5;
         Closed.TranslationX = 5;
         Opened.TranslationX = 5;
-        Chest_close.TranslationX = 0; //ogarnac te rzeczy zanim pokazac
-        Chest_close.TranslationY = 0;
-        Chest_open.TranslationX = 0;
-        Chest_open.TranslationY = 0;
-        Chleb.TranslationX = 0;
-        Chleb.TranslationY = 0;
+        Chest_close.TranslationX = 500; 
+        Chest_close.TranslationY = 100;
+        Chest_open.TranslationX = 500;
+        Chest_open.TranslationY = 100;
+        Chleb.TranslationX = 490;
+        Chleb.TranslationY = 80;
+        Inventory.TranslationX = -580;
+        Inventory.TranslationY = -220;
 
         rozia.TranslationX = 549;
         rozia.TranslationY = 270;
@@ -207,8 +209,16 @@ public partial class Page2 : ContentPage
 
     }
 
+    private async void OnBreadClicked(object sender, EventArgs e)
+    {
+        Chleb.IsVisible = false;
+        Chleb.IsEnabled = false;
+        Inventory.Source = "inventory_bread.png";
+        await Task.Delay(2000);
+        await Shell.Current.GoToAsync(nameof(Page1));
 
-    
+    }
+
 
 }
 

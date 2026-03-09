@@ -17,22 +17,32 @@
         <ImageButton
             x:Name="Chest_close"
             Source="chest_close.png"
-            WidthRequest="100"
+            WidthRequest="180"
+            BackgroundColor="Transparent"
+            Padding="0"
+            BorderWidth="0"
             Clicked="OnChestClicked"
             IsVisible="True"/>
         <Image
             x:Name="Chest_open"
             Source="chest_open.png"
-            WidthRequest="100"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
+            WidthRequest="180"
             IsVisible="False"/>
-        <Image 
+        <ImageButton
            Source="Chleb.png"
            x:Name="Chleb"
-           WidthRequest="100"
-           HeightRequest="100"
-           IsVisible="False"/>   
+           WidthRequest="130"
+           IsVisible="False" 
+           Clicked="OnBreadClicked"
+           BackgroundColor="Transparent"
+           Padding="0"
+           BorderWidth="0"/>   
+
+        <Image Source="inventory.png"
+               x:Name="Inventory"
+               WidthRequest="70"
+               IsVisible="True"
+               Opacity="0.9"/>
 
 
         <Grid x:Name="ChestCode"
