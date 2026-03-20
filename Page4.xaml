@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="gra_rpg.Page4"
+             Title="Page4">
+    <Grid WidthRequest="1280" HeightRequest="832" x:Name="MainGrid" >
+
+
+        <Image Source="page4_bg.png"  WidthRequest="1280" HeightRequest="832"/>
+       
+      
+    </Grid>
+</ContentPage>
