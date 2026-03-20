@@ -133,11 +133,19 @@ public partial class Page1 : ContentPage
         Rect characterRect = new Rect(x, y, width, height);
 
         var door1 = new Rect(139, 323, 64, 87);
+        var door2 = new Rect(500, 830, 15, 15);
+        var door3 = new Rect(0, 565, 50, 123);
 
         if (characterRect.IntersectsWith(door1) && !isNavigating)
         {
             isNavigating = true;
             await Shell.Current.GoToAsync(nameof(Page2));
+            return false;
+        }
+        if(characterRect.IntersectsWith(door2) && !isNavigating)
+        {
+            isNavigating = true;
+            await Shell.Current.GoToAsync(nameof(Page3));
             return false;
         }
 
@@ -147,6 +155,12 @@ public partial class Page1 : ContentPage
                 return true;
         }
 
+        if (characterRect.IntersectsWith(door3) && !isNavigating)
+        {
+            isNavigating = true;
+            await Shell.Current.GoToAsync(nameof(Page4));
+            return false;
+        }
         return false;
     }
 }
