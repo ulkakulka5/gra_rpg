@@ -65,8 +65,8 @@ public partial class Page2 : ContentPage
 
     private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
-        double newX = rozia.TranslationX;
-        double newY = rozia.TranslationY;
+        double newX = jozio.TranslationX;
+        double newY = jozio.TranslationY;
 
         switch (e.Key)
         {
@@ -125,8 +125,8 @@ public partial class Page2 : ContentPage
         Inventory.TranslationX = -580;
         Inventory.TranslationY = -220;
 
-        rozia.TranslationX = 549;
-        rozia.TranslationY = 270;
+        jozio.TranslationX = 549;
+        jozio.TranslationY = 270;
 
     }
     /*private async  void OnCodeSubmit(object sender, EventArgs e)

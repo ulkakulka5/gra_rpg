@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="gra_rpg.Page3"
+             Title="Page3">
+    <Grid WidthRequest="1280" HeightRequest="832" x:Name="MainGrid" >
+
+
+        <Image Source="page3_bg.png"  WidthRequest="1280" HeightRequest="832"/>
+        <Image Source="polecenie.png"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,60,0,0" WidthRequest="300"/>
+        <Image x:Name="jozio"
+           Source="jozio_walk.png"
+           WidthRequest="50"
+           HorizontalOptions="Start"
+           VerticalOptions="Start"/>
+
+        <Image x:Name="kamien"
+         Source="kamien.png"
+         WidthRequest="300"
+         HorizontalOptions="Start"
+         VerticalOptions="Start">
+            <Image.GestureRecognizers>
+                <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
+            </Image.GestureRecognizers>
+        </Image>
+    </Grid>
+</ContentPage>
