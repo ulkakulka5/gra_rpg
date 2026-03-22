@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="gra_rpg.Page5"
+             Title="Page4">
+
+    <Grid WidthRequest="1280" HeightRequest="832" x:Name="MainGrid">
+
+        <Image Source="page5_bg.png" WidthRequest="1280" HeightRequest="832" />
+
+        <Image x:Name="mirror1" Source="lustro.png" WidthRequest="50" HorizontalOptions="Start" VerticalOptions="Start" Margin="150, 5, 0, 0" />
+        <Image x:Name="mirror2" Source="lustro2.png" WidthRequest="50" HorizontalOptions="Start" VerticalOptions="Start" Margin="1080, 100, 0, 0" />
+        <Image x:Name="mirror3" Source="lustro3.png" WidthRequest="50" HorizontalOptions="Start" VerticalOptions="Start" Margin="150, 450, 0, 0" />
+        <Image x:Name="mirror4" Source="lustro.png" WidthRequest="50" HorizontalOptions="Start" VerticalOptions="Start" Margin="1050, 500, 0, 0" />
+        <Image x:Name="mirror5" Source="lustro2.png" WidthRequest="50" HorizontalOptions="Start" VerticalOptions="Start" Margin="560, 100, 0, 0" />
+        <Image x:Name="mirror6" Source="lustro3.png" WidthRequest="50" HorizontalOptions="Start" VerticalOptions="Start" Margin="1050, 720, 0, 0" />
+
+        <Image x:Name="jozio"
+               Source="jozio_walk.png"
+               WidthRequest="30"
+               HorizontalOptions="Start"
+               VerticalOptions="Start"/>
+
+        <Image x:Name="MirrorCounter"
+               Source="lustro_licznik0.png"
+               HorizontalOptions="Start"    VerticalOptions="Start"
+               Margin="18,60,60,0"         WidthRequest="250" />
+
+    </Grid>
+</ContentPage>
+
+
+
+<!--<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="gra_rpg.Page5"
+             Title="Page5">
+
+    <AbsoluteLayout WidthRequest="1280" HeightRequest="832" x:Name="MainLayout">
+
+        <Image Source="page5_bg.png" 
+               WidthRequest="1280" HeightRequest="832"
+               AbsoluteLayout.LayoutBounds="0,0,1280,832"
+               AbsoluteLayout.LayoutFlags="None" />
+
+        
+
+        <Image x:Name="jozio"
+               Source="jozio_walk.png"
+               WidthRequest="50" HeightRequest="50"
+               AbsoluteLayout.LayoutBounds="100,100,50,50" 
+               AbsoluteLayout.LayoutFlags="None" />
+
+        
+
+        <BoxView Color="White" Opacity="0.5" 
+                 AbsoluteLayout.LayoutBounds="0, 0, 100, 832" 
+                 AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5" 
+                 AbsoluteLayout.LayoutBounds="0, 200, 180, 30" 
+                 AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" 
+          AbsoluteLayout.LayoutBounds="0, 320, 180, 30" 
+          AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5" 
+                 AbsoluteLayout.LayoutBounds="230, 600, 60, 200" 
+                 AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5" 
+         AbsoluteLayout.LayoutBounds="230, 590, 160,30" 
+         AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5" 
+  AbsoluteLayout.LayoutBounds="360, 590, 30,100" 
+  AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5" 
+        AbsoluteLayout.LayoutBounds="440, 470, 60,240" 
+        AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5" 
+AbsoluteLayout.LayoutBounds="490, 370, 60,120" 
+AbsoluteLayout.LayoutFlags="None" />
+        
+        <BoxView Color="White" Opacity="0.5" 
+ AbsoluteLayout.LayoutBounds="580, 590, 30,120" 
+ AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" 
+AbsoluteLayout.LayoutBounds="490, 690, 120,20" 
+AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="530, 370, 90, 20" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="230, 360,150, 20" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="230, 520,150, 20" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="230, 360,60, 160" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="360, 360,20, 50" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="360, 470,20, 50" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="660, 470,50, 20" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="660, 360,180, 20" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="660, 360,50, 120" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="790, 360,50, 320" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="790, 670,180, 20" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="940, 590,70, 100" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="940, 360,80, 170" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="960, 360,120, 20" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="660, 590,50, 200" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="660, 589,100, 20" AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="230, 40, 60, 260" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="240, 270, 140, 30" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="370, 250, 20, 50" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="390, 40, 20, 120" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="270, 40, 120, 20" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="660, 0, 60, 90" AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="450, 0, 60, 210" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="600, 160, 20, 50" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="370, 250, 210, 20" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="450, 190, 150, 20" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="660, 300, 150, 20" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="980, 0, 50, 290" AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="820, 0, 60, 120" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="660, 170, 60, 150" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="980, 270, 100, 20" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="1150, 0, 140, 320" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="790, 200, 60, 120" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="1150, 370, 140, 430" AbsoluteLayout.LayoutFlags="None" />
+
+
+
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="660, 790, 640, 20" AbsoluteLayout.LayoutFlags="None" />
+        <BoxView Color="White" Opacity="0.5" AbsoluteLayout.LayoutBounds="0, 790, 520, 20" AbsoluteLayout.LayoutFlags="None" />
+
+
+
+
+    </AbsoluteLayout>
+</ContentPage>-->
