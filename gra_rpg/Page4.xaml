@@ -6,8 +6,60 @@
     <Grid WidthRequest="1280" HeightRequest="832" x:Name="MainGrid" >
 
 
-        <Image Source="page4_bg.png"  WidthRequest="1280" HeightRequest="832"/>
-       
-      
+
+
+
+        <Image Source="page4_bg.png" WidthRequest="1280" HeightRequest="832" />
+
+
+
+        <Image x:Name="jozio"
+
+Source="jozio_walk.png"
+
+WidthRequest="50"
+
+HorizontalOptions="Start"
+
+VerticalOptions="Start"/>
+
+        <!--  <BoxView Color="White" Opacity="0.5"
+                 AbsoluteLayout.LayoutBounds="0, 0, 860, 200" 
+                 AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5"
+         AbsoluteLayout.LayoutBounds="0, 200, 680, 50" 
+         AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5"
+  AbsoluteLayout.LayoutBounds="0, 430, 600, 50" 
+  AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5"
+AbsoluteLayout.LayoutBounds="700, 430, 170, 50" 
+AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5"
+AbsoluteLayout.LayoutBounds="810, 250, 50, 200" 
+AbsoluteLayout.LayoutFlags="None" />
+        
+        <BoxView Color="White" Opacity="0.5"
+         AbsoluteLayout.LayoutBounds="0, 250, 260, 200" 
+         AbsoluteLayout.LayoutFlags="None" />
+        
+        <BoxView Color="White" Opacity="0.5"
+  AbsoluteLayout.LayoutBounds="730, 200, 130, 50" 
+  AbsoluteLayout.LayoutFlags="None" />
+
+        <BoxView Color="White" Opacity="0.5"
+                 AbsoluteLayout.LayoutBounds="990, 580, 290, 300" 
+                 AbsoluteLayout.LayoutFlags="None" />
+        
+        
+
+        <BoxView Color="Lime" Opacity="0.6"
+                 AbsoluteLayout.LayoutBounds="680, 200, 50, 55" 
+                 AbsoluteLayout.LayoutFlags="None" />
+-->
     </Grid>
 </ContentPage>
