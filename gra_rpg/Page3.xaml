@@ -8,6 +8,7 @@
 
         <Image Source="page3_bg.png"  WidthRequest="1280" HeightRequest="832"/>
         <Image Source="polecenie.png"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,60,0,0" WidthRequest="300"/>
+        <Image Source="arrow.gif" x:Name="strzalka" HorizontalOptions="Start" VerticalOptions="Start"  WidthRequest="100" IsAnimationPlaying="True" Rotation="90" />
         <Image x:Name="jozio"
            Source="jozio_walk.png"
            WidthRequest="50"

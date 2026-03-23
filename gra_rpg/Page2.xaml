@@ -8,8 +8,8 @@
         
         <Image Source="page2_bg.jpg"  WidthRequest="1280" HeightRequest="832"/>
         
-        <Image x:Name="rozia"
-           Source="rozia_walk.png"
+        <Image x:Name="jozio"
+           Source="jozio_walk.png"
            WidthRequest="150"
            HorizontalOptions="Start"
            VerticalOptions="Start"/>

@@ -138,11 +138,18 @@ public partial class Page4 : ContentPage
         Rect characterRect = new Rect(x, y, width, height);
 
         var door1 = new Rect(680, 200, 50, 55);
+        var door2 = new Rect(1250, 500, 50, 55);
 
         if (characterRect.IntersectsWith(door1) && !isNavigating)
         {
             isNavigating = true;
             await Shell.Current.GoToAsync(nameof(Page5));
+            return false;
+        }
+        if (characterRect.IntersectsWith(door2) && !isNavigating)
+        {
+            isNavigating = true;
+            await Shell.Current.GoToAsync(nameof(Page1));
             return false;
         }
 

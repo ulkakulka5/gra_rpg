@@ -94,8 +94,10 @@ public partial class Page3 : ContentPage
         kamien.TranslationY = 200;
         jozio.TranslationX = 570;
         jozio.TranslationY = 50;
+        strzalka.TranslationX = 900;
+        strzalka.TranslationY = 195;
 
-        
+
     }
     
 
@@ -131,6 +133,7 @@ public partial class Page3 : ContentPage
         if (characterRect.IntersectsWith(river) && !isNavigating)
         {
             isNavigating = true;
+            await Task.Delay(2000);
             await Shell.Current.GoToAsync(nameof(Page1));
             return false;
         }
