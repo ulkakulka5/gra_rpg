@@ -24,7 +24,7 @@
         <Image x:Name="MirrorCounter"
                Source="lustro_licznik0.png"
                HorizontalOptions="Start"    VerticalOptions="Start"
-               Margin="18,60,60,0"         WidthRequest="250" />
+              Margin="15,60,60,0"        WidthRequest="250" />
 
     </Grid>
 </ContentPage>
