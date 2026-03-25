@@ -1,8 +1,9 @@
 using Microsoft.Maui.Controls;
-using System.Collections.Generic;
-using System;
-using System.Threading.Tasks;
 using Microsoft.Maui.Graphics;
+using Plugin.Maui.Audio;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 #if WINDOWS
 using Microsoft.Maui.Platform;
@@ -18,8 +19,8 @@ public partial class Page5 : ContentPage
     double startX;
     double startY;
     bool isNavigating = false;
+    IAudioPlayer? player;
 
-    
     int collectedMirrors = 0;
     List<Image> activeMirrors = new List<Image>();
 
@@ -213,7 +214,7 @@ public partial class Page5 : ContentPage
 
                 if (jozioRect.IntersectsWith(mirrorRect))
                 {
-                   
+                    Play();
                     mirror.IsVisible = false;
                     collectedMirrors++;
 
@@ -245,5 +246,17 @@ public partial class Page5 : ContentPage
         }
 
         return false;
+    }
+
+    async void Play()
+    {
+        var audioManager = AudioManager.Current;
+
+        var stream = await FileSystem.OpenAppPackageFileAsync("mirror.mp3");
+
+        player = audioManager.CreatePlayer(stream);
+
+        player.Loop = false;
+        player.Play();
     }
 }
