@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System;
 using Microsoft.Maui.Graphics;
 
+
+
 #if WINDOWS
 using Microsoft.Maui.Platform;
 using Microsoft.UI.Xaml.Input;
@@ -18,6 +20,7 @@ public partial class Page3 : ContentPage
     double startY;
     bool isNavigating = false;
 
+   
     List<Rect> blockedAreas = new List<Rect>();
 
     public Page3()
@@ -96,6 +99,8 @@ public partial class Page3 : ContentPage
         jozio.TranslationY = 50;
         strzalka.TranslationX = 900;
         strzalka.TranslationY = 195;
+        lisek.TranslationX = 700;
+        lisek.TranslationY = 300;
 
 
     }
@@ -128,12 +133,18 @@ public partial class Page3 : ContentPage
     private async Task<bool> IsBlocked(double x, double y, double width, double height)
     {
         Rect characterRect = new Rect(x, y, width, height);
-        var river = new Rect(1260, 191, 15, 15);
+        var river = new Rect(1250, 191, 20, 20);
 
         if (characterRect.IntersectsWith(river) && !isNavigating)
         {
+            
             isNavigating = true;
-            await Task.Delay(2000);
+            lisek.IsAnimationPlaying = true;
+            await lisek.TranslateTo(1200, 191, 3000);
+            await lisek.TranslateTo(1230, 191, 2000);
+            lisek.IsAnimationPlaying = false;
+            lisek.IsVisible = false;
+            await Task.Delay(1000);
             await Shell.Current.GoToAsync(nameof(Page1));
             return false;
         }
@@ -144,5 +155,8 @@ public partial class Page3 : ContentPage
         }
 
         return false;
-    } 
+    }
+
+    
+
 }
