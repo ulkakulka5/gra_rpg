@@ -8,44 +8,64 @@ using Microsoft.Maui.Platform;
 using Microsoft.UI.Xaml.Input;
 using Windows.System;
 #endif
+
 namespace gra_rpg;
 
+/// @class Page4
+/// @brief Lokacja z domem i jeziorem.
+/// @details Strona zawiera rozbudowany system kolizji (ściany, przeszkody, jezioro)
+/// oraz przejścia do innych lokacji (Page5 i powrót do Page1).
 public partial class Page4 : ContentPage
 {
+    /// @brief Krok ruchu postaci.
     double step = 10;
+
+    /// @brief Początkowa pozycja X przy przeciąganiu.
     double startX;
+
+    /// @brief Początkowa pozycja Y przy przeciąganiu.
     double startY;
+
+    /// @brief Flaga blokująca wielokrotne przejścia między stronami.
     bool isNavigating = false;
 
+    /// @brief Lista obszarów kolizyjnych.
+    /// @details Zawiera ściany, przeszkody oraz jezioro.
     List<Rect> blockedAreas = new List<Rect>();
+
+    /// @brief Konstruktor strony.
+    /// @details Inicjalizuje komponenty oraz definiuje obszary kolizji.
     public Page4()
-	{
-		InitializeComponent();
-        // blockedAreas.Add(new Rect(2013, 1196, 541, 468));
+    {
+        InitializeComponent();
 
-
+        /// @brief Górne ściany
         blockedAreas.Add(new Rect(0, 0, 860, 200));
         blockedAreas.Add(new Rect(0, 200, 680, 50));
         blockedAreas.Add(new Rect(730, 200, 130, 50));
 
-        // Ściany boczne i przeszkody wokół domu
+        /// @brief Ściany boczne wokół domu
         blockedAreas.Add(new Rect(0, 250, 260, 200));
         blockedAreas.Add(new Rect(810, 250, 50, 200));
 
-        // Dolne partie muru (z przerwą na przejście)
+        /// @brief Dolna część muru (z przejściem)
         blockedAreas.Add(new Rect(0, 430, 600, 50));
         blockedAreas.Add(new Rect(700, 430, 170, 50));
 
-        // Jezioro (prawy dół)
+        /// @brief Jezioro (obszar niedostępny)
         blockedAreas.Add(new Rect(990, 580, 290, 300));
-
-
 
 #if WINDOWS
         Loaded += OnLoaded;
 #endif
     }
+
 #if WINDOWS
+    /// @brief Inicjalizacja obsługi klawiatury.
+    /// @param sender Obiekt wywołujący zdarzenie.
+    /// @param e Argumenty zdarzenia.
+    /// @event Loaded
+    /// @details Podpina zdarzenie KeyDown do sterowania postacią.
     private void OnLoaded(object sender, EventArgs e)
     {
         var mauiWindow = Application.Current!.Windows[0];
@@ -62,6 +82,10 @@ public partial class Page4 : ContentPage
         }
     }
 
+    /// @brief Obsługa klawiatury (strzałki).
+    /// @param sender Źródło zdarzenia.
+    /// @param e Argumenty klawiatury.
+    /// @details Przesuwa postać "jozio".
     private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
         double newX = jozio.TranslationX;
@@ -75,11 +99,14 @@ public partial class Page4 : ContentPage
             case VirtualKey.Down:  newY += step; break;
         }
 
-        // TYLKO rozia ma kolizjê
         MoveCharacter(jozio, newX, newY, true);
     }
 #endif
 
+    /// @brief Obsługa przeciągania postaci.
+    /// @param sender Obiekt przeciągany.
+    /// @param e Dane gestu.
+    /// @details Pozwala przesuwać postać myszką (bez kolizji).
     private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
     {
         var obrazek = sender as Image;
@@ -95,24 +122,32 @@ public partial class Page4 : ContentPage
             double newX = startX + e.TotalX;
             double newY = startY + e.TotalY;
 
-
             MoveCharacter(obrazek, newX, newY, false);
         }
     }
 
+    /// @brief Wywoływane przy pojawieniu się strony.
+    /// @details Ustawia początkową pozycję postaci.
     protected override void OnAppearing()
     {
         base.OnAppearing();
 
-        // rozia_mouse.TranslationX = 400;
-        //rozia_mouse.TranslationY = 200;
         jozio.TranslationX = 1200;
         jozio.TranslationY = 500;
     }
+
+    /// @brief Przesuwa postać.
+    /// @param character Obiekt postaci.
+    /// @param newX Nowa pozycja X.
+    /// @param newY Nowa pozycja Y.
+    /// @param checkCollision Czy sprawdzać kolizje.
+    /// @async
+    /// @details Ogranicza ruch do granic mapy oraz sprawdza kolizje.
     private async void MoveCharacter(Image character, double newX, double newY, bool checkCollision)
     {
         if (isNavigating)
             return;
+
         if (MainGrid.Width <= 0 || MainGrid.Height <= 0)
         {
             character.TranslationX = newX;
@@ -133,11 +168,26 @@ public partial class Page4 : ContentPage
         }
     }
 
+    /// @brief Sprawdza kolizje oraz przejścia między lokacjami.
+    /// @param x Pozycja X.
+    /// @param y Pozycja Y.
+    /// @param width Szerokość postaci.
+    /// @param height Wysokość postaci.
+    /// @return True jeśli ruch zablokowany.
+    /// @async
+    /// @details
+    /// Obsługuje:
+    /// - wejście do domu (Page5)
+    /// - powrót do mapy (Page1)
+    /// - kolizje ze ścianami i jeziorem
     private async Task<bool> IsBlocked(double x, double y, double width, double height)
     {
         Rect characterRect = new Rect(x, y, width, height);
 
+        /// @brief Drzwi do domu.
         var door1 = new Rect(680, 200, 50, 55);
+
+        /// @brief Wyjście z lokacji.
         var door2 = new Rect(1250, 500, 50, 55);
 
         if (characterRect.IntersectsWith(door1) && !isNavigating)
@@ -146,6 +196,7 @@ public partial class Page4 : ContentPage
             await Shell.Current.GoToAsync(nameof(Page5));
             return false;
         }
+
         if (characterRect.IntersectsWith(door2) && !isNavigating)
         {
             isNavigating = true;
@@ -153,13 +204,13 @@ public partial class Page4 : ContentPage
             return false;
         }
 
+        /// @brief Sprawdzanie kolizji z przeszkodami.
         foreach (var area in blockedAreas)
         {
             if (characterRect.IntersectsWith(area))
                 return true;
         }
 
-      return false;
+        return false;
     }
 }
-

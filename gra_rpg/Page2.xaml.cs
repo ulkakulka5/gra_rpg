@@ -19,33 +19,33 @@ using Windows.System;
 
 namespace gra_rpg;
 
+/// @class Page2
+/// @brief Scena ze skrzyni¹ i zagadk¹.
+/// @details Gracz mo¿e otworzyæ skrzyniê wpisuj¹c poprawny kod.
 public partial class Page2 : ContentPage
 {
+    /// @brief Krok ruchu.
     double step = 10;
-    double startX;
-    double startY;
+
+    /// @brief Flaga nawigacji.
     bool isNavigating = false;
 
+    /// @brief Odtwarzacz audio.
     IAudioPlayer? player;
 
-
-
-
-
-
+    /// @brief Konstruktor strony.
     public Page2()
     {
         InitializeComponent();
-
-
-
-
+    
 #if WINDOWS
         Loaded += OnLoaded;
 #endif
     }
 
 #if WINDOWS
+    /// @brief Inicjalizacja obs³ugi klawiatury.
+    /// @event Loaded
     private void OnLoaded(object sender, EventArgs e)
     {
         var mauiWindow = Application.Current!.Windows[0];
@@ -62,7 +62,9 @@ public partial class Page2 : ContentPage
             }
         }
     }
-
+    /// @brief Obs³uga klawiszy strza³ek.
+    /// @param e Zdarzenie klawiatury.
+    /// @details Przesuwa postaæ "rozia".
     private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
         double newX = jozio.TranslationX;
@@ -87,6 +89,9 @@ public partial class Page2 : ContentPage
         Point mouse = new Point(mouseX, mouseY);
         }
 
+     /// @brief Obs³uga klikniêcia skrzyni.
+    /// @event Click
+    /// @details Wyœwietla panel wpisywania kodu.
     private void OnChestClicked(object sender, EventArgs e)
     {
 
@@ -102,7 +107,8 @@ public partial class Page2 : ContentPage
 #endif
 
 
-
+    /// @brief Wywo³ywane przy pojawieniu siê strony.
+    /// @details Ustawia pozycje elementów UI.
     protected override void OnAppearing()
     {
         base.OnAppearing();
@@ -135,7 +141,7 @@ public partial class Page2 : ContentPage
         
     }*/
 
-
+    /// @brief Obs³uga zmiany pierwszego pola kodu.
     private void CodeEntry1_TextChanged(object sender, TextChangedEventArgs e)
     {
         if (!string.IsNullOrEmpty(CodeEntry1.Text) && CodeEntry1.Text.Length == 1)
@@ -144,6 +150,7 @@ public partial class Page2 : ContentPage
         }
     }
 
+    /// @brief Obs³uga zmiany drugiego pola kodu.
     private void CodeEntry2_TextChanged(object sender, TextChangedEventArgs e)
     {
         if (!string.IsNullOrEmpty(CodeEntry2.Text) && CodeEntry2.Text.Length == 1)
@@ -152,6 +159,9 @@ public partial class Page2 : ContentPage
         }
     }
 
+    /// @brief Obs³uga trzeciego pola kodu.
+    /// @details Sprawdza poprawnoœæ kodu (158).
+    /// @async
     private async void CodeEntry3_TextChanged(object sender, TextChangedEventArgs e)
     {
         string first = CodeEntry1.Text;
@@ -183,6 +193,7 @@ public partial class Page2 : ContentPage
             CodeEntry1.Focus();
         }
 
+        /// @brief Odtwarza dŸwiêk sukcesu.
         async void PlayOK()
         {
             var audioManager = AudioManager.Current;
@@ -195,6 +206,7 @@ public partial class Page2 : ContentPage
             player.Play();
         }
 
+        /// @brief Odtwarza dŸwiêk b³êdu.
         async void PlayError()
         {
             var audioManager = AudioManager.Current;
@@ -209,6 +221,9 @@ public partial class Page2 : ContentPage
 
     }
 
+    /// @brief Obs³uga klikniêcia chleba (loot).
+    /// @async
+    /// @details Dodaje przedmiot do ekwipunku i wraca do mapy.
     private async void OnBreadClicked(object sender, EventArgs e)
     {
         Chleb.IsVisible = false;

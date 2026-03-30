@@ -11,14 +11,28 @@ using Windows.System;
 
 namespace gra_rpg;
 
+/// @class Page1
+/// @brief Główna mapa gry.
+/// @details Obsługuje ruch postaci, kolizje oraz przejścia między lokacjami.
 public partial class Page1 : ContentPage
 {
+    /// @brief Krok ruchu postaci.
     double step = 10;
+
+    /// @brief Początkowa pozycja X podczas przeciągania.
     double startX;
+
+    /// @brief Początkowa pozycja Y podczas przeciągania.
     double startY;
+
+    /// @brief Flaga blokująca wielokrotne przejścia między stronami.
     bool isNavigating = false;
 
+    /// @brief Lista obszarów kolizyjnych.
     List<Rect> blockedAreas = new List<Rect>();
+
+    /// @brief Konstruktor strony.
+    /// @details Inicjalizuje obszary kolizji oraz zdarzenia systemowe.
 
     public Page1()
     {
@@ -41,6 +55,8 @@ public partial class Page1 : ContentPage
     }
 
 #if WINDOWS
+    /// @brief Inicjalizacja obsługi klawiatury.
+    /// @event Loaded
     private void OnLoaded(object sender, EventArgs e)
     {
         var mauiWindow = Application.Current!.Windows[0];
@@ -56,7 +72,9 @@ public partial class Page1 : ContentPage
             }
         }
     }
-
+    /// @brief Obsługa klawiszy strzałek.
+    /// @param e Zdarzenie klawiatury.
+    /// @details Przesuwa postać "rozia".
     private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
         double newX = rozia.TranslationX;
@@ -74,7 +92,10 @@ public partial class Page1 : ContentPage
         MoveCharacter(rozia, newX, newY, true);
     }
 #endif
-
+    /// @brief Obsługa przeciągania postaci.
+    /// @param sender Obiekt (Image).
+    /// @param e Dane gestu.
+    /// @details Pozwala przesuwać postać myszką.
     private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
     {
         var obrazek = sender as Image;
@@ -95,15 +116,20 @@ public partial class Page1 : ContentPage
         }
     }
 
+    /// @brief Ustawia początkową pozycję postaci.
     protected override void OnAppearing()
     {
         base.OnAppearing();
-
-       // rozia_mouse.TranslationX = 400;
-        //rozia_mouse.TranslationY = 200;
         rozia.TranslationX = 1087;
         rozia.TranslationY = 308;
     }
+
+    /// @brief Przesuwa postać.
+    /// @param character Obiekt postaci.
+    /// @param newX Nowa pozycja X.
+    /// @param newY Nowa pozycja Y.
+    /// @param checkCollision Czy sprawdzać kolizję.
+    /// @async
     private async void MoveCharacter(Image character, double newX, double newY, bool checkCollision)
     {
         if (isNavigating)
@@ -128,6 +154,14 @@ public partial class Page1 : ContentPage
         }
     }
 
+    /// @brief Sprawdza kolizję postaci.
+    /// @param x Pozycja X.
+    /// @param y Pozycja Y.
+    /// @param width Szerokość.
+    /// @param height Wysokość.
+    /// @return True jeśli zablokowane.
+    /// @async
+    /// @details Obsługuje również przejścia między stronami (drzwi).
     private async Task<bool> IsBlocked(double x, double y, double width, double height)
     {
         Rect characterRect = new Rect(x, y, width, height);
