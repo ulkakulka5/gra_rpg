@@ -1,0 +1,218 @@
+\doxysection{Page2.\+xaml.\+cs}
+\label{_page2_8xaml_8cs_source}\index{gra\_rpg-\/master/gra\_rpg/Page2.xaml.cs@{gra\_rpg-\/master/gra\_rpg/Page2.xaml.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{using\ }Microsoft.Maui.Controls;}
+\DoxyCodeLine{00002\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{00003\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{00004\ \textcolor{keyword}{using\ }Microsoft.Maui.Graphics;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{using\ }System.Threading;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ }Microsoft.Maui.Dispatching;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{using\ }Plugin.Maui.Audio;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#if\ WINDOWS}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{using\ }Microsoft.Maui.Platform;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{using\ }Microsoft.UI.Xaml.Input;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{using\ }Windows.System;}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }gra\_rpg;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }Page2\ :\ ContentPage}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ step\ =\ 10;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ isNavigating\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00034\ \ \ \ \ IAudioPlayer?\ player;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{public}\ Page2()}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ InitializeComponent();}
+\DoxyCodeLine{00040\ \ \ \ \ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#if\ WINDOWS}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ Loaded\ +=\ OnLoaded;}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#if\ WINDOWS}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ OnLoaded(\textcolor{keywordtype}{object}\ sender,\ EventArgs\ e)}
+\DoxyCodeLine{00050\ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ var\ mauiWindow\ =\ Application.Current!.Windows[0];}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ var\ winuiWindow\ =\ mauiWindow.Handler?.PlatformView\ as\ Microsoft.UI.Xaml.Window;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (winuiWindow\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ var\ content\ =\ winuiWindow.Content\ as\ Microsoft.UI.Xaml.UIElement;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (content\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content.KeyDown\ +=\ Content\_KeyDown;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content.PointerPressed\ +=\ Content\_PointerPressed;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ Content\_KeyDown(\textcolor{keywordtype}{object}\ sender,\ KeyRoutedEventArgs\ e)}
+\DoxyCodeLine{00069\ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ newX\ =\ jozio.TranslationX;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ newY\ =\ jozio.TranslationY;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (e.Key)}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Left:\ \ newX\ -\/=\ step;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Right:\ newX\ +=\ step;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Up:\ \ \ \ newY\ -\/=\ step;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Down:\ \ newY\ +=\ step;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ Content\_PointerPressed(\textcolor{keywordtype}{object}?\ sender,\ Microsoft.UI.Xaml.Input.PointerRoutedEventArgs\ e)}
+\DoxyCodeLine{00084\ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ var\ point\ =\ e.GetCurrentPoint((Microsoft.UI.Xaml.UIElement)sender);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ mouseX\ =\ point.Position.X;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ mouseY\ =\ point.Position.Y;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ Point\ mouse\ =\ \textcolor{keyword}{new}\ Point(mouseX,\ mouseY);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ OnChestClicked(\textcolor{keywordtype}{object}\ sender,\ EventArgs\ e)}
+\DoxyCodeLine{00096\ \ \ \ \ \{}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ ChestCode.IsVisible\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ Closed.IsVisible\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ CodeEntry1.Text\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ CodeEntry2.Text\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ CodeEntry3.Text\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ CodeEntry1.Focus();}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{override}\ \textcolor{keywordtype}{void}\ OnAppearing()}
+\DoxyCodeLine{00113\ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ base.OnAppearing();}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ CodeEntry1.TranslationX\ =\ 12;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ CodeEntry2.TranslationX\ =\ 12;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ CodeEntry3.TranslationX\ =\ 12;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ CodeEntry1.TranslationY\ =\ -\/5;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ CodeEntry2.TranslationY\ =\ -\/5;}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ CodeEntry3.TranslationY\ =\ -\/5;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ Closed.TranslationX\ =\ 5;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ Opened.TranslationX\ =\ 5;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ Chest\_close.TranslationX\ =\ 500;\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ Chest\_close.TranslationY\ =\ 100;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ Chest\_open.TranslationX\ =\ 500;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ Chest\_open.TranslationY\ =\ 100;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ Chleb.TranslationX\ =\ 490;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ Chleb.TranslationY\ =\ 80;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ Inventory.TranslationX\ =\ -\/580;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ Inventory.TranslationY\ =\ -\/220;}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ jozio.TranslationX\ =\ 549;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ jozio.TranslationY\ =\ 270;}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{/*private\ async\ \ void\ OnCodeSubmit(object\ sender,\ EventArgs\ e)}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00140\ \textcolor{comment}{}}
+\DoxyCodeLine{00141\ \textcolor{comment}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ \ \ \ \}*/}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ CodeEntry1\_TextChanged(\textcolor{keywordtype}{object}\ sender,\ TextChangedEventArgs\ e)}
+\DoxyCodeLine{00146\ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.IsNullOrEmpty(CodeEntry1.Text)\ \&\&\ CodeEntry1.Text.Length\ ==\ 1)}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ CodeEntry2.Focus();}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ CodeEntry2\_TextChanged(\textcolor{keywordtype}{object}\ sender,\ TextChangedEventArgs\ e)}
+\DoxyCodeLine{00155\ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.IsNullOrEmpty(CodeEntry2.Text)\ \&\&\ CodeEntry2.Text.Length\ ==\ 1)}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ CodeEntry3.Focus();}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ CodeEntry3\_TextChanged(\textcolor{keywordtype}{object}\ sender,\ TextChangedEventArgs\ e)}
+\DoxyCodeLine{00166\ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ first\ =\ CodeEntry1.Text;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ second\ =\ CodeEntry2.Text;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ third\ =\ CodeEntry3.Text;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ code\ =\ first\ +\ second\ +\ third;}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (code\ ==\ \textcolor{stringliteral}{"{}158"{}})}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ PlayOK();}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ Closed.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ Opened.IsVisible\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.Delay(800);}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ ChestCode.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ Opened.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ Chest\_close.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ Chest\_close.IsEnabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ Chest\_open.IsVisible\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ Chleb.IsVisible\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (first\ !=\ \textcolor{stringliteral}{"{}"{}}\ \&\&\ second\ !=\ \textcolor{stringliteral}{"{}"{}}\ \&\&\ third\ !=\ \textcolor{stringliteral}{"{}"{}}\ \&\&\ code\ !=\ \textcolor{stringliteral}{"{}158"{}})}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ PlayError();}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ Opened.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ Closed.IsVisible\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.Delay(2000);}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ ChestCode.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ Closed.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ CodeEntry1.Focus();}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ async\ \textcolor{keywordtype}{void}\ PlayOK()}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ var\ audioManager\ =\ AudioManager.Current;}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ var\ stream\ =\ await\ FileSystem.OpenAppPackageFileAsync(\textcolor{stringliteral}{"{}chest\_succes.mp3"{}});}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ player\ =\ audioManager.CreatePlayer(stream);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ player.Loop\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ player.Play();}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ async\ \textcolor{keywordtype}{void}\ PlayError()}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ var\ audioManager\ =\ AudioManager.Current;}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ var\ stream\ =\ await\ FileSystem.OpenAppPackageFileAsync(\textcolor{stringliteral}{"{}chest\_error.mp3"{}});}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ player\ =\ audioManager.CreatePlayer(stream);}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ player.Loop\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ player.Play();}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ OnBreadClicked(\textcolor{keywordtype}{object}\ sender,\ EventArgs\ e)}
+\DoxyCodeLine{00228\ \ \ \ \ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ Chleb.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ Chleb.IsEnabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ Inventory.Source\ =\ \textcolor{stringliteral}{"{}inventory\_bread.png"{}};}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ await\ Task.Delay(2000);}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ await\ Shell.Current.GoToAsync(nameof(Page1));}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \}}
+\DoxyCodeLine{00239\ }
+
+\end{DoxyCode}

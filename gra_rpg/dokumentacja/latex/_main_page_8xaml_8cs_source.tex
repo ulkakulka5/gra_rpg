@@ -1,0 +1,58 @@
+\doxysection{Main\+Page.\+xaml.\+cs}
+\label{_main_page_8xaml_8cs_source}\index{gra\_rpg-\/master/gra\_rpg/MainPage.xaml.cs@{gra\_rpg-\/master/gra\_rpg/MainPage.xaml.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{namespace\ }gra\_rpg;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{using\ }Plugin.Maui.Audio;}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }MainPage\ :\ ContentPage}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ ishovered\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00015\ \ \ \ \ IAudioPlayer?\ player;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}\ MainPage()}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ InitializeComponent();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ PlayMusic();}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \ \ async\ \textcolor{keywordtype}{void}\ PlayMusic()}
+\DoxyCodeLine{00029\ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ var\ audioManager\ =\ AudioManager.Current;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ var\ stream\ =\ await\ FileSystem.OpenAppPackageFileAsync(\textcolor{stringliteral}{"{}music.mp3"{}});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ player\ =\ audioManager.CreatePlayer(stream);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ player.Loop\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ player.Play();}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ OnPointerEntered(\textcolor{keywordtype}{object}\ sender,\ EventArgs\ e)}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ var\ audioManager\ =\ AudioManager.Current;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ var\ stream\ =\ await\ FileSystem.OpenAppPackageFileAsync(\textcolor{stringliteral}{"{}click.mp3"{}});}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ player\ =\ audioManager.CreatePlayer(stream);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ player.Loop\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ player.Play();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ishovered)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ ishovered\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ await\ newGameButton.ScaleTo(1.08,\ 120,\ Easing.CubicOut);}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ OnPointerExited(\textcolor{keywordtype}{object}\ sender,\ EventArgs\ e)}
+\DoxyCodeLine{00066\ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ ishovered\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ await\ newGameButton.ScaleTo(1.0,\ 120,\ Easing.CubicIn);}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00076\ \ \ \ \ async\ \textcolor{keywordtype}{void}\ OnNewGameClicked(\textcolor{keywordtype}{object}\ sender,\ EventArgs\ e)}
+\DoxyCodeLine{00077\ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ await\ Shell.Current.GoToAsync(nameof(Page1));}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}
