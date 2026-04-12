@@ -204,7 +204,7 @@ public partial class Page5 : ContentPage
 
                 if (jozioRect.IntersectsWith(mirrorRect))
                 {
-                    Play();
+                    //Play();
 
                     mirror.IsVisible = false;
                     collectedMirrors++;
@@ -245,7 +245,7 @@ public partial class Page5 : ContentPage
     /// @brief Odtwarza dźwięk zebrania lustra.
     /// @async
     /// @details Ładuje plik "mirror.mp3" i odtwarza efekt.
-    async void Play()
+    /*async void Play()
     {
         var audioManager = AudioManager.Current;
 
@@ -255,5 +255,5 @@ public partial class Page5 : ContentPage
 
         player.Loop = false;
         player.Play();
-    }
+    }*/
 }

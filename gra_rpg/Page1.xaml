@@ -10,11 +10,20 @@
 
 
         <Image Source="page1_bg.jpg"  WidthRequest="1280" HeightRequest="832"/>
-        <Image x:Name="rozia"
-               Source="rozia_walk.png"
+        <Image x:Name="jozio"
+               Source="jozio_walk.png"
                WidthRequest="50"
                HorizontalOptions="Start"
-               VerticalOptions="Start"/>
+               VerticalOptions="Start"
+               ZIndex="1"/>
+        <Image x:Name="strzalka"
+           Source="strzalka.png"
+           WidthRequest="50"
+           HorizontalOptions="Start"
+           VerticalOptions="Start" 
+           Rotation="-90" 
+           ZIndex="0"    />
+
 
 
         <!--<Image x:Name="rozia_mouse"

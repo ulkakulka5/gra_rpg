@@ -33,6 +33,9 @@ public partial class Page1 : ContentPage
 
     /// @brief Konstruktor strony.
     /// @details Inicjalizuje obszary kolizji oraz zdarzenia systemowe.
+    /// 
+    
+   
 
     public Page1()
     {
@@ -45,6 +48,8 @@ public partial class Page1 : ContentPage
         blockedAreas.Add(new Rect(1000, 535, 239, 167));
         blockedAreas.Add(new Rect(0, 0, 1280, 161));
         blockedAreas.Add(new Rect(993, 142, 237, 151));
+
+        Levels.Level = 1;
 
 
 
@@ -61,6 +66,7 @@ public partial class Page1 : ContentPage
     {
         var mauiWindow = Application.Current!.Windows[0];
         var winuiWindow = mauiWindow.Handler?.PlatformView as Microsoft.UI.Xaml.Window;
+        
 
         if (winuiWindow != null)
         {
@@ -71,14 +77,16 @@ public partial class Page1 : ContentPage
                 content.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);
             }
         }
+
+
     }
     /// @brief Obsługa klawiszy strzałek.
     /// @param e Zdarzenie klawiatury.
-    /// @details Przesuwa postać "rozia".
+    /// @details Przesuwa postać "jozio".
     private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
-        double newX = rozia.TranslationX;
-        double newY = rozia.TranslationY;
+        double newX = jozio.TranslationX;
+        double newY = jozio.TranslationY;
 
         switch (e.Key)
         {
@@ -88,8 +96,8 @@ public partial class Page1 : ContentPage
             case VirtualKey.Down:  newY += step; break;
         }
 
-        // TYLKO rozia ma kolizjê
-        MoveCharacter(rozia, newX, newY, true);
+        // TYLKO jozio ma kolizjê
+        MoveCharacter(jozio, newX, newY, true);
     }
 #endif
     /// @brief Obsługa przeciągania postaci.
@@ -116,12 +124,18 @@ public partial class Page1 : ContentPage
         }
     }
 
-    /// @brief Ustawia początkową pozycję postaci.
+    /// @brief Ustawia początkową pozycję postaci i strzałki.
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        rozia.TranslationX = 1087;
-        rozia.TranslationY = 308;
+        if (Levels.Level == 1)
+        {
+            jozio.TranslationX = 1087;
+            jozio.TranslationY = 308;
+            strzalka.TranslationX = 800;
+            strzalka.TranslationY = 450;
+        }
+
     }
 
     /// @brief Przesuwa postać.
