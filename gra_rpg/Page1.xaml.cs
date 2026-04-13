@@ -31,11 +31,16 @@ public partial class Page1 : ContentPage
     /// @brief Lista obszarów kolizyjnych.
     List<Rect> blockedAreas = new List<Rect>();
 
+    /// @brief pierwsza pozycja strzałki.
+    Rect strzalkaBox = new Rect(800, 450, 50, 50);
+
+    int licznikStrzalek = 0;
+
     /// @brief Konstruktor strony.
     /// @details Inicjalizuje obszary kolizji oraz zdarzenia systemowe.
     /// 
-    
-   
+
+
 
     public Page1()
     {
@@ -48,8 +53,10 @@ public partial class Page1 : ContentPage
         blockedAreas.Add(new Rect(1000, 535, 239, 167));
         blockedAreas.Add(new Rect(0, 0, 1280, 161));
         blockedAreas.Add(new Rect(993, 142, 237, 151));
+        
 
-        Levels.Level = 1;
+        
+        
 
 
 
@@ -183,8 +190,40 @@ public partial class Page1 : ContentPage
         var door1 = new Rect(139, 323, 64, 87);
         var door2 = new Rect(500, 830, 15, 15);
         var door3 = new Rect(0, 565, 50, 123);
+        
 
-        if (characterRect.IntersectsWith(door1) && !isNavigating)
+        if (characterRect.IntersectsWith(strzalkaBox) && !isNavigating && Levels.Level == 1 )
+        {
+            if (licznikStrzalek == 0)
+            {
+                strzalkaBox = new Rect(600, 500, 50, 50);
+                strzalka.TranslationX = 600;
+                strzalka.TranslationY = 500;
+                licznikStrzalek = 1;
+            }
+            else if (licznikStrzalek == 1)
+            {
+                strzalkaBox = new Rect(400, 500, 50, 50);
+                strzalka.TranslationX = 400;
+                strzalka.TranslationY = 500;
+                licznikStrzalek = 2;
+            }
+            else if (licznikStrzalek == 2)
+            {
+                strzalkaBox = new Rect(150, 460, 50, 50);
+                strzalka.TranslationX = 150;
+                strzalka.TranslationY = 460;
+                licznikStrzalek = 3;
+                strzalka.Rotation = 0;
+            }
+            else if (licznikStrzalek == 3)
+            {
+                strzalka.IsVisible = false;
+            }
+        }
+
+
+        if (characterRect.IntersectsWith(door1) && !isNavigating && Levels.Level == 1 )
         {
             isNavigating = true;
             await Shell.Current.GoToAsync(nameof(Page2));

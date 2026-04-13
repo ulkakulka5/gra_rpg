@@ -22,7 +22,8 @@
            HorizontalOptions="Start"
            VerticalOptions="Start" 
            Rotation="-90" 
-           ZIndex="0"    />
+           ZIndex="0" 
+           IsVisible="True"  />
 
 
 

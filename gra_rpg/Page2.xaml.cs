@@ -64,7 +64,7 @@ public partial class Page2 : ContentPage
     }
     /// @brief Obs³uga klawiszy strza³ek.
     /// @param e Zdarzenie klawiatury.
-    /// @details Przesuwa postaæ "rozia".
+    /// @details Przesuwa postaæ "jozia".
     private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
         double newX = jozio.TranslationX;
@@ -228,6 +228,7 @@ public partial class Page2 : ContentPage
     {
         Chleb.IsVisible = false;
         Chleb.IsEnabled = false;
+        Levels.Level = 2;
         Inventory.Source = "inventory_bread.png";
         await Task.Delay(2000);
         await Shell.Current.GoToAsync(nameof(Page1));

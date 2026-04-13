@@ -8,7 +8,7 @@ namespace gra_rpg
 {
     public class Levels
     {
-        public static int Level { get; set; }
+        public static int Level { get; set; } = 1;
 
 
     }
