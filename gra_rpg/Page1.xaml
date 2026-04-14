@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="gra_rpg.Page1"
-             Loaded="OnLoaded"
+            Loaded="OnLoaded"
             >
-    
-    
-    <Grid WidthRequest="1280" HeightRequest="832" x:Name="MainGrid" >
+
+
+    <Grid WidthRequest="1280" HeightRequest="832" x:Name="MainGrid" >    
 
 
         <Image Source="page1_bg.jpg"  WidthRequest="1280" HeightRequest="832"/>
@@ -24,6 +24,7 @@
            Rotation="-90" 
            ZIndex="0" 
            IsVisible="True"  />
+        
 
 
 
@@ -37,4 +38,31 @@
             </Image.GestureRecognizers>
         </Image>-->
     </Grid>
+
+
+
+    <!--<AbsoluteLayout WidthRequest="1280" HeightRequest="832" x:Name="MainLayout">
+
+        <Image Source="page1_bg.jpg" 
+           WidthRequest="1280" HeightRequest="832"
+           AbsoluteLayout.LayoutBounds="0,0,1280,832"
+           AbsoluteLayout.LayoutFlags="None" />
+
+
+
+        <Image x:Name="jozio"
+           Source="jozio_walk.png"
+           WidthRequest="50" HeightRequest="50"
+           AbsoluteLayout.LayoutBounds="100,100,50,50" 
+           AbsoluteLayout.LayoutFlags="None" />
+
+
+
+        <BoxView Color="White" Opacity="0.5" 
+             AbsoluteLayout.LayoutBounds="1100, 700, 52, 67" 
+             AbsoluteLayout.LayoutFlags="None" />
+
+    </AbsoluteLayout>-->
 </ContentPage>
+    
+    

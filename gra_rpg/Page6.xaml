@@ -8,18 +8,18 @@
         <Image Source="page6_bg.png"  WidthRequest="1280" HeightRequest="832" />
         <Image Source="kolysanke.png" HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,0" WidthRequest="300"/>
         <ImageButton x:Name="nutka1" Source="nutka1.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="150, 5, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
-        <ImageButton x:Name="nutka2" Source="nutka2.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="10, 100, 0, 0"  Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
-        <ImageButton x:Name="nutka3" Source="nutka3.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="150, 450, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
-        <ImageButton x:Name="nutka4" Source="nutka4.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="900, 500, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
+        <ImageButton x:Name="nutka2" Source="nutka2.png" WidthRequest="100" HorizontalOptions="Start" VerticalOptions="Start" Margin="10, 100, 0, 0"  Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
+        <ImageButton x:Name="nutka3" Source="nutka1.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="150, 450, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
+        <ImageButton x:Name="nutka4" Source="nutka4.png" WidthRequest="100" HorizontalOptions="Start" VerticalOptions="Start" Margin="900, 500, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
         <ImageButton x:Name="nutka5" Source="nutka1.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="560, 100, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
-        <ImageButton x:Name="nutka6" Source="nutka2.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="240,230, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
-        <ImageButton x:Name="nutka7" Source="nutka3.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="400, 378, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
-        <ImageButton x:Name="nutka8" Source="nutka4.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="750, 600, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
+        <ImageButton x:Name="nutka6" Source="nutka2.png" WidthRequest="100" HorizontalOptions="Start" VerticalOptions="Start" Margin="240,230, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
+        <ImageButton x:Name="nutka7" Source="nutka1.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="400, 378, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
+        <ImageButton x:Name="nutka8" Source="nutka4.png" WidthRequest="100" HorizontalOptions="Start" VerticalOptions="Start" Margin="750, 600, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
         <ImageButton x:Name="nutka9" Source="nutka1.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="500, 5, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
-        <ImageButton x:Name="nutka10" Source="nutka2.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="610, 500, 0, 0"  Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
-        <ImageButton x:Name="nutka11" Source="nutka3.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="20, 670, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
-        <ImageButton x:Name="nutka12" Source="nutka4.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="249, 530, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
+        <ImageButton x:Name="nutka10" Source="nutka2.png" WidthRequest="100" HorizontalOptions="Start" VerticalOptions="Start" Margin="610, 500, 0, 0"  Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
+        <ImageButton x:Name="nutka11" Source="nutka1.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="20, 630, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
+        <ImageButton x:Name="nutka12" Source="nutka4.png" WidthRequest="100" HorizontalOptions="Start" VerticalOptions="Start" Margin="249, 530, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
         <ImageButton x:Name="nutka13" Source="nutka1.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="3, 300, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
-        <ImageButton x:Name="nutka14" Source="nutka3.png" WidthRequest="280" HorizontalOptions="Start" VerticalOptions="Start" Margin="450,650, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
+        <ImageButton x:Name="nutka14" Source="nutka2.png" WidthRequest="100" HorizontalOptions="Start" VerticalOptions="Start" Margin="450,650, 0, 0" Clicked="nutka1_Clicked" BackgroundColor="Transparent"/>
     </Grid>
 </ContentPage>

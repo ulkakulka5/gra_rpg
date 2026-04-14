@@ -46,17 +46,18 @@ public partial class Page1 : ContentPage
     {
         InitializeComponent();
 
-       
+
         blockedAreas.Add(new Rect(163, 535, 457, 157));
         blockedAreas.Add(new Rect(33, 152, 270, 168));
         blockedAreas.Add(new Rect(306, 196, 144, 127));
         blockedAreas.Add(new Rect(1000, 535, 239, 167));
         blockedAreas.Add(new Rect(0, 0, 1280, 161));
         blockedAreas.Add(new Rect(993, 142, 237, 151));
-        
 
-        
-        
+
+    
+
+
 
 
 
@@ -141,6 +142,13 @@ public partial class Page1 : ContentPage
             jozio.TranslationY = 308;
             strzalka.TranslationX = 800;
             strzalka.TranslationY = 450;
+            strzalka.IsVisible = true;
+        }
+        if(Levels.Level == 2)
+        {
+            jozio.TranslationX = 139;
+            jozio.TranslationY = 323;
+            strzalka.IsVisible = false;
         }
 
     }
@@ -190,6 +198,7 @@ public partial class Page1 : ContentPage
         var door1 = new Rect(139, 323, 64, 87);
         var door2 = new Rect(500, 830, 15, 15);
         var door3 = new Rect(0, 565, 50, 123);
+        var door4 = new Rect(1100, 700, 30, 30);
         
 
         if (characterRect.IntersectsWith(strzalkaBox) && !isNavigating && Levels.Level == 1 )
@@ -248,6 +257,13 @@ public partial class Page1 : ContentPage
             await Shell.Current.GoToAsync(nameof(Page4));
             return false;
         }
+        if(characterRect.IntersectsWith(door4) && !isNavigating)
+        {
+            isNavigating = true;
+            await Shell.Current.GoToAsync(nameof(Page6));
+            return false;
+        }
         return false;
     }
 }
+    
