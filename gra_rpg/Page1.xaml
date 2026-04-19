@@ -10,12 +10,20 @@
 
 
         <Image Source="page1_bg.jpg"  WidthRequest="1280" HeightRequest="832"/>
+        <!--<Image Source="polecenie1.png"   IsVisible="False" x:Name="polecenie1" ></Image> -->
         <Image x:Name="jozio"
                Source="jozio_walk.png"
                WidthRequest="50"
                HorizontalOptions="Start"
                VerticalOptions="Start"
                ZIndex="1"/>
+        <Image x:Name="rozia"
+               Source="rozia_walk.png"
+               WidthRequest="50"
+               HorizontalOptions="Start"
+               VerticalOptions="Start"
+               ZIndex="1"
+               IsVisible="False"/>
         <Image x:Name="strzalka"
            Source="strzalka.png"
            WidthRequest="50"
@@ -28,15 +36,7 @@
 
 
 
-        <!--<Image x:Name="rozia_mouse"
-               Source="rozia_walk.png"
-               WidthRequest="100"
-               HorizontalOptions="Start"
-               VerticalOptions="Start">
-            <Image.GestureRecognizers>
-                <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
-            </Image.GestureRecognizers>
-        </Image>-->
+
     </Grid>
 
 
@@ -61,6 +61,15 @@
         <BoxView Color="White" Opacity="0.5" 
              AbsoluteLayout.LayoutBounds="1100, 700, 52, 67" 
              AbsoluteLayout.LayoutFlags="None" />
+            <Image x:Name="rozia_mouse"
+               Source="rozia_walk.png"
+               WidthRequest="100"
+               HorizontalOptions="Start"
+               VerticalOptions="Start">
+            <Image.GestureRecognizers>
+                <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
+            </Image.GestureRecognizers>
+        </Image>
 
     </AbsoluteLayout>-->
 </ContentPage>

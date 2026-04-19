@@ -8,13 +8,20 @@
 
         <Image Source="page3_bg.png"  WidthRequest="1280" HeightRequest="832"/>
         <Image Source="polecenie.png"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,60,0,0" WidthRequest="300"/>
-        <Image Source="arrow.gif" x:Name="strzalka" HorizontalOptions="Start" VerticalOptions="Start"  WidthRequest="100" IsAnimationPlaying="True" Rotation="90"  />
+        <Image Source="arrow.gif" x:Name="strzalka" HorizontalOptions="Start" VerticalOptions="Start"  WidthRequest="100" IsAnimationPlaying="True" Rotation="90" IsVisible="False"  />
         <Image Source="lisek.gif" x:Name="lisek" HorizontalOptions="Start" VerticalOptions="Start"  WidthRequest="80" IsAnimationPlaying="False" IsVisible="True" ZIndex="1" />
         <Image x:Name="jozio"
            Source="jozio_walk.png"
            WidthRequest="50"
            HorizontalOptions="Start"
            VerticalOptions="Start"/>
+        <Image x:Name="rozia"
+           Source="rozia_walk.png"
+           WidthRequest="50"
+           HorizontalOptions="Start"
+           VerticalOptions="Start"
+           ZIndex="1"
+           IsVisible="False"/>
 
         <Image x:Name="kamien"
          Source="kamien.png"

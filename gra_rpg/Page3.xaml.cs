@@ -72,18 +72,41 @@ public partial class Page3 : ContentPage
     /// @details Przesuwa postać "jozio" po mapie.
     private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
-        double newX = jozio.TranslationX;
-        double newY = jozio.TranslationY;
-
-        switch (e.Key)
+        if(Levels.Level < 3)
         {
-            case VirtualKey.Left:  newX -= step; break;
-            case VirtualKey.Right: newX += step; break;
-            case VirtualKey.Up:    newY -= step; break;
-            case VirtualKey.Down:  newY += step; break;
-        }
+        double newX = jozio.TranslationX;
+                double newY = jozio.TranslationY;
 
-        MoveCharacter(jozio, newX, newY, true);
+                switch (e.Key)
+                {
+                    case VirtualKey.Left:  newX -= step; break;
+                    case VirtualKey.Right: newX += step; break;
+                    case VirtualKey.Up:    newY -= step; break;
+                    case VirtualKey.Down:  newY += step; break;
+                }
+            if(Levels.Level == 2 && Levels.Level ==2.5)
+            {
+                MoveCharacter(jozio, newX, newY, false);
+            }
+            else
+            {
+                MoveCharacter(jozio, newX, newY, true);
+            }            
+        }
+        else if(Levels.Level >= 3)
+        {
+            double newX = rozia.TranslationX;
+            double newY = rozia.TranslationY;
+            switch (e.Key)
+            {
+                case VirtualKey.Left:  newX -= step; break;
+                case VirtualKey.Right: newX += step; break;
+                case VirtualKey.Up:    newY -= step; break;
+                case VirtualKey.Down:  newY += step; break;
+            }
+            // TYLKO rozia ma kolizjê
+            MoveCharacter(rozia, newX, newY, true);
+        }
     }
 #endif
 
@@ -93,21 +116,26 @@ public partial class Page3 : ContentPage
     /// @details Pozwala użytkownikowi przesuwać postać myszką.
     private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
     {
-        var obrazek = sender as Image;
-        if (obrazek == null) return;
-
-        if (e.StatusType == GestureStatus.Started)
+        if (Levels.Level == 2)
         {
-            startX = obrazek.TranslationX;
-            startY = obrazek.TranslationY;
-        }
-        else if (e.StatusType == GestureStatus.Running)
-        {
-            double newX = startX + e.TotalX;
-            double newY = startY + e.TotalY;
+            var obrazek = sender as Image;
+            if (obrazek == null) return;
 
-            MoveCharacter(obrazek, newX, newY, true);
+            if (e.StatusType == GestureStatus.Started)
+            {
+                startX = obrazek.TranslationX;
+                startY = obrazek.TranslationY;
+            }
+            else if (e.StatusType == GestureStatus.Running)
+            {
+                double newX = startX + e.TotalX;
+                double newY = startY + e.TotalY;
+
+                MoveCharacter(obrazek, newX, newY, true);
+            }
         }
+            return;
+        
     }
 
     /// @brief Wywoływane przy pojawieniu się strony.
@@ -115,18 +143,45 @@ public partial class Page3 : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        if(Levels.Level == 2 && Levels.Level == 2.5)
+        {
+            rozia.IsVisible = false;
+            jozio.IsVisible = true;
+            jozio.TranslationX = 570;
+            jozio.TranslationY = 50;
+            kamien.TranslationX = 400;
+            kamien.TranslationY = 200;
+            strzalka.IsVisible = true;
+            strzalka.TranslationX = 900;
+            strzalka.TranslationY = 195;
+            lisek.TranslationX = 700;
+            lisek.TranslationY = 300;
+        }
+        else if(Levels.Level < 2)
+        {
+            rozia.IsVisible = false;
+            jozio.IsVisible = true;
+            jozio.TranslationX = 570;
+            jozio.TranslationY = 50;
+            kamien.TranslationX = 400;
+            kamien.TranslationY = 200;
+            strzalka.IsVisible = false;
+            lisek.TranslationX = 700;
+            lisek.TranslationY = 300;
+        }
+        else if(Levels.Level > 2.5)
+        {
+            jozio.IsVisible = false;
+            rozia.IsVisible = true;
+            rozia.TranslationX = 570;
+            rozia.TranslationY = 50;
+            strzalka.IsVisible = false;
+            kamien.TranslationX = 1000;
+            kamien.TranslationY = 191;
+            lisek.IsVisible = false;
+        }
 
-        kamien.TranslationX = 400;
-        kamien.TranslationY = 200;
-
-        jozio.TranslationX = 570;
-        jozio.TranslationY = 50;
-
-        strzalka.TranslationX = 900;
-        strzalka.TranslationY = 195;
-
-        lisek.TranslationX = 700;
-        lisek.TranslationY = 300;
+        
     }
 
     /// @brief Przesuwa postać po ekranie.
@@ -179,6 +234,9 @@ public partial class Page3 : ContentPage
         /// @brief Obszar rzeki (trigger zdarzenia).
         var river = new Rect(1250, 191, 20, 20);
 
+        /// @brief Obszar wyjścia z lokacji.
+        var door1 = new Rect(570, 10, 10, 10);
+
         if (characterRect.IntersectsWith(river) && !isNavigating)
         {
             isNavigating = true;
@@ -191,10 +249,18 @@ public partial class Page3 : ContentPage
 
             lisek.IsAnimationPlaying = false;
             lisek.IsVisible = false;
-
+            Levels.Level = 3;
             /// @brief Opóźnienie przed zmianą sceny.
             await Task.Delay(1000);
 
+            await Shell.Current.GoToAsync(nameof(Page1));
+            return false;
+        }
+
+        if (characterRect.IntersectsWith(door1) && !isNavigating)
+        {
+            isNavigating = true;
+            Levels.Level = 1.5;
             await Shell.Current.GoToAsync(nameof(Page1));
             return false;
         }

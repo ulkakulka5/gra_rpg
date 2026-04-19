@@ -13,15 +13,17 @@
 
 
 
+        <Image x:Name="rozia"
+        Source="rozia_walk.png"
+        WidthRequest="50"
+        HorizontalOptions="Start"
+        VerticalOptions="Start" IsVisible="False" />
         <Image x:Name="jozio"
-
-Source="jozio_walk.png"
-
-WidthRequest="50"
-
-HorizontalOptions="Start"
-
-VerticalOptions="Start"/>
+       Source="jozio_walk.png"
+       WidthRequest="50"
+       HorizontalOptions="Start"
+       VerticalOptions="Start"
+       ZIndex="1" IsVisible="True" />
 
         <!--  <BoxView Color="White" Opacity="0.5"
                  AbsoluteLayout.LayoutBounds="0, 0, 860, 200" 

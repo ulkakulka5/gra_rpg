@@ -88,18 +88,36 @@ public partial class Page4 : ContentPage
     /// @details Przesuwa postać "jozio".
     private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
-        double newX = jozio.TranslationX;
-        double newY = jozio.TranslationY;
+        if(Levels.Level < 3){
 
-        switch (e.Key)
-        {
-            case VirtualKey.Left:  newX -= step; break;
-            case VirtualKey.Right: newX += step; break;
-            case VirtualKey.Up:    newY -= step; break;
-            case VirtualKey.Down:  newY += step; break;
+            double newX = jozio.TranslationX;
+            double newY = jozio.TranslationY;
+
+            switch (e.Key)
+            {
+                case VirtualKey.Left:  newX -= step; break;
+                case VirtualKey.Right: newX += step; break;
+                case VirtualKey.Up:    newY -= step; break;
+                case VirtualKey.Down:  newY += step; break;
+            }
+
+            // TYLKO jozio ma kolizjê
+            MoveCharacter(jozio, newX, newY, true);
         }
-
-        MoveCharacter(jozio, newX, newY, true);
+        else if(Levels.Level >= 3)
+        {
+            double newX = rozia.TranslationX;
+            double newY = rozia.TranslationY;
+            switch (e.Key)
+            {
+                case VirtualKey.Left:  newX -= step; break;
+                case VirtualKey.Right: newX += step; break;
+                case VirtualKey.Up:    newY -= step; break;
+                case VirtualKey.Down:  newY += step; break;
+            }
+            // TYLKO rozia ma kolizjê
+            MoveCharacter(rozia, newX, newY, true);
+        }
     }
 #endif
 
@@ -132,8 +150,18 @@ public partial class Page4 : ContentPage
     {
         base.OnAppearing();
 
-        jozio.TranslationX = 1200;
-        jozio.TranslationY = 500;
+        if (Levels.Level < 3)
+        {
+            rozia.IsVisible = false;
+            jozio.TranslationX = 1200;
+            jozio.TranslationY = 500;
+        }
+        else if (Levels.Level >= 3)
+        {
+            jozio.IsVisible = false;
+            rozia.TranslationX = 1200;
+            rozia.TranslationY = 500;
+        }
     }
 
     /// @brief Przesuwa postać.
@@ -190,7 +218,7 @@ public partial class Page4 : ContentPage
         /// @brief Wyjście z lokacji.
         var door2 = new Rect(1250, 500, 50, 55);
 
-        if (characterRect.IntersectsWith(door1) && !isNavigating)
+        if (characterRect.IntersectsWith(door1) && !isNavigating && Levels.Level == 3)
         {
             isNavigating = true;
             await Shell.Current.GoToAsync(nameof(Page5));
@@ -200,7 +228,23 @@ public partial class Page4 : ContentPage
         if (characterRect.IntersectsWith(door2) && !isNavigating)
         {
             isNavigating = true;
-            await Shell.Current.GoToAsync(nameof(Page1));
+            if(Levels.Level <= 1)
+            {
+                Levels.Level = 1.8;
+            }
+            else if (Levels.Level == 2)
+            {
+                Levels.Level = 2.5;
+            }
+            else if (Levels.Level == 3)
+            {
+                Levels.Level = 3.5;
+            }
+            else if (Levels.Level == 4)
+            {
+                Levels.Level = 4.5;
+            }
+                await Shell.Current.GoToAsync(nameof(Page1));
             return false;
         }
 
