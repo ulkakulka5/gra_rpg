@@ -143,7 +143,7 @@ public partial class Page3 : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        if(Levels.Level == 2 && Levels.Level == 2.5)
+        if(Levels.Level == 2 || Levels.Level == 2.5)
         {
             rozia.IsVisible = false;
             jozio.IsVisible = true;

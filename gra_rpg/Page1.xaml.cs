@@ -2,6 +2,7 @@ using Microsoft.Maui.Controls;
 using System.Collections.Generic;
 using System;
 using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Layouts;
 
 #if WINDOWS
 using Microsoft.Maui.Platform;
@@ -193,10 +194,9 @@ public partial class Page1 : ContentPage
         }
         if(Levels.Level == 3)
         {
-            rozia.IsVisible = true;
-            jozio.IsVisible = false;
-            rozia.TranslationX = 700;
-            rozia.TranslationY = 720;
+            jozio.IsVisible = true;
+            jozio.TranslationX = 700;
+            jozio.TranslationY = 720;
             strzalka.IsVisible = false;
             //polecenie1.IsVisible = false;
             await Task.Delay(1000);
@@ -242,6 +242,7 @@ public partial class Page1 : ContentPage
         blackScreen.IsVisible = true;
         await blackScreen.FadeTo(1, 400);
 
+        jozio.IsVisible = false;
         rozia.IsVisible = true;
         rozia.TranslationX = 1087;
         rozia.TranslationY = 308;
