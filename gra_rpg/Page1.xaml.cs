@@ -4,6 +4,7 @@ using System;
 using Microsoft.Maui.Graphics;
 using Microsoft.Maui.Layouts;
 
+
 #if WINDOWS
 using Microsoft.Maui.Platform;
 using Microsoft.UI.Xaml.Input;
@@ -173,7 +174,23 @@ public partial class Page1 : ContentPage
             //await Task.Delay(1000);
             //polecenie1.IsVisible = true;
         }
-        if(Levels.Level == 2)
+
+        if (Levels.Level == 1.5)
+        {
+            jozio.TranslationX = 700;
+            jozio.TranslationY = 720;
+            strzalka.IsVisible = false;
+
+        }
+
+        if (Levels.Level == 1.8)
+        {
+            jozio.TranslationX = 40;
+            jozio.TranslationY = 480;
+            strzalka.IsVisible = false;
+        }
+
+        if (Levels.Level == 2)
         {
             jozio.TranslationX = 139;
             jozio.TranslationY = 323;
@@ -185,14 +202,13 @@ public partial class Page1 : ContentPage
             strzalka.TranslationY = 460;
             strzalka.Rotation = 90;
         }
-        if( Levels.Level == 1.5 )
+        if (Levels.Level == 2.5)
         {
-            jozio.TranslationX = 700;
-            jozio.TranslationY = 720;
+            jozio.TranslationX = 40;
+            jozio.TranslationY = 480;
             strzalka.IsVisible = false;
-            
         }
-        if(Levels.Level == 3)
+        if (Levels.Level == 3)
         {
             jozio.IsVisible = true;
             jozio.TranslationX = 700;
@@ -203,9 +219,48 @@ public partial class Page1 : ContentPage
             await FadeBlack();
 
         }
+        if (Levels.Level == 3.5)
+        {
+            jozio.IsVisible = false;
+            rozia.IsVisible = true;
+            rozia.TranslationX = 700;
+            rozia.TranslationY = 720;
+            strzalka.IsVisible = false;
 
+        }
+
+        if (Levels.Level == 3.8)
+        {
+            jozio.IsVisible = false;
+            rozia.IsVisible = true;
+            rozia.TranslationX = 40;
+            rozia.TranslationY = 480;
+            strzalka.IsVisible = false;
+        }
+
+        if (Levels.Level == 4.5)
+        {
+            jozio.IsVisible = false;
+            rozia.IsVisible = true;
+            rozia.TranslationX = 700;
+            rozia.TranslationY = 720;
+            strzalka.IsVisible = false;
+        }
+        if (Levels.Level == 4.8)
+        {
+            jozio.IsVisible = false;
+            rozia.IsVisible = true;
+            rozia.TranslationX = 40;
+            rozia.TranslationY = 480;
+            strzalka.IsVisible = false;
+        }
+        if(Levels.Level == 5)
+        {
+            jozio.IsVisible = false;
+            rozia.IsVisible = false;
+            strzalka.IsVisible = false;
+        }
     }
-
     /// @brief Przesuwa postać.
     /// @param character Obiekt postaci.
     /// @param newX Nowa pozycja X.
@@ -266,8 +321,8 @@ public partial class Page1 : ContentPage
         Rect characterRect = new Rect(x, y, width, height);
 
         var door1 = new Rect(139, 323, 64, 87);
-        var door2 = new Rect(700, 800, 15, 15);
-        var door3 = new Rect(0, 565, 50, 123);
+        var door2 = new Rect(700, 800, 5, 5);
+        var door3 = new Rect(0, 480, 50, 123);
         var door4 = new Rect(1100, 700, 30, 30);
         
 

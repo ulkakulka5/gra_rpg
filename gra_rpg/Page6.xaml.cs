@@ -36,6 +36,7 @@ public partial class Page6 : ContentPage
 
         if (nutki == players.Count)
         {
+            Levels.Level = 5;
             await Task.Delay(500);
             await Shell.Current.GoToAsync(nameof(Page1));
         }

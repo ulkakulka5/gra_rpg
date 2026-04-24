@@ -84,9 +84,9 @@ public partial class Page3 : ContentPage
                     case VirtualKey.Up:    newY -= step; break;
                     case VirtualKey.Down:  newY += step; break;
                 }
-            if(Levels.Level == 2 && Levels.Level ==2.5)
+            if(Levels.Level == 2 || Levels.Level == 2.5)
             {
-                MoveCharacter(jozio, newX, newY, false);
+                return;
             }
             else
             {
@@ -116,7 +116,7 @@ public partial class Page3 : ContentPage
     /// @details Pozwala użytkownikowi przesuwać postać myszką.
     private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
     {
-        if (Levels.Level == 2)
+        if (Levels.Level == 2 || Levels.Level == 2.5)
         {
             var obrazek = sender as Image;
             if (obrazek == null) return;
@@ -257,10 +257,26 @@ public partial class Page3 : ContentPage
             return false;
         }
 
-        if (characterRect.IntersectsWith(door1) && !isNavigating)
+       if (characterRect.IntersectsWith(door1) && !isNavigating && Levels.Level < 2)
         {
             isNavigating = true;
             Levels.Level = 1.5;
+            await Shell.Current.GoToAsync(nameof(Page1));
+            return false;
+        }
+
+        if (characterRect.IntersectsWith(door1) && !isNavigating && Levels.Level >= 3 && Levels.Level <= 3.8 )
+        {
+            isNavigating = true;
+            Levels.Level = 3.5;
+            await Shell.Current.GoToAsync(nameof(Page1));
+            return false;
+        }
+
+        if (characterRect.IntersectsWith(door1) && !isNavigating && Levels.Level > 3.8)
+        {
+            isNavigating = true;
+            Levels.Level = 4.5;
             await Shell.Current.GoToAsync(nameof(Page1));
             return false;
         }

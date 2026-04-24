@@ -156,8 +156,16 @@ public partial class Page4 : ContentPage
             jozio.TranslationX = 1200;
             jozio.TranslationY = 500;
         }
+        else if (Levels.Level == 4)
+        {
+            rozia.IsVisible = true;
+            jozio.IsVisible = false;
+            rozia.TranslationX = 680;
+            rozia.TranslationY = 200;
+        }   
         else if (Levels.Level >= 3)
         {
+            rozia.IsVisible = true;
             jozio.IsVisible = false;
             rozia.TranslationX = 1200;
             rozia.TranslationY = 500;
@@ -218,7 +226,7 @@ public partial class Page4 : ContentPage
         /// @brief Wyjście z lokacji.
         var door2 = new Rect(1250, 500, 50, 55);
 
-        if (characterRect.IntersectsWith(door1) && !isNavigating && Levels.Level == 3)
+        if (characterRect.IntersectsWith(door1) && !isNavigating && (Levels.Level == 3 || Levels.Level == 3.5))
         {
             isNavigating = true;
             await Shell.Current.GoToAsync(nameof(Page5));
@@ -228,7 +236,7 @@ public partial class Page4 : ContentPage
         if (characterRect.IntersectsWith(door2) && !isNavigating)
         {
             isNavigating = true;
-            if(Levels.Level <= 1)
+            if(Levels.Level >= 1 && Levels.Level < 2)
             {
                 Levels.Level = 1.8;
             }
@@ -236,13 +244,13 @@ public partial class Page4 : ContentPage
             {
                 Levels.Level = 2.5;
             }
-            else if (Levels.Level == 3)
+            else if (Levels.Level == 3 || Levels.Level == 3.5 || Levels.Level == 3.8)
             {
-                Levels.Level = 3.5;
+                Levels.Level = 3.8;
             }
-            else if (Levels.Level == 4)
+            else if (Levels.Level == 4   || Levels.Level == 4.5)
             {
-                Levels.Level = 4.5;
+                Levels.Level = 4.8;
             }
                 await Shell.Current.GoToAsync(nameof(Page1));
             return false;

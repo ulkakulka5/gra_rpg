@@ -60,7 +60,59 @@ public partial class Page5 : ContentPage
         /// @brief Definicja ścian labiryntu (kolizje)
         /// @details Każdy Rect reprezentuje fragment ściany.
         blockedAreas.Add(new Rect(0, 0, 100, 832));
-        // ... (pozostałe Recty bez zmian)
+        blockedAreas.Add(new Rect(0, 200, 180, 30));
+        blockedAreas.Add(new Rect(0, 320, 180, 30));
+        blockedAreas.Add(new Rect(230, 600, 60, 200));
+        blockedAreas.Add(new Rect(230, 590, 160, 30));
+        blockedAreas.Add(new Rect(360, 590, 30, 100));
+        blockedAreas.Add(new Rect(440, 470, 60, 240));
+
+        // Środek i dolne partie
+        blockedAreas.Add(new Rect(490, 370, 60, 120));
+        blockedAreas.Add(new Rect(580, 590, 30, 120));
+        blockedAreas.Add(new Rect(490, 690, 120, 20));
+        blockedAreas.Add(new Rect(530, 370, 90, 20));
+        blockedAreas.Add(new Rect(230, 360, 150, 20));
+        blockedAreas.Add(new Rect(230, 520, 150, 20));
+        blockedAreas.Add(new Rect(230, 360, 60, 160));
+        blockedAreas.Add(new Rect(360, 360, 20, 50));
+        blockedAreas.Add(new Rect(360, 470, 20, 50));
+        blockedAreas.Add(new Rect(660, 470, 50, 20));
+        blockedAreas.Add(new Rect(660, 360, 180, 20));
+        blockedAreas.Add(new Rect(660, 360, 50, 120));
+        blockedAreas.Add(new Rect(790, 360, 50, 320));
+        blockedAreas.Add(new Rect(790, 670, 180, 20));
+        blockedAreas.Add(new Rect(940, 590, 70, 100));
+        blockedAreas.Add(new Rect(940, 360, 80, 170));
+        blockedAreas.Add(new Rect(960, 360, 120, 20));
+        blockedAreas.Add(new Rect(660, 590, 50, 200));
+        blockedAreas.Add(new Rect(660, 589, 100, 20));
+
+        // Zawiłości w górnej części
+        blockedAreas.Add(new Rect(230, 40, 60, 260));
+        blockedAreas.Add(new Rect(240, 270, 140, 30));
+        blockedAreas.Add(new Rect(370, 250, 20, 50));
+        blockedAreas.Add(new Rect(390, 40, 20, 120));
+        blockedAreas.Add(new Rect(270, 40, 120, 20));
+        blockedAreas.Add(new Rect(660, 0, 60, 90));
+        blockedAreas.Add(new Rect(450, 0, 60, 210));
+        blockedAreas.Add(new Rect(600, 160, 20, 50));
+        blockedAreas.Add(new Rect(370, 250, 210, 20));
+        blockedAreas.Add(new Rect(450, 190, 150, 20));
+        blockedAreas.Add(new Rect(660, 300, 150, 20));
+
+        // Prawa strona
+        blockedAreas.Add(new Rect(980, 0, 50, 290));
+        blockedAreas.Add(new Rect(820, 0, 60, 120));
+        blockedAreas.Add(new Rect(660, 170, 60, 150));
+        blockedAreas.Add(new Rect(980, 270, 100, 20));
+        blockedAreas.Add(new Rect(1150, 0, 140, 320));
+        blockedAreas.Add(new Rect(790, 200, 60, 120));
+        blockedAreas.Add(new Rect(1150, 370, 140, 430));
+
+        // Dolna granica mapy
+        blockedAreas.Add(new Rect(660, 790, 640, 20));
+        blockedAreas.Add(new Rect(0, 790, 520, 20));
 
 #if WINDOWS
         Loaded += OnLoaded;
@@ -90,11 +142,11 @@ public partial class Page5 : ContentPage
     /// @brief Obsługa klawiatury (ruch postaci).
     /// @param sender Źródło zdarzenia.
     /// @param e Argumenty klawiatury.
-    /// @details Sterowanie postacią "jozio".
+    /// @details Sterowanie postacią "rozia".
     private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
-        double newX = jozio.TranslationX;
-        double newY = jozio.TranslationY;
+        double newX = rozia.TranslationX;
+        double newY = rozia.TranslationY;
 
         switch (e.Key)
         {
@@ -104,7 +156,7 @@ public partial class Page5 : ContentPage
             case VirtualKey.Down:  newY += step; break;
         }
 
-        MoveCharacter(jozio, newX, newY, true);
+        MoveCharacter(rozia, newX, newY, true);
     }
 #endif
 
@@ -137,8 +189,8 @@ public partial class Page5 : ContentPage
     {
         base.OnAppearing();
 
-        jozio.TranslationX = 560;
-        jozio.TranslationY = 730;
+        rozia.TranslationX = 560;
+        rozia.TranslationY = 730;
     }
 
     /// @brief Przesuwa postać po labiryncie.
@@ -175,7 +227,7 @@ public partial class Page5 : ContentPage
             character.TranslationY = newY;
 
             /// @brief Sprawdzanie zbierania przedmiotów.
-            if (character == jozio)
+            if (character == rozia)
             {
                 CheckMirrorCollection();
             }
@@ -191,10 +243,10 @@ public partial class Page5 : ContentPage
     /// - kończy poziom po zebraniu wszystkich
     private async void CheckMirrorCollection()
     {
-        double charWidth = jozio.WidthRequest > 0 ? jozio.WidthRequest : 30;
-        double charHeight = jozio.HeightRequest > 0 ? jozio.HeightRequest : 30;
+        double charWidth = rozia.WidthRequest > 0 ? rozia.WidthRequest : 30;
+        double charHeight = rozia.HeightRequest > 0 ? rozia.HeightRequest : 30;
 
-        Rect jozioRect = new Rect(jozio.TranslationX, jozio.TranslationY, charWidth, charHeight);
+        Rect roziaRect = new Rect(rozia.TranslationX, rozia.TranslationY, charWidth, charHeight);
 
         foreach (var mirror in activeMirrors)
         {
@@ -202,9 +254,9 @@ public partial class Page5 : ContentPage
             {
                 Rect mirrorRect = new Rect(mirror.Margin.Left, mirror.Margin.Top, mirror.WidthRequest, mirror.WidthRequest);
 
-                if (jozioRect.IntersectsWith(mirrorRect))
+                if (roziaRect.IntersectsWith(mirrorRect))
                 {
-                    //Play();
+                    Play();
 
                     mirror.IsVisible = false;
                     collectedMirrors++;
@@ -215,6 +267,7 @@ public partial class Page5 : ContentPage
                     /// @brief Warunek ukończenia poziomu.
                     if (collectedMirrors >= 6)
                     {
+                        Levels.Level = 4;
                         await Shell.Current.GoToAsync(nameof(Page4));
                     }
                 }
@@ -245,7 +298,7 @@ public partial class Page5 : ContentPage
     /// @brief Odtwarza dźwięk zebrania lustra.
     /// @async
     /// @details Ładuje plik "mirror.mp3" i odtwarza efekt.
-    /*async void Play()
+    async void Play()
     {
         var audioManager = AudioManager.Current;
 
@@ -255,5 +308,5 @@ public partial class Page5 : ContentPage
 
         player.Loop = false;
         player.Play();
-    }*/
+    }
 }

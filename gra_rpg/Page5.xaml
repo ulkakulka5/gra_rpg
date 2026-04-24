@@ -15,8 +15,8 @@
         <Image x:Name="mirror5" Source="lustro2.png" WidthRequest="50" HorizontalOptions="Start" VerticalOptions="Start" Margin="560, 100, 0, 0" />
         <Image x:Name="mirror6" Source="lustro3.png" WidthRequest="50" HorizontalOptions="Start" VerticalOptions="Start" Margin="1050, 720, 0, 0" />
 
-        <Image x:Name="jozio"
-               Source="jozio_walk.png"
+        <Image x:Name="rozia"
+               Source="rozia_walk.png"
                WidthRequest="30"
                HorizontalOptions="Start"
                VerticalOptions="Start"/>
