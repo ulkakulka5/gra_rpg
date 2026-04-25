@@ -12,6 +12,7 @@ public partial class Page6 : ContentPage
         LoadSounds();
     }
 
+
     private async void nutka1_Clicked(object sender, EventArgs e)
     {
         var btn = sender as ImageButton;
@@ -23,22 +24,23 @@ public partial class Page6 : ContentPage
 
         if (nutki <= players.Count)
         {
-           
             foreach (var p in players)
-            {
                 if (p.IsPlaying)
                     p.Stop();
-            }
 
-          
             players[nutki - 1].Play();
         }
 
         if (nutki == players.Count)
         {
+           
+
+            cutscenka.IsVisible = true;
             Levels.Level = 5;
-            await Task.Delay(500);
-            await Shell.Current.GoToAsync(nameof(Page1));
+            cutscenka.Source = "cutscenka.mp4"; 
+            await Task.Delay(10000);
+            await Shell.Current.GoToAsync(nameof(Page_7));
+            await Shell.Current.GoToAsync(nameof(Page_7));
         }
     }
 
@@ -46,7 +48,8 @@ public partial class Page6 : ContentPage
     {
         var audioManager = AudioManager.Current;
 
-        string[] files = {
+        string[] files =
+        {
             "C.mp3","C.mp3","G.mp3","G.mp3",
             "A.mp3","A.mp3","G.mp3",
             "F.mp3","F.mp3","E.mp3","E.mp3",
