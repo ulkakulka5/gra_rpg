@@ -11,9 +11,10 @@
                HeightRequest="832"/>
 
         <Image Source="kolysanke.png"
-               HorizontalOptions="Start"
+               HorizontalOptions="End"
                VerticalOptions="Start"
-               WidthRequest="300"/>
+               WidthRequest="300"
+               Margin="0,0,-70,0"/>
 
         <WebView x:Name="cutscenka"
          IsVisible="False"
