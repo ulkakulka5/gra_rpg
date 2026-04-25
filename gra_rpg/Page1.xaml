@@ -9,8 +9,13 @@
     <Grid WidthRequest="1280" HeightRequest="832" x:Name="MainGrid" >    
 
 
-        <Image Source="page1_bg.jpg"  WidthRequest="1280" HeightRequest="832"/>
-        <!--<Image Source="polecenie1.png"   IsVisible="False" x:Name="polecenie1" ></Image> -->
+        <Image Source="page1_bg_bez_polecenia.png"  WidthRequest="1280" HeightRequest="832"/>
+        <Image x:Name="polecenie1"
+       Source="polecenie1.png"
+       HorizontalOptions="End"
+       VerticalOptions="Start"
+       Margin="0,20,-55,0"
+       WidthRequest="300"/>
         <Image x:Name="jozio"
                Source="jozio_walk.png"
                WidthRequest="50"
