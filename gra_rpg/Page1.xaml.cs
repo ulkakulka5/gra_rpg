@@ -18,6 +18,8 @@ namespace gra_rpg;
 /// @details Obsługuje ruch postaci, kolizje oraz przejścia między lokacjami.
 public partial class Page1 : ContentPage
 {
+    /// @brief Licznik ruchów postaci, używany do sterowania pojawianiem się polecenia.
+    bool firstMoveDone = false;
     /// @brief Krok ruchu postaci.
     double step = 10;
 
@@ -103,6 +105,11 @@ public partial class Page1 : ContentPage
     /// @details Przesuwa postać "jozio".
     private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
+   if (!firstMoveDone)
+{
+    firstMoveDone = true;
+    polecenie1.Source = "polecenie22.png";
+}
         if(Levels.Level < 3){
 
             double newX = jozio.TranslationX;
