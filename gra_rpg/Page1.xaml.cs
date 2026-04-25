@@ -1,6 +1,7 @@
 using Microsoft.Maui.Controls;
 using System.Collections.Generic;
 using System;
+using System.Threading.Tasks;
 using Microsoft.Maui.Graphics;
 using Microsoft.Maui.Layouts;
 
@@ -103,7 +104,7 @@ public partial class Page1 : ContentPage
     /// @brief Obsługa klawiszy strzałek.
     /// @param e Zdarzenie klawiatury.
     /// @details Przesuwa postać "jozio".
-    private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
+    private async void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
    if (!firstMoveDone)
 {
@@ -124,7 +125,7 @@ public partial class Page1 : ContentPage
             }
 
             // TYLKO jozio ma kolizjê
-            MoveCharacter(jozio, newX, newY, true);
+            await MoveCharacter(jozio, newX, newY, true);
         }
         else if(Levels.Level >= 3)
         {
@@ -138,7 +139,7 @@ public partial class Page1 : ContentPage
                 case VirtualKey.Down:  newY += step; break;
             }
             // TYLKO rozia ma kolizjê
-            MoveCharacter(rozia, newX, newY, true);
+            await MoveCharacter(rozia, newX, newY, true);
         }
     
     }
@@ -147,7 +148,7 @@ public partial class Page1 : ContentPage
     /// @param sender Obiekt (Image).
     /// @param e Dane gestu.
     /// @details Pozwala przesuwać postać myszką.
-    private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
+    private async void OnPanUpdated(object sender, PanUpdatedEventArgs e)
     {
         var obrazek = sender as Image;
         if (obrazek == null) return;
@@ -163,7 +164,7 @@ public partial class Page1 : ContentPage
             double newY = startY + e.TotalY;
 
 
-            MoveCharacter(obrazek, newX, newY, false);
+            await MoveCharacter(obrazek, newX, newY, false);
         }
     }
 
@@ -274,12 +275,13 @@ public partial class Page1 : ContentPage
     /// @param newY Nowa pozycja Y.
     /// @param checkCollision Czy sprawdzać kolizję.
     /// @async
-    private async void MoveCharacter(Image character, double newX, double newY, bool checkCollision)
+    private async Task MoveCharacter(Image character, double newX, double newY, bool checkCollision)
     {
         if (isNavigating)
             return;
         if (MainGrid.Width <= 0 || MainGrid.Height <= 0)
         {
+            // If layout not ready, set immediately
             character.TranslationX = newX;
             character.TranslationY = newY;
             return;
@@ -293,8 +295,23 @@ public partial class Page1 : ContentPage
 
         if (!checkCollision || !await IsBlocked(newX, newY, character.Width, character.Height))
         {
-            character.TranslationX = newX;
-            character.TranslationY = newY;
+            // Animate movement for smoother walking. Duration scales with distance.
+            double dx = newX - character.TranslationX;
+            double dy = newY - character.TranslationY;
+            double dist = Math.Sqrt(dx * dx + dy * dy);
+            // duration between 60ms and 350ms depending on distance
+            uint duration = (uint)Math.Max(60, Math.Min(350, (int)(dist * 4)));
+
+            try
+            {
+                await character.TranslateTo(newX, newY, duration, Easing.CubicOut);
+            }
+            catch
+            {
+                // If animation is canceled or fails, fallback to direct placement
+                character.TranslationX = newX;
+                character.TranslationY = newY;
+            }
         }
     }
 
