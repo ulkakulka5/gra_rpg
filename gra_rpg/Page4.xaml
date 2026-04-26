@@ -24,6 +24,14 @@
        HorizontalOptions="Start"
        VerticalOptions="Start"
        ZIndex="1" IsVisible="True" />
+        <Image x:Name="strzalka"
+       Source="strzalka.png"
+       WidthRequest="50"
+       HorizontalOptions="Start"
+       VerticalOptions="Start" 
+       Rotation="-90" 
+       ZIndex="0" 
+       IsVisible="False"  />
 
         <!--  <BoxView Color="White" Opacity="0.5"
                  AbsoluteLayout.LayoutBounds="0, 0, 860, 200" 

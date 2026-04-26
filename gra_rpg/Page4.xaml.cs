@@ -2,6 +2,7 @@ using Microsoft.Maui.Controls;
 using System.Collections.Generic;
 using System;
 using Microsoft.Maui.Graphics;
+using System.Threading.Tasks;
 
 #if WINDOWS
 using Microsoft.Maui.Platform;
@@ -32,6 +33,13 @@ public partial class Page4 : ContentPage
     /// @brief Lista obszarów kolizyjnych.
     /// @details Zawiera ściany, przeszkody oraz jezioro.
     List<Rect> blockedAreas = new List<Rect>();
+
+    /// @brief pierwsza pozycja strzałki.
+    Rect strzalkaBox1 = new Rect(1000, 500, 50, 50);
+    Rect strzalkaBox2 = new Rect(800, 500, 50, 50);
+
+    /// @brief Licznik strzałek, używany do sterowania ruchem strzałki na mapie.
+    int licznikStrzalek = 0;
 
     /// @brief Konstruktor strony.
     /// @details Inicjalizuje komponenty oraz definiuje obszary kolizji.
@@ -86,7 +94,7 @@ public partial class Page4 : ContentPage
     /// @param sender Źródło zdarzenia.
     /// @param e Argumenty klawiatury.
     /// @details Przesuwa postać "jozio".
-    private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
+    private async void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
         if(Levels.Level < 3){
 
@@ -102,7 +110,7 @@ public partial class Page4 : ContentPage
             }
 
             // TYLKO jozio ma kolizjê
-            MoveCharacter(jozio, newX, newY, true);
+            await MoveCharacter(jozio, newX, newY, true);
         }
         else if(Levels.Level >= 3)
         {
@@ -116,7 +124,7 @@ public partial class Page4 : ContentPage
                 case VirtualKey.Down:  newY += step; break;
             }
             // TYLKO rozia ma kolizjê
-            MoveCharacter(rozia, newX, newY, true);
+            await MoveCharacter(rozia, newX, newY, true);
         }
     }
 #endif
@@ -125,7 +133,7 @@ public partial class Page4 : ContentPage
     /// @param sender Obiekt przeciągany.
     /// @param e Dane gestu.
     /// @details Pozwala przesuwać postać myszką (bez kolizji).
-    private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
+    private async void OnPanUpdated(object sender, PanUpdatedEventArgs e)
     {
         var obrazek = sender as Image;
         if (obrazek == null) return;
@@ -140,7 +148,7 @@ public partial class Page4 : ContentPage
             double newX = startX + e.TotalX;
             double newY = startY + e.TotalY;
 
-            MoveCharacter(obrazek, newX, newY, false);
+            await MoveCharacter(obrazek, newX, newY, false);
         }
     }
 
@@ -156,14 +164,28 @@ public partial class Page4 : ContentPage
             jozio.TranslationX = 1200;
             jozio.TranslationY = 500;
         }
+        else if (Levels.Level == 3)
+        {
+            rozia.IsVisible = true;
+            jozio.IsVisible = false;
+            rozia.TranslationX = 1200;
+            rozia.TranslationY = 500;
+            strzalka.IsVisible = true;
+            strzalka.TranslationX = 1000;
+            strzalka.TranslationY = 500;
+        }
         else if (Levels.Level == 4)
         {
             rozia.IsVisible = true;
             jozio.IsVisible = false;
             rozia.TranslationX = 680;
             rozia.TranslationY = 200;
+            strzalka.IsVisible = true;
+            strzalka.TranslationX = 800;
+            strzalka.TranslationY = 500;
+            strzalka.Rotation = 90;
         }   
-        else if (Levels.Level >= 3)
+        else if (Levels.Level > 3)
         {
             rozia.IsVisible = true;
             jozio.IsVisible = false;
@@ -179,7 +201,7 @@ public partial class Page4 : ContentPage
     /// @param checkCollision Czy sprawdzać kolizje.
     /// @async
     /// @details Ogranicza ruch do granic mapy oraz sprawdza kolizje.
-    private async void MoveCharacter(Image character, double newX, double newY, bool checkCollision)
+    private async Task MoveCharacter(Image character, double newX, double newY, bool checkCollision)
     {
         if (isNavigating)
             return;
@@ -199,8 +221,23 @@ public partial class Page4 : ContentPage
 
         if (!checkCollision || !await IsBlocked(newX, newY, character.Width, character.Height))
         {
-            character.TranslationX = newX;
-            character.TranslationY = newY;
+            // Animate movement for smoother walking. Duration scales with distance.
+            double dx = newX - character.TranslationX;
+            double dy = newY - character.TranslationY;
+            double dist = Math.Sqrt(dx * dx + dy * dy);
+            // duration between 60ms and 350ms depending on distance
+            uint duration = (uint)Math.Max(60, Math.Min(350, (int)(dist * 4)));
+
+            try
+            {
+                await character.TranslateTo(newX, newY, duration, Easing.CubicOut);
+            }
+            catch
+            {
+                // If animation is canceled or fails, fallback to direct placement
+                character.TranslationX = newX;
+                character.TranslationY = newY;
+            }
         }
     }
 
@@ -221,10 +258,64 @@ public partial class Page4 : ContentPage
         Rect characterRect = new Rect(x, y, width, height);
 
         /// @brief Drzwi do domu.
-        var door1 = new Rect(680, 200, 50, 55);
+        var door1 = new Rect(680, 200, 5, 5);
 
         /// @brief Wyjście z lokacji.
-        var door2 = new Rect(1250, 500, 50, 55);
+        var door2 = new Rect(1250, 500, 5, 5);
+
+        if (characterRect.IntersectsWith(strzalkaBox1) && !isNavigating && Levels.Level == 3)
+        {
+            if (licznikStrzalek == 0)
+            {
+                strzalkaBox1 = new Rect(1000, 500, 50, 50);
+                strzalka.TranslationX = 1000;
+                strzalka.TranslationY = 500;
+                licznikStrzalek = 1;
+            }
+            else if (licznikStrzalek == 1)
+            {
+                strzalkaBox1 = new Rect(800, 500, 50, 50);
+                strzalka.TranslationX = 800;
+                strzalka.TranslationY = 500;
+                licznikStrzalek = 2;
+            }
+            else if (licznikStrzalek == 2)
+            {
+                strzalkaBox1 = new Rect(600, 500, 50, 50);
+                strzalka.TranslationX = 600;
+                strzalka.TranslationY = 500;
+                licznikStrzalek = 3;
+                strzalka.Rotation = 0;
+            }
+            else if (licznikStrzalek == 3)
+            {
+                strzalkaBox1 = new Rect(690, 300, 50, 50);
+                strzalka.TranslationX = 690;
+                strzalka.TranslationY = 300;
+                licznikStrzalek = 4;
+                strzalka.Rotation = 0;
+            }
+            else if (licznikStrzalek == 4)
+            {
+                strzalka.IsVisible = false;
+            }
+        }
+        if (characterRect.IntersectsWith(strzalkaBox2) && !isNavigating && Levels.Level == 4)
+        {
+            if (licznikStrzalek == 0)
+            {
+                strzalkaBox2 = new Rect(1000, 500, 50, 50);
+                strzalka.TranslationX = 1000;
+                strzalka.TranslationY = 500;
+                licznikStrzalek = 1;
+                strzalka.Rotation = 90;
+            }
+            
+            else if (licznikStrzalek == 1)
+            {
+                strzalka.IsVisible = false;
+            }
+        }
 
         if (characterRect.IntersectsWith(door1) && !isNavigating && (Levels.Level == 3 || Levels.Level == 3.5))
         {

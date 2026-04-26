@@ -2,6 +2,7 @@ using Microsoft.Maui.Controls;
 using System.Collections.Generic;
 using System;
 using Microsoft.Maui.Graphics;
+using System.Threading.Tasks;
 
 #if WINDOWS
 using Microsoft.Maui.Platform;
@@ -70,7 +71,7 @@ public partial class Page3 : ContentPage
     /// @param sender Źródło zdarzenia.
     /// @param e Argumenty klawiatury.
     /// @details Przesuwa postać "jozio" po mapie.
-    private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
+    private async void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
         if(Levels.Level < 3)
         {
@@ -90,7 +91,7 @@ public partial class Page3 : ContentPage
             }
             else
             {
-                MoveCharacter(jozio, newX, newY, true);
+                await MoveCharacter(jozio, newX, newY, true);
             }            
         }
         else if(Levels.Level >= 3)
@@ -105,7 +106,7 @@ public partial class Page3 : ContentPage
                 case VirtualKey.Down:  newY += step; break;
             }
             // TYLKO rozia ma kolizjê
-            MoveCharacter(rozia, newX, newY, true);
+            await MoveCharacter(rozia, newX, newY, true);
         }
     }
 #endif
@@ -114,7 +115,7 @@ public partial class Page3 : ContentPage
     /// @param sender Obiekt przeciągany (Image).
     /// @param e Dane gestu.
     /// @details Pozwala użytkownikowi przesuwać postać myszką.
-    private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
+    private async void OnPanUpdated(object sender, PanUpdatedEventArgs e)
     {
         if (Levels.Level == 2 || Levels.Level == 2.5)
         {
@@ -131,7 +132,7 @@ public partial class Page3 : ContentPage
                 double newX = startX + e.TotalX;
                 double newY = startY + e.TotalY;
 
-                MoveCharacter(obrazek, newX, newY, true);
+                await MoveCharacter(obrazek, newX, newY, true);
             }
         }
             return;
@@ -156,6 +157,7 @@ public partial class Page3 : ContentPage
             strzalka.TranslationY = 195;
             lisek.TranslationX = 700;
             lisek.TranslationY = 300;
+            polecenie.IsVisible = true;
         }
         else if(Levels.Level < 2)
         {
@@ -168,6 +170,7 @@ public partial class Page3 : ContentPage
             strzalka.IsVisible = false;
             lisek.TranslationX = 700;
             lisek.TranslationY = 300;
+            polecenie.IsVisible = false;
         }
         else if(Levels.Level > 2.5)
         {
@@ -179,6 +182,7 @@ public partial class Page3 : ContentPage
             kamien.TranslationX = 1000;
             kamien.TranslationY = 191;
             lisek.IsVisible = false;
+            polecenie.IsVisible = false;
         }
 
         
@@ -191,7 +195,7 @@ public partial class Page3 : ContentPage
     /// @param checkCollision Czy sprawdzać kolizje.
     /// @async
     /// @details Ogranicza ruch do granic ekranu i sprawdza kolizje.
-    private async void MoveCharacter(Image character, double newX, double newY, bool checkCollision)
+    private async Task MoveCharacter(Image character, double newX, double newY, bool checkCollision)
     {
         if (isNavigating)
             return;
@@ -211,8 +215,23 @@ public partial class Page3 : ContentPage
 
         if (!checkCollision || !await IsBlocked(newX, newY, character.Width, character.Height))
         {
-            character.TranslationX = newX;
-            character.TranslationY = newY;
+            // Animate movement for smoother walking. Duration scales with distance.
+            double dx = newX - character.TranslationX;
+            double dy = newY - character.TranslationY;
+            double dist = Math.Sqrt(dx * dx + dy * dy);
+            // duration between 60ms and 350ms depending on distance
+            uint duration = (uint)Math.Max(60, Math.Min(350, (int)(dist * 4)));
+
+            try
+            {
+                await character.TranslateTo(newX, newY, duration, Easing.CubicOut);
+            }
+            catch
+            {
+                // If animation is canceled or fails, fallback to direct placement
+                character.TranslationX = newX;
+                character.TranslationY = newY;
+            }
         }
     }
 
@@ -244,8 +263,8 @@ public partial class Page3 : ContentPage
             /// @brief Uruchomienie animacji lisa.
             lisek.IsAnimationPlaying = true;
 
-            await lisek.TranslateTo(1200, 191, 3000);
-            await lisek.TranslateTo(1230, 191, 2000);
+            await lisek.TranslateTo(1200, y, 3000);
+            await lisek.TranslateTo(1230, y, 2000);
 
             lisek.IsAnimationPlaying = false;
             lisek.IsVisible = false;

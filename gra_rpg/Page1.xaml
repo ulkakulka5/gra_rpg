@@ -11,11 +11,12 @@
 
         <Image Source="page1_bg_bez_polecenia.png"  WidthRequest="1280" HeightRequest="832"/>
         <Image x:Name="polecenie1"
-       Source="polecenie1.png"
-       HorizontalOptions="End"
-       VerticalOptions="Start"
-       Margin="0,20,-55,0"
-       WidthRequest="300"/>
+               Source="polecenie1.png"
+               HorizontalOptions="End"
+               VerticalOptions="Start"
+               Margin="0,20,-55,0"
+               WidthRequest="300" 
+               />
         <Image x:Name="jozio"
                Source="jozio_walk.png"
                WidthRequest="50"
@@ -30,13 +31,13 @@
                ZIndex="1"
                IsVisible="False"/>
         <Image x:Name="strzalka"
-           Source="strzalka.png"
-           WidthRequest="50"
-           HorizontalOptions="Start"
-           VerticalOptions="Start" 
-           Rotation="-90" 
-           ZIndex="0" 
-           IsVisible="True"  />
+               Source="strzalka.png"
+               WidthRequest="50"
+               HorizontalOptions="Start"
+               VerticalOptions="Start" 
+               Rotation="-90" 
+               ZIndex="0" 
+               IsVisible="True"  />
 
 
 

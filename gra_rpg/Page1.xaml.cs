@@ -39,7 +39,10 @@ public partial class Page1 : ContentPage
     /// @brief pierwsza pozycja strzałki.
     Rect strzalkaBox1 = new Rect(800, 450, 50, 50);
     Rect strzalkaBox2 = new Rect(150, 460, 50, 50);
+    Rect strzalkaBox3 = new Rect(800, 450, 50, 50);
+    Rect strzalkaBox4 = new Rect(150, 460, 50, 50);
 
+    /// @brief Licznik strzałek, używany do sterowania ruchem strzałki na mapie.
     int licznikStrzalek = 0;
 
     private Grid blackScreen;
@@ -66,10 +69,12 @@ public partial class Page1 : ContentPage
         {
             BackgroundColor = Colors.Black,
             Opacity = 0,
-            InputTransparent = true
+            InputTransparent = true,
+            HorizontalOptions = LayoutOptions.Fill,
+            VerticalOptions = LayoutOptions.Fill
         };
 
-        MainGrid.Children.Add(blackScreen); // MainGrid = twój główny Grid
+        MainGrid.Children.Add(blackScreen); 
     
 
 
@@ -106,11 +111,12 @@ public partial class Page1 : ContentPage
     /// @details Przesuwa postać "jozio".
     private async void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
-   if (!firstMoveDone)
-{
-    firstMoveDone = true;
-    polecenie1.Source = "polecenie22.png";
-}
+   if (!firstMoveDone && Levels.Level == 1)
+    {
+        firstMoveDone = true;
+        await Task.Delay(1000);
+        polecenie1.Source = "polecenie22.png";
+    }
         if(Levels.Level < 3){
 
             double newX = jozio.TranslationX;
@@ -179,20 +185,22 @@ public partial class Page1 : ContentPage
             strzalka.TranslationX = 800;
             strzalka.TranslationY = 450;
             strzalka.IsVisible = true;
-            //await Task.Delay(1000);
-            //polecenie1.IsVisible = true;
+
         }
 
         if (Levels.Level == 1.5)
         {
+            polecenie1.IsVisible = false;
             jozio.TranslationX = 700;
             jozio.TranslationY = 720;
             strzalka.IsVisible = false;
+            polecenie1.IsVisible = false;
 
         }
 
         if (Levels.Level == 1.8)
         {
+            polecenie1.IsVisible = false;
             jozio.TranslationX = 40;
             jozio.TranslationY = 480;
             strzalka.IsVisible = false;
@@ -200,10 +208,10 @@ public partial class Page1 : ContentPage
 
         if (Levels.Level == 2)
         {
+            polecenie1.IsVisible = false;
             jozio.TranslationX = 139;
             jozio.TranslationY = 323;
             strzalka.IsVisible = false;
-            //polecenie1.IsVisible = false;
             await Task.Delay(1000);
             strzalka.IsVisible = true;
             strzalka.TranslationX = 150;
@@ -212,23 +220,25 @@ public partial class Page1 : ContentPage
         }
         if (Levels.Level == 2.5)
         {
+            polecenie1.IsVisible = false;
             jozio.TranslationX = 40;
             jozio.TranslationY = 480;
             strzalka.IsVisible = false;
         }
         if (Levels.Level == 3)
         {
+            polecenie1.IsVisible = false;
             jozio.IsVisible = true;
             jozio.TranslationX = 700;
             jozio.TranslationY = 720;
             strzalka.IsVisible = false;
-            //polecenie1.IsVisible = false;
             await Task.Delay(1000);
             await FadeBlack();
 
         }
         if (Levels.Level == 3.5)
         {
+            polecenie1.IsVisible = false;
             jozio.IsVisible = false;
             rozia.IsVisible = true;
             rozia.TranslationX = 700;
@@ -239,6 +249,7 @@ public partial class Page1 : ContentPage
 
         if (Levels.Level == 3.8)
         {
+            polecenie1.IsVisible = false;
             jozio.IsVisible = false;
             rozia.IsVisible = true;
             rozia.TranslationX = 40;
@@ -248,6 +259,7 @@ public partial class Page1 : ContentPage
 
         if (Levels.Level == 4.5)
         {
+            polecenie1.IsVisible = false;
             jozio.IsVisible = false;
             rozia.IsVisible = true;
             rozia.TranslationX = 700;
@@ -256,14 +268,19 @@ public partial class Page1 : ContentPage
         }
         if (Levels.Level == 4.8)
         {
+            polecenie1.IsVisible = false;
             jozio.IsVisible = false;
             rozia.IsVisible = true;
             rozia.TranslationX = 40;
             rozia.TranslationY = 480;
-            strzalka.IsVisible = false;
+            strzalka.IsVisible = true;
+            strzalka.TranslationX = 150;
+            strzalka.TranslationY = 460;
+            strzalka.Rotation = 90;
         }
         if(Levels.Level == 5)
         {
+            polecenie1.IsVisible = false;
             jozio.IsVisible = false;
             rozia.IsVisible = false;
             strzalka.IsVisible = false;
@@ -315,10 +332,17 @@ public partial class Page1 : ContentPage
         }
     }
 
-
+    // @brief Wykonuje animowane przejście sceny (fade do czarnego ekranu i z powrotem).
+    /// @async
+    /// @return Task reprezentujący wykonanie operacji.
+    /// @details
+    /// Najpierw ekran zostaje zaciemniony, następnie zmieniane są widoczne postacie,
+    /// ustawiana jest pozycja "rozia", po czym ekran zostaje ponownie rozjaśniony.
+    /// Metoda używana do płynnych przejść między scenami.
     async Task FadeBlack()
     {
         blackScreen.IsVisible = true;
+        await Task.Yield(); 
         await blackScreen.FadeTo(1, 400);
 
         jozio.IsVisible = false;
@@ -330,6 +354,11 @@ public partial class Page1 : ContentPage
 
         await blackScreen.FadeTo(0, 400);
         blackScreen.IsVisible = false;
+
+        strzalka.IsVisible = true;  
+        strzalka.TranslationX = 800;
+        strzalka.TranslationY = 450;
+
     }
 
     /// @brief Sprawdza kolizję postaci.
@@ -344,10 +373,10 @@ public partial class Page1 : ContentPage
     {
         Rect characterRect = new Rect(x, y, width, height);
 
-        var door1 = new Rect(139, 323, 64, 87);
+        var door1 = new Rect(139, 323, 5, 5);
         var door2 = new Rect(700, 800, 5, 5);
-        var door3 = new Rect(0, 480, 50, 123);
-        var door4 = new Rect(1100, 700, 30, 30);
+        var door3 = new Rect(0, 480, 5, 5);
+        var door4 = new Rect(1100, 700, 5, 5);
         
 
         if (characterRect.IntersectsWith(strzalkaBox1) && !isNavigating && Levels.Level == 1)
@@ -416,6 +445,81 @@ public partial class Page1 : ContentPage
                 strzalka.IsVisible = false;
             }
         }
+        else if (characterRect.IntersectsWith(strzalkaBox3) && !isNavigating && Levels.Level == 3)
+        {
+            if(licznikStrzalek == 0)
+            {
+                strzalkaBox3 = new Rect(600, 500, 50, 50);
+                strzalka.TranslationX = 600;
+                strzalka.TranslationY = 500;
+                licznikStrzalek = 1;
+            }
+            else if (licznikStrzalek == 1)
+            {
+                strzalkaBox3 = new Rect(400, 500, 50, 50);
+                strzalka.TranslationX = 400;
+                strzalka.TranslationY = 500;
+                licznikStrzalek = 2;
+            }
+            else if (licznikStrzalek == 2)
+            {
+                strzalkaBox3 = new Rect(150, 460, 50, 50);
+                strzalka.TranslationX = 150;
+                strzalka.TranslationY = 500;
+                licznikStrzalek = 3;
+            }
+            else if (licznikStrzalek == 3)
+            {
+                strzalka.IsVisible = false;
+            }
+        }
+        else if (characterRect.IntersectsWith(strzalkaBox4) && !isNavigating && Levels.Level == 4.8)
+        {
+            if (licznikStrzalek == 0)
+            {
+                strzalkaBox4 = new Rect(400, 500, 50, 50);
+                strzalka.TranslationX = 400;
+                strzalka.TranslationY = 500;
+                licznikStrzalek = 1;
+                strzalka.Rotation = 90;
+            }
+            else if (licznikStrzalek == 1)
+            {
+                strzalkaBox4 = new Rect(600, 500, 50, 50);
+                strzalka.TranslationX = 600;
+                strzalka.TranslationY = 500;
+                licznikStrzalek = 2;
+                strzalka.Rotation = 90;
+            }
+            else if (licznikStrzalek == 2)
+            {
+                strzalkaBox4 = new Rect(700, 550, 50, 50);
+                strzalka.TranslationX = 700;
+                strzalka.TranslationY = 550;
+                licznikStrzalek = 3;
+                strzalka.Rotation = 180;
+            }
+            else if (licznikStrzalek == 3)
+            {
+                strzalkaBox4 = new Rect(800, 750, 50, 50);
+                strzalka.TranslationX = 800;
+                strzalka.TranslationY = 750;
+                licznikStrzalek = 4;
+            }
+            else if (licznikStrzalek == 4)
+            {
+                strzalkaBox4 = new Rect(1100, 770, 50, 50);
+                strzalka.TranslationX = 1100;
+                strzalka.TranslationY = 770;
+                licznikStrzalek = 5;
+                strzalka.Rotation = 0;
+            }
+            else if (licznikStrzalek == 5)
+            {
+                strzalka.IsVisible = false;
+            }
+        }
+
 
 
         if (characterRect.IntersectsWith(door1) && !isNavigating && Levels.Level < 2)

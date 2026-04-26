@@ -143,7 +143,7 @@ public partial class Page5 : ContentPage
     /// @param sender Źródło zdarzenia.
     /// @param e Argumenty klawiatury.
     /// @details Sterowanie postacią "rozia".
-    private void Content_KeyDown(object sender, KeyRoutedEventArgs e)
+    private async void Content_KeyDown(object sender, KeyRoutedEventArgs e)
     {
         double newX = rozia.TranslationX;
         double newY = rozia.TranslationY;
@@ -156,7 +156,7 @@ public partial class Page5 : ContentPage
             case VirtualKey.Down:  newY += step; break;
         }
 
-        MoveCharacter(rozia, newX, newY, true);
+        await MoveCharacter(rozia, newX, newY, true);
     }
 #endif
 
@@ -164,7 +164,7 @@ public partial class Page5 : ContentPage
     /// @param sender Obiekt przeciągany.
     /// @param e Dane gestu.
     /// @details Pozwala poruszać postać myszką (bez kolizji).
-    private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
+    private async void OnPanUpdated(object sender, PanUpdatedEventArgs e)
     {
         var obrazek = sender as Image;
         if (obrazek == null) return;
@@ -179,7 +179,7 @@ public partial class Page5 : ContentPage
             double newX = startX + e.TotalX;
             double newY = startY + e.TotalY;
 
-            MoveCharacter(obrazek, newX, newY, false);
+            await MoveCharacter(obrazek, newX, newY, false);
         }
     }
 
@@ -200,7 +200,7 @@ public partial class Page5 : ContentPage
     /// @param checkCollision Czy sprawdzać kolizje.
     /// @async
     /// @details Sprawdza granice mapy oraz kolizje.
-    private async void MoveCharacter(Image character, double newX, double newY, bool checkCollision)
+    private async Task MoveCharacter(Image character, double newX, double newY, bool checkCollision)
     {
         if (isNavigating)
             return;
@@ -223,13 +223,22 @@ public partial class Page5 : ContentPage
 
         if (!checkCollision || !await IsBlocked(newX, newY, charWidth, charHeight))
         {
-            character.TranslationX = newX;
-            character.TranslationY = newY;
+            // Animate movement for smoother walking. Duration scales with distance.
+            double dx = newX - character.TranslationX;
+            double dy = newY - character.TranslationY;
+            double dist = Math.Sqrt(dx * dx + dy * dy);
+            // duration between 60ms and 350ms depending on distance
+            uint duration = (uint)Math.Max(60, Math.Min(350, (int)(dist * 4)));
 
-            /// @brief Sprawdzanie zbierania przedmiotów.
-            if (character == rozia)
+            try
             {
-                CheckMirrorCollection();
+                await character.TranslateTo(newX, newY, duration, Easing.CubicOut);
+            }
+            catch
+            {
+                // If animation is canceled or fails, fallback to direct placement
+                character.TranslationX = newX;
+                character.TranslationY = newY;
             }
         }
     }
