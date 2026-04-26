@@ -1,10 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "acgmop",
-  1: "amp",
+  0: "abcfgilmnops",
+  1: "almp",
   2: "g",
-  3: "amp",
-  4: "acmop"
+  3: "almp",
+  4: "acfilmnop",
+  5: "abcfilnps",
+  6: "l"
 };
 
 var indexSectionNames =
@@ -13,7 +15,9 @@ var indexSectionNames =
   1: "classes",
   2: "namespaces",
   3: "files",
-  4: "functions"
+  4: "functions",
+  5: "variables",
+  6: "properties"
 };
 
 var indexSectionLabels =
@@ -22,6 +26,8 @@ var indexSectionLabels =
   1: "Classes",
   2: "Namespaces",
   3: "Files",
-  4: "Functions"
+  4: "Functions",
+  5: "Variables",
+  6: "Properties"
 };
 

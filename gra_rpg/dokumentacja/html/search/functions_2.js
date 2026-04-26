@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mainpage_0',['MainPage',['../classgra__rpg_1_1_main_page.html#a6edd2faddc832a40c5959a4a8498f040',1,'gra_rpg::MainPage']]]
+  ['fadeblack_0',['FadeBlack',['../classgra__rpg_1_1_page1.html#a5bd0ec23e32385287f49362037be3801',1,'gra_rpg::Page1']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['onappearing_0',['OnAppearing',['../classgra__rpg_1_1_page1.html#a33aafc0f96f2471d1aacfbc4a0541413',1,'gra_rpg.Page1.OnAppearing()'],['../classgra__rpg_1_1_page2.html#af17a7c96455a0358dc5047c80b545381',1,'gra_rpg.Page2.OnAppearing()'],['../classgra__rpg_1_1_page3.html#aa2c92242b0a7e5aa5b59adfc5ce1f0c5',1,'gra_rpg.Page3.OnAppearing()'],['../classgra__rpg_1_1_page4.html#a0a95d6c0a55ad2eea2ba3f1e6f1a8138',1,'gra_rpg.Page4.OnAppearing()'],['../classgra__rpg_1_1_page5.html#abcaf83e41a179611f687df1ab130f18b',1,'gra_rpg.Page5.OnAppearing()']]]
+  ['isblocked_0',['IsBlocked',['../classgra__rpg_1_1_page1.html#ad9b3fc5b77ca24e6af770eb0ad4b0e48',1,'gra_rpg.Page1.IsBlocked()'],['../classgra__rpg_1_1_page3.html#a08fca688ee37c7b174f7e322d2d720e4',1,'gra_rpg.Page3.IsBlocked()'],['../classgra__rpg_1_1_page4.html#afb248843fb1853a27c8b4cfa01d2651f',1,'gra_rpg.Page4.IsBlocked()'],['../classgra__rpg_1_1_page5.html#aa4ce05d38f2e179b0226193d777e8e9f',1,'gra_rpg.Page5.IsBlocked()']]]
 ];

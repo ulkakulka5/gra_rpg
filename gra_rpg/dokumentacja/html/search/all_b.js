@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['startx_0',['startX',['../classgra__rpg_1_1_page1.html#a53742a9314c2303627aad2f6f682ee55',1,'gra_rpg.Page1.startX'],['../classgra__rpg_1_1_page3.html#a5ff31e0cb517f2b0bd8c27c11937c14d',1,'gra_rpg.Page3.startX'],['../classgra__rpg_1_1_page4.html#aa5dce003593e3048702f889dc7233a96',1,'gra_rpg.Page4.startX'],['../classgra__rpg_1_1_page5.html#a661c964c087d91035b21761a386a32ea',1,'gra_rpg.Page5.startX']]],
+  ['starty_1',['startY',['../classgra__rpg_1_1_page1.html#aa1509328e4acd1f7b17468750b354dcf',1,'gra_rpg.Page1.startY'],['../classgra__rpg_1_1_page3.html#ace0f20dfab30b4884b5e55cdb7625e43',1,'gra_rpg.Page3.startY'],['../classgra__rpg_1_1_page4.html#aa66cb2f0113749dc6426b8001921dc59',1,'gra_rpg.Page4.startY'],['../classgra__rpg_1_1_page5.html#adf1634fb472a2de1d9f20a1aea9b7b05',1,'gra_rpg.Page5.startY']]],
+  ['step_2',['step',['../classgra__rpg_1_1_page1.html#ac77984b6a64cc47c34894283e4c7c81e',1,'gra_rpg.Page1.step'],['../classgra__rpg_1_1_page2.html#acd854cf68d19688f3726331900d74fa5',1,'gra_rpg.Page2.step'],['../classgra__rpg_1_1_page3.html#aff0e825d5ae4fe70fde6ddc493c4c20d',1,'gra_rpg.Page3.step'],['../classgra__rpg_1_1_page4.html#a6418230c6bdc4d9c056d6a6eff007a62',1,'gra_rpg.Page4.step'],['../classgra__rpg_1_1_page5.html#a9da8963ede91163e6d943cb0af218b62',1,'gra_rpg.Page5.step']]],
+  ['strzalkabox1_3',['strzalkaBox1',['../classgra__rpg_1_1_page1.html#a18188a742ab20167bceb33e363de539f',1,'gra_rpg.Page1.strzalkaBox1'],['../classgra__rpg_1_1_page4.html#abc2854744d6064b113530a5e1d083361',1,'gra_rpg.Page4.strzalkaBox1']]],
+  ['strzalkabox2_4',['strzalkaBox2',['../classgra__rpg_1_1_page1.html#a35548c8c4169f5295bfe7f4554373b64',1,'gra_rpg.Page1.strzalkaBox2'],['../classgra__rpg_1_1_page4.html#ae04368fa0da22c30bb35c5349199da2d',1,'gra_rpg.Page4.strzalkaBox2']]],
+  ['strzalkabox3_5',['strzalkaBox3',['../classgra__rpg_1_1_page1.html#ad177b175b22cd99630c8ef97a55be2fc',1,'gra_rpg::Page1']]],
+  ['strzalkabox4_6',['strzalkaBox4',['../classgra__rpg_1_1_page1.html#a1cd7412a3e74703cd8ffd028540e86c0',1,'gra_rpg::Page1']]]
+];
