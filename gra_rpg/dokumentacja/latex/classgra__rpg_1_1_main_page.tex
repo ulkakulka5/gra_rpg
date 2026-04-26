@@ -2,7 +2,7 @@
 \label{classgra__rpg_1_1_main_page}\index{gra\_rpg.MainPage@{gra\_rpg.MainPage}}
 
 
-G��wna strona startowa gry RPG.  
+Główna strona startowa gry RPG.  
 
 
 Inheritance diagram for gra\+\_\+rpg.\+Main\+Page:\+\begin{figure}[H]
@@ -15,13 +15,31 @@ Inheritance diagram for gra\+\_\+rpg.\+Main\+Page:\+\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \textbf{ Main\+Page} ()
-\begin{DoxyCompactList}\small\item\em Konstruktor strony g��wnej. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Konstruktor strony głównej. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async void \textbf{ Play\+Music} ()
+\begin{DoxyCompactList}\small\item\em Odtwarza muzykę w tle. @async. \end{DoxyCompactList}\item 
+async void \textbf{ On\+Pointer\+Entered} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa zdarzenia najechania kursorem na przycisk. \end{DoxyCompactList}\item 
+async void \textbf{ On\+Pointer\+Exited} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa opuszczenia kursora z przycisku. \end{DoxyCompactList}\item 
+async void \textbf{ On\+New\+Game\+Clicked} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa kliknięcia przycisku "{}\+Nowa Gra"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ ishovered} = false
+\begin{DoxyCompactList}\small\item\em Flaga informująca czy przycisk jest aktualnie najechany kursorem. \end{DoxyCompactList}\item 
+IAudio\+Player? \textbf{ player}
+\begin{DoxyCompactList}\small\item\em Odtwarzacz audio wykorzystywany do muzyki i efektów dźwiękowych. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-G��wna strona startowa gry RPG. 
+Główna strona startowa gry RPG. 
 
-Odpowiada za odtwarzanie muzyki w tle oraz obs�ug� interakcji u�ytkownika takich jak najechanie kursorem i rozpocz�cie nowej gry. 
+Odpowiada za odtwarzanie muzyki w tle oraz obsługę interakcji użytkownika takich jak najechanie kursorem i rozpoczęcie nowej gry. 
 
 Definition at line \textbf{ 9} of file \textbf{ Main\+Page.\+xaml.\+cs}.
 
@@ -37,14 +55,127 @@ gra\+\_\+rpg.\+Main\+Page.\+Main\+Page (\begin{DoxyParamCaption}{}{}\end{DoxyPar
 
 
 
-Konstruktor strony g��wnej. 
+Konstruktor strony głównej. 
 
-Inicjalizuje komponenty oraz uruchamia muzyk� w tle. 
+Inicjalizuje komponenty oraz uruchamia muzykę w tle. 
 
 Definition at line \textbf{ 19} of file \textbf{ Main\+Page.\+xaml.\+cs}.
 
 
 
+\label{doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{gra\_rpg.MainPage@{gra\_rpg.MainPage}!OnNewGameClicked@{OnNewGameClicked}}
+\index{OnNewGameClicked@{OnNewGameClicked}!gra\_rpg.MainPage@{gra\_rpg.MainPage}}
+\doxysubsubsection{OnNewGameClicked()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_main_page_a41c8832d8a717bd90b3aa918d60832e3} 
+async void gra\+\_\+rpg.\+Main\+Page.\+On\+New\+Game\+Clicked (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Obsługa kliknięcia przycisku "{}\+Nowa Gra"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & Obiekt wywołujący zdarzenie. \\
+\hline
+{\em e} & Argumenty zdarzenia. @async\\
+\hline
+\end{DoxyParams}
+Przechodzi do strony \doxyref{Page1}{p.}{classgra__rpg_1_1_page1}. 
+
+Definition at line \textbf{ 76} of file \textbf{ Main\+Page.\+xaml.\+cs}.
+
+\index{gra\_rpg.MainPage@{gra\_rpg.MainPage}!OnPointerEntered@{OnPointerEntered}}
+\index{OnPointerEntered@{OnPointerEntered}!gra\_rpg.MainPage@{gra\_rpg.MainPage}}
+\doxysubsubsection{OnPointerEntered()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_main_page_a4f1df767f9494c959d83f3ebda953696} 
+async void gra\+\_\+rpg.\+Main\+Page.\+On\+Pointer\+Entered (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Obsługa zdarzenia najechania kursorem na przycisk. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & Obiekt wywołujący zdarzenie. \\
+\hline
+{\em e} & Argumenty zdarzenia. @async @event Pointer\+Entered\\
+\hline
+\end{DoxyParams}
+Odtwarza dźwięk kliknięcia i powiększa przycisk. 
+
+Definition at line \textbf{ 44} of file \textbf{ Main\+Page.\+xaml.\+cs}.
+
+\index{gra\_rpg.MainPage@{gra\_rpg.MainPage}!OnPointerExited@{OnPointerExited}}
+\index{OnPointerExited@{OnPointerExited}!gra\_rpg.MainPage@{gra\_rpg.MainPage}}
+\doxysubsubsection{OnPointerExited()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_main_page_a2a1ca3d239eef5fe86443f4cccc7069c} 
+async void gra\+\_\+rpg.\+Main\+Page.\+On\+Pointer\+Exited (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Obsługa opuszczenia kursora z przycisku. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & Obiekt wywołujący zdarzenie. \\
+\hline
+{\em e} & Argumenty zdarzenia. @async @event Pointer\+Exited\\
+\hline
+\end{DoxyParams}
+Przywraca normalny rozmiar przycisku. 
+
+Definition at line \textbf{ 65} of file \textbf{ Main\+Page.\+xaml.\+cs}.
+
+\index{gra\_rpg.MainPage@{gra\_rpg.MainPage}!PlayMusic@{PlayMusic}}
+\index{PlayMusic@{PlayMusic}!gra\_rpg.MainPage@{gra\_rpg.MainPage}}
+\doxysubsubsection{PlayMusic()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_main_page_a817af548473389812d1be62252f83ccd} 
+async void gra\+\_\+rpg.\+Main\+Page.\+Play\+Music (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Odtwarza muzykę w tle. @async. 
+
+Ładuje plik "{}music.\+mp3"{} z zasobów aplikacji i ustawia zapętlanie. 
+
+Definition at line \textbf{ 28} of file \textbf{ Main\+Page.\+xaml.\+cs}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{gra\_rpg.MainPage@{gra\_rpg.MainPage}!ishovered@{ishovered}}
+\index{ishovered@{ishovered}!gra\_rpg.MainPage@{gra\_rpg.MainPage}}
+\doxysubsubsection{ishovered}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_main_page_acf409ad874033b8ffc6dfb50c1672ffb} 
+bool gra\+\_\+rpg.\+Main\+Page.\+ishovered = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flaga informująca czy przycisk jest aktualnie najechany kursorem. 
+
+
+
+Definition at line \textbf{ 12} of file \textbf{ Main\+Page.\+xaml.\+cs}.
+
+\index{gra\_rpg.MainPage@{gra\_rpg.MainPage}!player@{player}}
+\index{player@{player}!gra\_rpg.MainPage@{gra\_rpg.MainPage}}
+\doxysubsubsection{player}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_main_page_aee16e580a1f663b7a3d8b52365ecbe6c} 
+IAudio\+Player? gra\+\_\+rpg.\+Main\+Page.\+player\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Odtwarzacz audio wykorzystywany do muzyki i efektów dźwiękowych. 
+
+
+
+Definition at line \textbf{ 15} of file \textbf{ Main\+Page.\+xaml.\+cs}.
+
+
+
 The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-gra\+\_\+rpg-\/master/\+gra\+\_\+rpg/\+\textbf{ Main\+Page.\+xaml.\+cs}\end{DoxyCompactItemize}
+\textbf{ Main\+Page.\+xaml.\+cs}\end{DoxyCompactItemize}

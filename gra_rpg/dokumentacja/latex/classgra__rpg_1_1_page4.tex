@@ -21,6 +21,34 @@ Inheritance diagram for gra\+\_\+rpg.\+Page4:\+\begin{figure}[H]
 \item 
 override void \textbf{ On\+Appearing} ()
 \begin{DoxyCompactList}\small\item\em Wywoływane przy pojawieniu się strony. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async void \textbf{ On\+Pan\+Updated} (object sender, Pan\+Updated\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa przeciągania postaci. \end{DoxyCompactList}\item 
+async Task \textbf{ Move\+Character} (Image character, double newX, double newY, bool check\+Collision)
+\begin{DoxyCompactList}\small\item\em Przesuwa postać. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \textbf{ Is\+Blocked} (double x, double y, double width, double height)
+\begin{DoxyCompactList}\small\item\em Sprawdza kolizje oraz przejścia między lokacjami. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ step} = 10
+\begin{DoxyCompactList}\small\item\em Krok ruchu postaci. \end{DoxyCompactList}\item 
+double \textbf{ startX}
+\begin{DoxyCompactList}\small\item\em Początkowa pozycja X przy przeciąganiu. \end{DoxyCompactList}\item 
+double \textbf{ startY}
+\begin{DoxyCompactList}\small\item\em Początkowa pozycja Y przy przeciąganiu. \end{DoxyCompactList}\item 
+bool \textbf{ is\+Navigating} = false
+\begin{DoxyCompactList}\small\item\em Flaga blokująca wielokrotne przejścia między stronami. \end{DoxyCompactList}\item 
+List$<$ Rect $>$ \textbf{ blocked\+Areas} = new List$<$Rect$>$()
+\begin{DoxyCompactList}\small\item\em Lista obszarów kolizyjnych. \end{DoxyCompactList}\item 
+Rect \textbf{ strzalka\+Box1} = new Rect(1000, 500, 50, 50)
+\begin{DoxyCompactList}\small\item\em pierwsza pozycja strzałki. \end{DoxyCompactList}\item 
+Rect \textbf{ strzalka\+Box2} = new Rect(800, 500, 50, 50)
+\item 
+int \textbf{ licznik\+Strzalek} = 0
+\begin{DoxyCompactList}\small\item\em Licznik strzałek, używany do sterowania ruchem strzałki na mapie. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -28,7 +56,7 @@ Lokacja z domem i jeziorem.
 
 Strona zawiera rozbudowany system kolizji (ściany, przeszkody, jezioro) oraz przejścia do innych lokacji (\doxyref{Page5}{p.}{classgra__rpg_1_1_page5} i powrót do \doxyref{Page1}{p.}{classgra__rpg_1_1_page1}). 
 
-Definition at line \textbf{ 18} of file \textbf{ Page4.\+xaml.\+cs}.
+Definition at line \textbf{ 19} of file \textbf{ Page4.\+xaml.\+cs}.
 
 
 
@@ -52,12 +80,74 @@ Dolna część muru (z przejściem)
 
 Jezioro (obszar niedostępny)
 
-Definition at line \textbf{ 38} of file \textbf{ Page4.\+xaml.\+cs}.
+Definition at line \textbf{ 46} of file \textbf{ Page4.\+xaml.\+cs}.
 
 
 
 \label{doc-func-members}
 \doxysubsection{Member Function Documentation}
+\index{gra\_rpg.Page4@{gra\_rpg.Page4}!IsBlocked@{IsBlocked}}
+\index{IsBlocked@{IsBlocked}!gra\_rpg.Page4@{gra\_rpg.Page4}}
+\doxysubsubsection{IsBlocked()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page4_afb248843fb1853a27c8b4cfa01d2651f} 
+async Task$<$ bool $>$ gra\+\_\+rpg.\+Page4.\+Is\+Blocked (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{double}]{y}{, }\item[{double}]{width}{, }\item[{double}]{height}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Sprawdza kolizje oraz przejścia między lokacjami. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Pozycja X. \\
+\hline
+{\em y} & Pozycja Y. \\
+\hline
+{\em width} & Szerokość postaci. \\
+\hline
+{\em height} & Wysokość postaci. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True jeśli ruch zablokowany. @async
+\end{DoxyReturn}
+Obsługuje:\+
+\begin{DoxyItemize}
+\item wejście do domu (\doxyref{Page5}{p.}{classgra__rpg_1_1_page5})
+\item powrót do mapy (\doxyref{Page1}{p.}{classgra__rpg_1_1_page1})
+\item kolizje ze ścianami i jeziorem 
+\end{DoxyItemize}Drzwi do domu.
+
+Wyjście z lokacji.
+
+Sprawdzanie kolizji z przeszkodami.
+
+Definition at line \textbf{ 256} of file \textbf{ Page4.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page4@{gra\_rpg.Page4}!MoveCharacter@{MoveCharacter}}
+\index{MoveCharacter@{MoveCharacter}!gra\_rpg.Page4@{gra\_rpg.Page4}}
+\doxysubsubsection{MoveCharacter()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page4_abe171c5cb7f9fb19a0679c69225668f6} 
+async Task gra\+\_\+rpg.\+Page4.\+Move\+Character (\begin{DoxyParamCaption}\item[{Image}]{character}{, }\item[{double}]{newX}{, }\item[{double}]{newY}{, }\item[{bool}]{check\+Collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Przesuwa postać. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em character} & Obiekt postaci. \\
+\hline
+{\em newX} & Nowa pozycja X. \\
+\hline
+{\em newY} & Nowa pozycja Y. \\
+\hline
+{\em check\+Collision} & Czy sprawdzać kolizje. @async\\
+\hline
+\end{DoxyParams}
+Ogranicza ruch do granic mapy oraz sprawdza kolizje. 
+
+Definition at line \textbf{ 204} of file \textbf{ Page4.\+xaml.\+cs}.
+
 \index{gra\_rpg.Page4@{gra\_rpg.Page4}!OnAppearing@{OnAppearing}}
 \index{OnAppearing@{OnAppearing}!gra\_rpg.Page4@{gra\_rpg.Page4}}
 \doxysubsubsection{OnAppearing()}
@@ -70,10 +160,143 @@ Wywoływane przy pojawieniu się strony.
 
 Ustawia początkową pozycję postaci. 
 
-Definition at line \textbf{ 131} of file \textbf{ Page4.\+xaml.\+cs}.
+Definition at line \textbf{ 157} of file \textbf{ Page4.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page4@{gra\_rpg.Page4}!OnPanUpdated@{OnPanUpdated}}
+\index{OnPanUpdated@{OnPanUpdated}!gra\_rpg.Page4@{gra\_rpg.Page4}}
+\doxysubsubsection{OnPanUpdated()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page4_a3a8a7bb34ae377d72f91b22a2a115802} 
+async void gra\+\_\+rpg.\+Page4.\+On\+Pan\+Updated (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Pan\+Updated\+Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Obsługa przeciągania postaci. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & Obiekt przeciągany. \\
+\hline
+{\em e} & Dane gestu.\\
+\hline
+\end{DoxyParams}
+Pozwala przesuwać postać myszką (bez kolizji). 
+
+Definition at line \textbf{ 136} of file \textbf{ Page4.\+xaml.\+cs}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{gra\_rpg.Page4@{gra\_rpg.Page4}!blockedAreas@{blockedAreas}}
+\index{blockedAreas@{blockedAreas}!gra\_rpg.Page4@{gra\_rpg.Page4}}
+\doxysubsubsection{blockedAreas}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page4_ac74925540c48dad1c071b8651084d41e} 
+List$<$Rect$>$ gra\+\_\+rpg.\+Page4.\+blocked\+Areas = new List$<$Rect$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lista obszarów kolizyjnych. 
+
+Zawiera ściany, przeszkody oraz jezioro. 
+
+Definition at line \textbf{ 35} of file \textbf{ Page4.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page4@{gra\_rpg.Page4}!isNavigating@{isNavigating}}
+\index{isNavigating@{isNavigating}!gra\_rpg.Page4@{gra\_rpg.Page4}}
+\doxysubsubsection{isNavigating}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page4_a6353c8e93bf8e1927c0652ffc9bf7c6a} 
+bool gra\+\_\+rpg.\+Page4.\+is\+Navigating = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flaga blokująca wielokrotne przejścia między stronami. 
+
+
+
+Definition at line \textbf{ 31} of file \textbf{ Page4.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page4@{gra\_rpg.Page4}!licznikStrzalek@{licznikStrzalek}}
+\index{licznikStrzalek@{licznikStrzalek}!gra\_rpg.Page4@{gra\_rpg.Page4}}
+\doxysubsubsection{licznikStrzalek}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page4_a61d92940595dd95fed6943951b85869a} 
+int gra\+\_\+rpg.\+Page4.\+licznik\+Strzalek = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Licznik strzałek, używany do sterowania ruchem strzałki na mapie. 
+
+
+
+Definition at line \textbf{ 42} of file \textbf{ Page4.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page4@{gra\_rpg.Page4}!startX@{startX}}
+\index{startX@{startX}!gra\_rpg.Page4@{gra\_rpg.Page4}}
+\doxysubsubsection{startX}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page4_aa5dce003593e3048702f889dc7233a96} 
+double gra\+\_\+rpg.\+Page4.\+startX\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Początkowa pozycja X przy przeciąganiu. 
+
+
+
+Definition at line \textbf{ 25} of file \textbf{ Page4.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page4@{gra\_rpg.Page4}!startY@{startY}}
+\index{startY@{startY}!gra\_rpg.Page4@{gra\_rpg.Page4}}
+\doxysubsubsection{startY}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page4_aa66cb2f0113749dc6426b8001921dc59} 
+double gra\+\_\+rpg.\+Page4.\+startY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Początkowa pozycja Y przy przeciąganiu. 
+
+
+
+Definition at line \textbf{ 28} of file \textbf{ Page4.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page4@{gra\_rpg.Page4}!step@{step}}
+\index{step@{step}!gra\_rpg.Page4@{gra\_rpg.Page4}}
+\doxysubsubsection{step}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page4_a6418230c6bdc4d9c056d6a6eff007a62} 
+double gra\+\_\+rpg.\+Page4.\+step = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Krok ruchu postaci. 
+
+
+
+Definition at line \textbf{ 22} of file \textbf{ Page4.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page4@{gra\_rpg.Page4}!strzalkaBox1@{strzalkaBox1}}
+\index{strzalkaBox1@{strzalkaBox1}!gra\_rpg.Page4@{gra\_rpg.Page4}}
+\doxysubsubsection{strzalkaBox1}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page4_abc2854744d6064b113530a5e1d083361} 
+Rect gra\+\_\+rpg.\+Page4.\+strzalka\+Box1 = new Rect(1000, 500, 50, 50)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pierwsza pozycja strzałki. 
+
+
+
+Definition at line \textbf{ 38} of file \textbf{ Page4.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page4@{gra\_rpg.Page4}!strzalkaBox2@{strzalkaBox2}}
+\index{strzalkaBox2@{strzalkaBox2}!gra\_rpg.Page4@{gra\_rpg.Page4}}
+\doxysubsubsection{strzalkaBox2}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page4_ae04368fa0da22c30bb35c5349199da2d} 
+Rect gra\+\_\+rpg.\+Page4.\+strzalka\+Box2 = new Rect(800, 500, 50, 50)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \textbf{ 39} of file \textbf{ Page4.\+xaml.\+cs}.
 
 
 
 The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-gra\+\_\+rpg-\/master/\+gra\+\_\+rpg/\+\textbf{ Page4.\+xaml.\+cs}\end{DoxyCompactItemize}
+\textbf{ Page4.\+xaml.\+cs}\end{DoxyCompactItemize}

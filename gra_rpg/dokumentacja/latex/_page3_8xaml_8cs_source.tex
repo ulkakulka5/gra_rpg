@@ -1,168 +1,267 @@
 \doxysection{Page3.\+xaml.\+cs}
-\label{_page3_8xaml_8cs_source}\index{gra\_rpg-\/master/gra\_rpg/Page3.xaml.cs@{gra\_rpg-\/master/gra\_rpg/Page3.xaml.cs}}
-\textbf{ Go to the documentation of this file.}
+\label{_page3_8xaml_8cs_source}\textbf{ Go to the documentation of this file.}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{keyword}{using\ }Microsoft.Maui.Controls;}
 \DoxyCodeLine{00002\ \textcolor{keyword}{using\ }System.Collections.Generic;}
 \DoxyCodeLine{00003\ \textcolor{keyword}{using\ }System;}
 \DoxyCodeLine{00004\ \textcolor{keyword}{using\ }Microsoft.Maui.Graphics;}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#if\ WINDOWS}}
-\DoxyCodeLine{00007\ \textcolor{keyword}{using\ }Microsoft.Maui.Platform;}
-\DoxyCodeLine{00008\ \textcolor{keyword}{using\ }Microsoft.UI.Xaml.Input;}
-\DoxyCodeLine{00009\ \textcolor{keyword}{using\ }Windows.System;}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }gra\_rpg;}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }Page3\ :\ ContentPage}
-\DoxyCodeLine{00019\ \{}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{double}\ step\ =\ 10;}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{double}\ startX;}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{double}\ startY;}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ isNavigating\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00034\ \ \ \ \ List<Rect>\ blockedAreas\ =\ \textcolor{keyword}{new}\ List<Rect>();}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{public}\ Page3()}
-\DoxyCodeLine{00039\ \ \ \ \ \{}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ InitializeComponent();}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#if\ WINDOWS}}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ Loaded\ +=\ OnLoaded;}
-\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00045\ \ \ \ \ \}}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#if\ WINDOWS}}
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ OnLoaded(\textcolor{keywordtype}{object}\ sender,\ EventArgs\ e)}
-\DoxyCodeLine{00054\ \ \ \ \ \{}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ var\ mauiWindow\ =\ Application.Current!.Windows[0];}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ var\ winuiWindow\ =\ mauiWindow.Handler?.PlatformView\ as\ Microsoft.UI.Xaml.Window;}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (winuiWindow\ !=\ \textcolor{keyword}{null})}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ var\ content\ =\ winuiWindow.Content\ as\ Microsoft.UI.Xaml.UIElement;}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (content\ !=\ \textcolor{keyword}{null})}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content.KeyDown\ +=\ Content\_KeyDown;}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00067\ \ \ \ \ \}}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ Content\_KeyDown(\textcolor{keywordtype}{object}\ sender,\ KeyRoutedEventArgs\ e)}
-\DoxyCodeLine{00074\ \ \ \ \ \{}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ newX\ =\ jozio.TranslationX;}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ newY\ =\ jozio.TranslationY;}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (e.Key)}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Left:\ \ newX\ -\/=\ step;\ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Right:\ newX\ +=\ step;\ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Up:\ \ \ \ newY\ -\/=\ step;\ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Down:\ \ newY\ +=\ step;\ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ MoveCharacter(jozio,\ newX,\ newY,\ \textcolor{keyword}{true});}
-\DoxyCodeLine{00087\ \ \ \ \ \}}
-\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ OnPanUpdated(\textcolor{keywordtype}{object}\ sender,\ PanUpdatedEventArgs\ e)}
-\DoxyCodeLine{00095\ \ \ \ \ \{}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ var\ obrazek\ =\ sender\ as\ Image;}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (obrazek\ ==\ \textcolor{keyword}{null})\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e.StatusType\ ==\ GestureStatus.Started)}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ startX\ =\ obrazek.TranslationX;}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ startY\ =\ obrazek.TranslationY;}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (e.StatusType\ ==\ GestureStatus.Running)}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ newX\ =\ startX\ +\ e.TotalX;}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ newY\ =\ startY\ +\ e.TotalY;}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ MoveCharacter(obrazek,\ newX,\ newY,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00005\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#if\ WINDOWS}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{using\ }Microsoft.Maui.Platform;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ }Microsoft.UI.Xaml.Input;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ }Windows.System;}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }gra\_rpg;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }Page3\ :\ ContentPage}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{double}\ step\ =\ 10;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{double}\ startX;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ startY;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ isNavigating\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00035\ \ \ \ \ List<Rect>\ blockedAreas\ =\ \textcolor{keyword}{new}\ List<Rect>();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{public}\ Page3()}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ InitializeComponent();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#if\ WINDOWS}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ Loaded\ +=\ OnLoaded;}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#if\ WINDOWS}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ OnLoaded(\textcolor{keywordtype}{object}\ sender,\ EventArgs\ e)}
+\DoxyCodeLine{00055\ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ var\ mauiWindow\ =\ Application.Current!.Windows[0];}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ var\ winuiWindow\ =\ mauiWindow.Handler?.PlatformView\ as\ Microsoft.UI.Xaml.Window;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (winuiWindow\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ var\ content\ =\ winuiWindow.Content\ as\ Microsoft.UI.Xaml.UIElement;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (content\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content.KeyDown\ +=\ Content\_KeyDown;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ content.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ Content\_KeyDown(\textcolor{keywordtype}{object}\ sender,\ KeyRoutedEventArgs\ e)}
+\DoxyCodeLine{00075\ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(Levels.Level\ <\ 3)}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ newX\ =\ jozio.TranslationX;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ newY\ =\ jozio.TranslationY;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (e.Key)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Left:\ \ newX\ -\/=\ step;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Right:\ newX\ +=\ step;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Up:\ \ \ \ newY\ -\/=\ step;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Down:\ \ newY\ +=\ step;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(Levels.Level\ ==\ 2\ ||\ Levels.Level\ ==\ 2.5)}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ MoveCharacter(jozio,\ newX,\ newY,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(Levels.Level\ >=\ 3)}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ newX\ =\ rozia.TranslationX;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ newY\ =\ rozia.TranslationY;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (e.Key)}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Left:\ \ newX\ -\/=\ step;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Right:\ newX\ +=\ step;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Up:\ \ \ \ newY\ -\/=\ step;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VirtualKey.Down:\ \ newY\ +=\ step;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TYLKO\ rozia\ ma\ kolizjê}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ await\ MoveCharacter(rozia,\ newX,\ newY,\ \textcolor{keyword}{true});}
 \DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00111\ \ \ \ \ \}}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{override}\ \textcolor{keywordtype}{void}\ OnAppearing()}
-\DoxyCodeLine{00116\ \ \ \ \ \{}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ base.OnAppearing();}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ kamien.TranslationX\ =\ 400;}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ kamien.TranslationY\ =\ 200;}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ jozio.TranslationX\ =\ 570;}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ jozio.TranslationY\ =\ 50;}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ OnPanUpdated(\textcolor{keywordtype}{object}\ sender,\ PanUpdatedEventArgs\ e)}
+\DoxyCodeLine{00119\ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Levels.Level\ ==\ 2\ ||\ Levels.Level\ ==\ 2.5)}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ var\ obrazek\ =\ sender\ as\ Image;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (obrazek\ ==\ \textcolor{keyword}{null})\ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{00124\ }
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ strzalka.TranslationX\ =\ 900;}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ strzalka.TranslationY\ =\ 195;}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ lisek.TranslationX\ =\ 700;}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ lisek.TranslationY\ =\ 300;}
-\DoxyCodeLine{00130\ \ \ \ \ \}}
-\DoxyCodeLine{00131\ }
-\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ MoveCharacter(Image\ character,\ \textcolor{keywordtype}{double}\ newX,\ \textcolor{keywordtype}{double}\ newY,\ \textcolor{keywordtype}{bool}\ checkCollision)}
-\DoxyCodeLine{00140\ \ \ \ \ \{}
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isNavigating)}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00143\ }
-\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (MainGrid.Width\ <=\ 0\ ||\ MainGrid.Height\ <=\ 0)}
-\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ character.TranslationX\ =\ newX;}
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ character.TranslationY\ =\ newY;}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ maxX\ =\ MainGrid.Width\ -\/\ character.Width;}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ maxY\ =\ MainGrid.Height\ -\/\ character.Height;}
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ newX\ =\ Math.Max(0,\ Math.Min(newX,\ maxX));}
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ newY\ =\ Math.Max(0,\ Math.Min(newY,\ maxY));}
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!checkCollision\ ||\ !await\ IsBlocked(newX,\ newY,\ character.Width,\ character.Height))}
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ character.TranslationX\ =\ newX;}
-\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ character.TranslationY\ =\ newY;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e.StatusType\ ==\ GestureStatus.Started)}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ startX\ =\ obrazek.TranslationX;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ startY\ =\ obrazek.TranslationY;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (e.StatusType\ ==\ GestureStatus.Running)}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ newX\ =\ startX\ +\ e.TotalX;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ newY\ =\ startY\ +\ e.TotalY;}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ MoveCharacter(obrazek,\ newX,\ newY,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{override}\ \textcolor{keywordtype}{void}\ OnAppearing()}
+\DoxyCodeLine{00145\ \ \ \ \ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ base.OnAppearing();}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(Levels.Level\ ==\ 2\ ||\ Levels.Level\ ==\ 2.5)}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ rozia.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ jozio.IsVisible\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ jozio.TranslationX\ =\ 570;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ jozio.TranslationY\ =\ 50;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ kamien.TranslationX\ =\ 400;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ kamien.TranslationY\ =\ 200;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ strzalka.IsVisible\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ strzalka.TranslationX\ =\ 900;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ strzalka.TranslationY\ =\ 195;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ lisek.TranslationX\ =\ 700;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ lisek.TranslationY\ =\ 300;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ polecenie.IsVisible\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00162\ \ \ \ \ \}}
-\DoxyCodeLine{00163\ }
-\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{private}\ async\ Task<bool>\ IsBlocked(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ width,\ \textcolor{keywordtype}{double}\ height)}
-\DoxyCodeLine{00176\ \ \ \ \ \{}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ Rect\ characterRect\ =\ \textcolor{keyword}{new}\ Rect(x,\ y,\ width,\ height);}
-\DoxyCodeLine{00178\ }
-\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ var\ river\ =\ \textcolor{keyword}{new}\ Rect(1250,\ 191,\ 20,\ 20);}
-\DoxyCodeLine{00181\ }
-\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (characterRect.IntersectsWith(river)\ \&\&\ !isNavigating)}
-\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ isNavigating\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00185\ }
-\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ lisek.IsAnimationPlaying\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00188\ }
-\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ await\ lisek.TranslateTo(1200,\ 191,\ 3000);}
-\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ await\ lisek.TranslateTo(1230,\ 191,\ 2000);}
-\DoxyCodeLine{00191\ }
-\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ lisek.IsAnimationPlaying\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ lisek.IsVisible\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00194\ }
-\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.Delay(1000);}
-\DoxyCodeLine{00197\ }
-\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Shell.Current.GoToAsync(nameof(Page1));}
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ area\ \textcolor{keywordflow}{in}\ blockedAreas)}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(Levels.Level\ <\ 2)}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ rozia.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ jozio.IsVisible\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ jozio.TranslationX\ =\ 570;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ jozio.TranslationY\ =\ 50;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ kamien.TranslationX\ =\ 400;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ kamien.TranslationY\ =\ 200;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ strzalka.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ lisek.TranslationX\ =\ 700;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ lisek.TranslationY\ =\ 300;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ polecenie.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(Levels.Level\ >\ 2.5)}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ jozio.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ rozia.IsVisible\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ rozia.TranslationX\ =\ 570;}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ rozia.TranslationY\ =\ 50;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ strzalka.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ kamien.TranslationX\ =\ 1000;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ kamien.TranslationY\ =\ 191;}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ lisek.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ polecenie.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ MoveCharacter(Image\ character,\ \textcolor{keywordtype}{double}\ newX,\ \textcolor{keywordtype}{double}\ newY,\ \textcolor{keywordtype}{bool}\ checkCollision)}
+\DoxyCodeLine{00199\ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isNavigating)}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (MainGrid.Width\ <=\ 0\ ||\ MainGrid.Height\ <=\ 0)}
 \DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (characterRect.IntersectsWith(area))}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00208\ }
-\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00210\ \ \ \ \ \}}
-\DoxyCodeLine{00211\ \}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ character.TranslationX\ =\ newX;}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ character.TranslationY\ =\ newY;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ maxX\ =\ MainGrid.Width\ -\/\ character.Width;}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ maxY\ =\ MainGrid.Height\ -\/\ character.Height;}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ newX\ =\ Math.Max(0,\ Math.Min(newX,\ maxX));}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ newY\ =\ Math.Max(0,\ Math.Min(newY,\ maxY));}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!checkCollision\ ||\ !await\ IsBlocked(newX,\ newY,\ character.Width,\ character.Height))}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Animate\ movement\ for\ smoother\ walking.\ Duration\ scales\ with\ distance.}}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dx\ =\ newX\ -\/\ character.TranslationX;}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dy\ =\ newY\ -\/\ character.TranslationY;}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dist\ =\ Math.Sqrt(dx\ *\ dx\ +\ dy\ *\ dy);}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ duration\ between\ 60ms\ and\ 350ms\ depending\ on\ distance}}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ uint\ duration\ =\ (uint)Math.Max(60,\ Math.Min(350,\ (\textcolor{keywordtype}{int})(dist\ *\ 4)));}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ character.TranslateTo(newX,\ newY,\ duration,\ Easing.CubicOut);}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ animation\ is\ canceled\ or\ fails,\ fallback\ to\ direct\ placement}}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ character.TranslationX\ =\ newX;}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ character.TranslationY\ =\ newY;}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{private}\ async\ Task<bool>\ IsBlocked(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ width,\ \textcolor{keywordtype}{double}\ height)}
+\DoxyCodeLine{00250\ \ \ \ \ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ Rect\ characterRect\ =\ \textcolor{keyword}{new}\ Rect(x,\ y,\ width,\ height);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ var\ river\ =\ \textcolor{keyword}{new}\ Rect(1250,\ 191,\ 20,\ 20);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ var\ door1\ =\ \textcolor{keyword}{new}\ Rect(570,\ 10,\ 10,\ 10);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (characterRect.IntersectsWith(river)\ \&\&\ !isNavigating)}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ isNavigating\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ lisek.IsAnimationPlaying\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ await\ lisek.TranslateTo(1200,\ y,\ 3000);}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ await\ lisek.TranslateTo(1230,\ y,\ 2000);}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ lisek.IsAnimationPlaying\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ lisek.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ Levels.Level\ =\ 3;}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.Delay(1000);}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Shell.Current.GoToAsync(nameof(Page1));}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (characterRect.IntersectsWith(door1)\ \&\&\ !isNavigating\ \&\&\ Levels.Level\ <\ 2)}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ isNavigating\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ Levels.Level\ =\ 1.5;}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Shell.Current.GoToAsync(nameof(Page1));}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (characterRect.IntersectsWith(door1)\ \&\&\ !isNavigating\ \&\&\ Levels.Level\ >=\ 3\ \&\&\ Levels.Level\ <=\ 3.8\ )}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ isNavigating\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ Levels.Level\ =\ 3.5;}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Shell.Current.GoToAsync(nameof(Page1));}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (characterRect.IntersectsWith(door1)\ \&\&\ !isNavigating\ \&\&\ Levels.Level\ >\ 3.8)}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ isNavigating\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ Levels.Level\ =\ 4.5;}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Shell.Current.GoToAsync(nameof(Page1));}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ area\ \textcolor{keywordflow}{in}\ blockedAreas)}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (characterRect.IntersectsWith(area))}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00311\ \ \ \ \ \}}
+\DoxyCodeLine{00312\ \}}
 
 \end{DoxyCode}

@@ -21,6 +21,28 @@ Inheritance diagram for gra\+\_\+rpg.\+Page3:\+\begin{figure}[H]
 \item 
 override void \textbf{ On\+Appearing} ()
 \begin{DoxyCompactList}\small\item\em Wywoływane przy pojawieniu się strony. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async void \textbf{ On\+Pan\+Updated} (object sender, Pan\+Updated\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa przeciągania obiektu. \end{DoxyCompactList}\item 
+async Task \textbf{ Move\+Character} (Image character, double newX, double newY, bool check\+Collision)
+\begin{DoxyCompactList}\small\item\em Przesuwa postać po ekranie. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \textbf{ Is\+Blocked} (double x, double y, double width, double height)
+\begin{DoxyCompactList}\small\item\em Sprawdza kolizję postaci z otoczeniem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ step} = 10
+\begin{DoxyCompactList}\small\item\em Krok ruchu postaci. \end{DoxyCompactList}\item 
+double \textbf{ startX}
+\begin{DoxyCompactList}\small\item\em Początkowa pozycja X przy przeciąganiu. \end{DoxyCompactList}\item 
+double \textbf{ startY}
+\begin{DoxyCompactList}\small\item\em Początkowa pozycja Y przy przeciąganiu. \end{DoxyCompactList}\item 
+bool \textbf{ is\+Navigating} = false
+\begin{DoxyCompactList}\small\item\em Flaga zapobiegająca wielokrotnej nawigacji. \end{DoxyCompactList}\item 
+List$<$ Rect $>$ \textbf{ blocked\+Areas} = new List$<$Rect$>$()
+\begin{DoxyCompactList}\small\item\em Lista obszarów kolizyjnych. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -28,7 +50,7 @@ Lokacja specjalna z animacją lisa.
 
 Strona umożliwia poruszanie postacią oraz interakcję z obiektem (rzeka), która uruchamia animację i przenosi gracza z powrotem do mapy głównej. 
 
-Definition at line \textbf{ 18} of file \textbf{ Page3.\+xaml.\+cs}.
+Definition at line \textbf{ 19} of file \textbf{ Page3.\+xaml.\+cs}.
 
 
 
@@ -46,12 +68,78 @@ Konstruktor strony.
 
 Inicjalizuje komponenty i przypisuje zdarzenia dla systemu Windows. 
 
-Definition at line \textbf{ 38} of file \textbf{ Page3.\+xaml.\+cs}.
+Definition at line \textbf{ 39} of file \textbf{ Page3.\+xaml.\+cs}.
 
 
 
 \label{doc-func-members}
 \doxysubsection{Member Function Documentation}
+\index{gra\_rpg.Page3@{gra\_rpg.Page3}!IsBlocked@{IsBlocked}}
+\index{IsBlocked@{IsBlocked}!gra\_rpg.Page3@{gra\_rpg.Page3}}
+\doxysubsubsection{IsBlocked()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page3_a08fca688ee37c7b174f7e322d2d720e4} 
+async Task$<$ bool $>$ gra\+\_\+rpg.\+Page3.\+Is\+Blocked (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{double}]{y}{, }\item[{double}]{width}{, }\item[{double}]{height}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Sprawdza kolizję postaci z otoczeniem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Pozycja X. \\
+\hline
+{\em y} & Pozycja Y. \\
+\hline
+{\em width} & Szerokość postaci. \\
+\hline
+{\em height} & Wysokość postaci. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True jeśli ruch jest zablokowany. @async
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item Wykrywa wejście do rzeki
+\item Uruchamia animację lisa
+\item Przenosi gracza do \doxyref{Page1}{p.}{classgra__rpg_1_1_page1} 
+\end{DoxyItemize}Obszar rzeki (trigger zdarzenia).
+
+Obszar wyjścia z lokacji.
+
+Uruchomienie animacji lisa.
+
+Opóźnienie przed zmianą sceny.
+
+Sprawdzanie standardowych kolizji.
+
+Definition at line \textbf{ 249} of file \textbf{ Page3.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page3@{gra\_rpg.Page3}!MoveCharacter@{MoveCharacter}}
+\index{MoveCharacter@{MoveCharacter}!gra\_rpg.Page3@{gra\_rpg.Page3}}
+\doxysubsubsection{MoveCharacter()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page3_aaf7f47ec09554c09af2bfc61cf1e7ecf} 
+async Task gra\+\_\+rpg.\+Page3.\+Move\+Character (\begin{DoxyParamCaption}\item[{Image}]{character}{, }\item[{double}]{newX}{, }\item[{double}]{newY}{, }\item[{bool}]{check\+Collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Przesuwa postać po ekranie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em character} & Obiekt postaci. \\
+\hline
+{\em newX} & Nowa pozycja X. \\
+\hline
+{\em newY} & Nowa pozycja Y. \\
+\hline
+{\em check\+Collision} & Czy sprawdzać kolizje. @async\\
+\hline
+\end{DoxyParams}
+Ogranicza ruch do granic ekranu i sprawdza kolizje. 
+
+Definition at line \textbf{ 198} of file \textbf{ Page3.\+xaml.\+cs}.
+
 \index{gra\_rpg.Page3@{gra\_rpg.Page3}!OnAppearing@{OnAppearing}}
 \index{OnAppearing@{OnAppearing}!gra\_rpg.Page3@{gra\_rpg.Page3}}
 \doxysubsubsection{OnAppearing()}
@@ -64,10 +152,105 @@ Wywoływane przy pojawieniu się strony.
 
 Ustawia początkowe pozycje elementów sceny (postać, lis, obiekty). 
 
-Definition at line \textbf{ 115} of file \textbf{ Page3.\+xaml.\+cs}.
+Definition at line \textbf{ 144} of file \textbf{ Page3.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page3@{gra\_rpg.Page3}!OnPanUpdated@{OnPanUpdated}}
+\index{OnPanUpdated@{OnPanUpdated}!gra\_rpg.Page3@{gra\_rpg.Page3}}
+\doxysubsubsection{OnPanUpdated()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page3_a7be65e54f4d1d98ed8231a34a618728a} 
+async void gra\+\_\+rpg.\+Page3.\+On\+Pan\+Updated (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Pan\+Updated\+Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Obsługa przeciągania obiektu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & Obiekt przeciągany (Image). \\
+\hline
+{\em e} & Dane gestu.\\
+\hline
+\end{DoxyParams}
+Pozwala użytkownikowi przesuwać postać myszką. 
+
+Definition at line \textbf{ 118} of file \textbf{ Page3.\+xaml.\+cs}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{gra\_rpg.Page3@{gra\_rpg.Page3}!blockedAreas@{blockedAreas}}
+\index{blockedAreas@{blockedAreas}!gra\_rpg.Page3@{gra\_rpg.Page3}}
+\doxysubsubsection{blockedAreas}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page3_ab8aa14d98d2e546740be523c36138e06} 
+List$<$Rect$>$ gra\+\_\+rpg.\+Page3.\+blocked\+Areas = new List$<$Rect$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lista obszarów kolizyjnych. 
+
+Obecnie pusta, ale przygotowana do rozbudowy. 
+
+Definition at line \textbf{ 35} of file \textbf{ Page3.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page3@{gra\_rpg.Page3}!isNavigating@{isNavigating}}
+\index{isNavigating@{isNavigating}!gra\_rpg.Page3@{gra\_rpg.Page3}}
+\doxysubsubsection{isNavigating}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page3_a970c4599ee8c85b46379a5a98d1f2f5f} 
+bool gra\+\_\+rpg.\+Page3.\+is\+Navigating = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flaga zapobiegająca wielokrotnej nawigacji. 
+
+
+
+Definition at line \textbf{ 31} of file \textbf{ Page3.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page3@{gra\_rpg.Page3}!startX@{startX}}
+\index{startX@{startX}!gra\_rpg.Page3@{gra\_rpg.Page3}}
+\doxysubsubsection{startX}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page3_a5ff31e0cb517f2b0bd8c27c11937c14d} 
+double gra\+\_\+rpg.\+Page3.\+startX\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Początkowa pozycja X przy przeciąganiu. 
+
+
+
+Definition at line \textbf{ 25} of file \textbf{ Page3.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page3@{gra\_rpg.Page3}!startY@{startY}}
+\index{startY@{startY}!gra\_rpg.Page3@{gra\_rpg.Page3}}
+\doxysubsubsection{startY}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page3_ace0f20dfab30b4884b5e55cdb7625e43} 
+double gra\+\_\+rpg.\+Page3.\+startY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Początkowa pozycja Y przy przeciąganiu. 
+
+
+
+Definition at line \textbf{ 28} of file \textbf{ Page3.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page3@{gra\_rpg.Page3}!step@{step}}
+\index{step@{step}!gra\_rpg.Page3@{gra\_rpg.Page3}}
+\doxysubsubsection{step}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page3_aff0e825d5ae4fe70fde6ddc493c4c20d} 
+double gra\+\_\+rpg.\+Page3.\+step = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Krok ruchu postaci. 
+
+
+
+Definition at line \textbf{ 22} of file \textbf{ Page3.\+xaml.\+cs}.
 
 
 
 The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-gra\+\_\+rpg-\/master/\+gra\+\_\+rpg/\+\textbf{ Page3.\+xaml.\+cs}\end{DoxyCompactItemize}
+\textbf{ Page3.\+xaml.\+cs}\end{DoxyCompactItemize}

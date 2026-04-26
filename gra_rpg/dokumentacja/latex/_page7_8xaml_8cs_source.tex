@@ -1,17 +1,17 @@
-\doxysection{Main\+Page.\+xaml.\+cs}
-\label{_main_page_8xaml_8cs_source}\textbf{ Go to the documentation of this file.}
+\doxysection{Page7.\+xaml.\+cs}
+\label{_page7_8xaml_8cs_source}\textbf{ Go to the documentation of this file.}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{keyword}{namespace\ }gra\_rpg;}
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{keyword}{using\ }Plugin.Maui.Audio;}
 \DoxyCodeLine{00004\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }MainPage\ :\ ContentPage}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }Page7\ :\ ContentPage}
 \DoxyCodeLine{00010\ \{}
 \DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ ishovered\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{00013\ }
 \DoxyCodeLine{00015\ \ \ \ \ IAudioPlayer?\ player;}
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}\ MainPage()}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}\ Page7()}
 \DoxyCodeLine{00020\ \ \ \ \ \{}
 \DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ InitializeComponent();}
 \DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ PlayMusic();}
@@ -48,10 +48,11 @@
 \DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ await\ newGameButton.ScaleTo(1.0,\ 120,\ Easing.CubicIn);}
 \DoxyCodeLine{00069\ \ \ \ \ \}}
 \DoxyCodeLine{00070\ }
-\DoxyCodeLine{00076\ \ \ \ \ async\ \textcolor{keywordtype}{void}\ OnNewGameClicked(\textcolor{keywordtype}{object}\ sender,\ EventArgs\ e)}
+\DoxyCodeLine{00076\ \ \ \ \ async\ \textcolor{keywordtype}{void}\ newGameButton\_Clicked(\textcolor{keywordtype}{object}\ sender,\ EventArgs\ e)}
 \DoxyCodeLine{00077\ \ \ \ \ \{}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ await\ Shell.Current.GoToAsync(nameof(Page1));}
-\DoxyCodeLine{00079\ \ \ \ \ \}}
-\DoxyCodeLine{00080\ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ Levels.Level\ =\ 1;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ await\ Shell.Current.GoToAsync(nameof(Page1));}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \}}
 
 \end{DoxyCode}

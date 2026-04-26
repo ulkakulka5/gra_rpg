@@ -2,7 +2,7 @@
 \label{classgra__rpg_1_1_page2}\index{gra\_rpg.Page2@{gra\_rpg.Page2}}
 
 
-Scena ze skrzyni� i zagadk�.  
+Scena ze skrzynią i zagadką.  
 
 
 Inheritance diagram for gra\+\_\+rpg.\+Page2:\+\begin{figure}[H]
@@ -20,13 +20,33 @@ Inheritance diagram for gra\+\_\+rpg.\+Page2:\+\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 override void \textbf{ On\+Appearing} ()
-\begin{DoxyCompactList}\small\item\em Wywo�ywane przy pojawieniu si� strony. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Wywoływane przy pojawieniu się strony. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Code\+Entry1\+\_\+\+Text\+Changed} (object sender, Text\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa zmiany pierwszego pola kodu. \end{DoxyCompactList}\item 
+void \textbf{ Code\+Entry2\+\_\+\+Text\+Changed} (object sender, Text\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa zmiany drugiego pola kodu. \end{DoxyCompactList}\item 
+async void \textbf{ Code\+Entry3\+\_\+\+Text\+Changed} (object sender, Text\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa trzeciego pola kodu. \end{DoxyCompactList}\item 
+async void \textbf{ On\+Bread\+Clicked} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa kliknięcia chleba (loot). @async. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ step} = 10
+\begin{DoxyCompactList}\small\item\em Krok ruchu. \end{DoxyCompactList}\item 
+bool \textbf{ is\+Navigating} = false
+\begin{DoxyCompactList}\small\item\em Flaga nawigacji. \end{DoxyCompactList}\item 
+IAudio\+Player? \textbf{ player}
+\begin{DoxyCompactList}\small\item\em Odtwarzacz audio. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Scena ze skrzyni� i zagadk�. 
+Scena ze skrzynią i zagadką. 
 
-Gracz mo�e otworzy� skrzyni� wpisuj�c poprawny kod. 
+Gracz może otworzyć skrzynię wpisując poprawny kod. 
 
 Definition at line \textbf{ 25} of file \textbf{ Page2.\+xaml.\+cs}.
 
@@ -52,6 +72,50 @@ Definition at line \textbf{ 37} of file \textbf{ Page2.\+xaml.\+cs}.
 
 \label{doc-func-members}
 \doxysubsection{Member Function Documentation}
+\index{gra\_rpg.Page2@{gra\_rpg.Page2}!CodeEntry1\_TextChanged@{CodeEntry1\_TextChanged}}
+\index{CodeEntry1\_TextChanged@{CodeEntry1\_TextChanged}!gra\_rpg.Page2@{gra\_rpg.Page2}}
+\doxysubsubsection{CodeEntry1\_TextChanged()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page2_a0ac925aed2452bdcbbf394159a8f98ba} 
+void gra\+\_\+rpg.\+Page2.\+Code\+Entry1\+\_\+\+Text\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Text\+Changed\+Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Obsługa zmiany pierwszego pola kodu. 
+
+
+
+Definition at line \textbf{ 145} of file \textbf{ Page2.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page2@{gra\_rpg.Page2}!CodeEntry2\_TextChanged@{CodeEntry2\_TextChanged}}
+\index{CodeEntry2\_TextChanged@{CodeEntry2\_TextChanged}!gra\_rpg.Page2@{gra\_rpg.Page2}}
+\doxysubsubsection{CodeEntry2\_TextChanged()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page2_a70b447dcd553910703c9a6a69fa13278} 
+void gra\+\_\+rpg.\+Page2.\+Code\+Entry2\+\_\+\+Text\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Text\+Changed\+Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Obsługa zmiany drugiego pola kodu. 
+
+
+
+Definition at line \textbf{ 154} of file \textbf{ Page2.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page2@{gra\_rpg.Page2}!CodeEntry3\_TextChanged@{CodeEntry3\_TextChanged}}
+\index{CodeEntry3\_TextChanged@{CodeEntry3\_TextChanged}!gra\_rpg.Page2@{gra\_rpg.Page2}}
+\doxysubsubsection{CodeEntry3\_TextChanged()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page2_a93cecf76777beec00f014e5ce72ab367} 
+async void gra\+\_\+rpg.\+Page2.\+Code\+Entry3\+\_\+\+Text\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Text\+Changed\+Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Obsługa trzeciego pola kodu. 
+
+Sprawdza poprawność kodu (158). @async Odtwarza dźwięk sukcesu.
+
+Odtwarza dźwięk błędu.
+
+Definition at line \textbf{ 165} of file \textbf{ Page2.\+xaml.\+cs}.
+
 \index{gra\_rpg.Page2@{gra\_rpg.Page2}!OnAppearing@{OnAppearing}}
 \index{OnAppearing@{OnAppearing}!gra\_rpg.Page2@{gra\_rpg.Page2}}
 \doxysubsubsection{OnAppearing()}
@@ -60,14 +124,74 @@ override void gra\+\_\+rpg.\+Page2.\+On\+Appearing (\begin{DoxyParamCaption}{}{}
 
 
 
-Wywo�ywane przy pojawieniu si� strony. 
+Wywoływane przy pojawieniu się strony. 
 
-Ustawia pozycje element�w UI. 
+Ustawia pozycje elementów UI. 
 
 Definition at line \textbf{ 112} of file \textbf{ Page2.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page2@{gra\_rpg.Page2}!OnBreadClicked@{OnBreadClicked}}
+\index{OnBreadClicked@{OnBreadClicked}!gra\_rpg.Page2@{gra\_rpg.Page2}}
+\doxysubsubsection{OnBreadClicked()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page2_a4dacea74a0704def5f3cc45e51f29e0c} 
+async void gra\+\_\+rpg.\+Page2.\+On\+Bread\+Clicked (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Obsługa kliknięcia chleba (loot). @async. 
+
+Dodaje przedmiot do ekwipunku i wraca do mapy. 
+
+Definition at line \textbf{ 227} of file \textbf{ Page2.\+xaml.\+cs}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{gra\_rpg.Page2@{gra\_rpg.Page2}!isNavigating@{isNavigating}}
+\index{isNavigating@{isNavigating}!gra\_rpg.Page2@{gra\_rpg.Page2}}
+\doxysubsubsection{isNavigating}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page2_ac645561c36668fa0b8715a228e64d46a} 
+bool gra\+\_\+rpg.\+Page2.\+is\+Navigating = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flaga nawigacji. 
+
+
+
+Definition at line \textbf{ 31} of file \textbf{ Page2.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page2@{gra\_rpg.Page2}!player@{player}}
+\index{player@{player}!gra\_rpg.Page2@{gra\_rpg.Page2}}
+\doxysubsubsection{player}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page2_a025c4366144ea4d55008be9aa2f4b6c2} 
+IAudio\+Player? gra\+\_\+rpg.\+Page2.\+player\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Odtwarzacz audio. 
+
+
+
+Definition at line \textbf{ 34} of file \textbf{ Page2.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page2@{gra\_rpg.Page2}!step@{step}}
+\index{step@{step}!gra\_rpg.Page2@{gra\_rpg.Page2}}
+\doxysubsubsection{step}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page2_acd854cf68d19688f3726331900d74fa5} 
+double gra\+\_\+rpg.\+Page2.\+step = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Krok ruchu. 
+
+
+
+Definition at line \textbf{ 28} of file \textbf{ Page2.\+xaml.\+cs}.
 
 
 
 The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-gra\+\_\+rpg-\/master/\+gra\+\_\+rpg/\+\textbf{ Page2.\+xaml.\+cs}\end{DoxyCompactItemize}
+\textbf{ Page2.\+xaml.\+cs}\end{DoxyCompactItemize}

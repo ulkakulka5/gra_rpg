@@ -1,0 +1,70 @@
+\doxysection{Page6.\+xaml.\+cs}
+\label{_page6_8xaml_8cs_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{using\ }Plugin.Maui.Audio;}
+\DoxyCodeLine{00002\ \textcolor{keyword}{namespace\ }gra\_rpg;}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }Page6\ :\ ContentPage}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ nutki\ =\ 0;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00015\ \ \ \ \ List<IAudioPlayer>\ players\ =\ \textcolor{keyword}{new}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}\ Page6()}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ InitializeComponent();}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ LoadSounds();}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ nutka1\_Clicked(\textcolor{keywordtype}{object}\ sender,\ EventArgs\ e)}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ var\ btn\ =\ sender\ as\ ImageButton;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (btn\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ btn.IsVisible\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ nutki++;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nutki\ <=\ players.Count)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ p\ \textcolor{keywordflow}{in}\ players)}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p.IsPlaying)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p.Stop();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ players[nutki\ -\/\ 1].Play();}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nutki\ ==\ players.Count)}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ cutscenka.IsVisible\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ Levels.Level\ =\ 5;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ cutscenka.Source\ =\ \textcolor{stringliteral}{"{}cutscenka.mp4"{}};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.Delay(10000);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Shell.Current.GoToAsync(nameof(Page7));}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Shell.Current.GoToAsync(nameof(Page7));}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \ \ \ \ async\ \textcolor{keywordtype}{void}\ LoadSounds()}
+\DoxyCodeLine{00065\ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ var\ audioManager\ =\ AudioManager.Current;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}[]\ files\ =}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}C.mp3"{}},\textcolor{stringliteral}{"{}C.mp3"{}},\textcolor{stringliteral}{"{}G.mp3"{}},\textcolor{stringliteral}{"{}G.mp3"{}},}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}A.mp3"{}},\textcolor{stringliteral}{"{}A.mp3"{}},\textcolor{stringliteral}{"{}G.mp3"{}},}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}F.mp3"{}},\textcolor{stringliteral}{"{}F.mp3"{}},\textcolor{stringliteral}{"{}E.mp3"{}},\textcolor{stringliteral}{"{}E.mp3"{}},}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}D.mp3"{}},\textcolor{stringliteral}{"{}D.mp3"{}},\textcolor{stringliteral}{"{}C.mp3"{}}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ file\ \textcolor{keywordflow}{in}\ files)}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ var\ stream\ =\ await\ FileSystem.OpenAppPackageFileAsync(file);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ var\ p\ =\ audioManager.CreatePlayer(stream);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ p.Loop\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ players.Add(p);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}

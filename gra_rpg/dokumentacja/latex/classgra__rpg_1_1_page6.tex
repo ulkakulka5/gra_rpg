@@ -1,0 +1,135 @@
+\doxysection{gra\+\_\+rpg.\+Page6 Class Reference}
+\label{classgra__rpg_1_1_page6}\index{gra\_rpg.Page6@{gra\_rpg.Page6}}
+
+
+Strona mini-\/gry polegającej na zbieraniu i odtwarzaniu nutek.  
+
+
+Inheritance diagram for gra\+\_\+rpg.\+Page6:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgra__rpg_1_1_page6}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Page6} ()
+\begin{DoxyCompactList}\small\item\em Konstruktor strony, inicjalizuje komponenty i ładuje dźwięki. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async void \textbf{ nutka1\+\_\+\+Clicked} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługuje kliknięcie nutki przez użytkownika. \end{DoxyCompactList}\item 
+async void \textbf{ Load\+Sounds} ()
+\begin{DoxyCompactList}\small\item\em Ładuje pliki dźwiękowe i tworzy odtwarzacze @async. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ nutki} = 0
+\begin{DoxyCompactList}\small\item\em Licznik zebranych nutek. \end{DoxyCompactList}\item 
+List$<$ IAudio\+Player $>$ \textbf{ players} = new()
+\begin{DoxyCompactList}\small\item\em Lista odtwarzaczy dźwięków dla nut. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Strona mini-\/gry polegającej na zbieraniu i odtwarzaniu nutek. 
+
+Gracz klika kolejne nutki, które odtwarzają fragmenty melodii. Po zebraniu wszystkich nut uruchamiana jest cutscenka, a następnie następuje przejście do kolejnego poziomu gry. 
+
+Definition at line \textbf{ 9} of file \textbf{ Page6.\+xaml.\+cs}.
+
+
+
+\label{doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{gra\_rpg.Page6@{gra\_rpg.Page6}!Page6@{Page6}}
+\index{Page6@{Page6}!gra\_rpg.Page6@{gra\_rpg.Page6}}
+\doxysubsubsection{Page6()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page6_a8a1bcc239001d9c0f685142f13ddcf4b} 
+gra\+\_\+rpg.\+Page6.\+Page6 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Konstruktor strony, inicjalizuje komponenty i ładuje dźwięki. 
+
+
+
+Definition at line \textbf{ 18} of file \textbf{ Page6.\+xaml.\+cs}.
+
+
+
+\label{doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{gra\_rpg.Page6@{gra\_rpg.Page6}!LoadSounds@{LoadSounds}}
+\index{LoadSounds@{LoadSounds}!gra\_rpg.Page6@{gra\_rpg.Page6}}
+\doxysubsubsection{LoadSounds()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page6_aa8614a1dc1d7a26637f98fd6adf0a504} 
+async void gra\+\_\+rpg.\+Page6.\+Load\+Sounds (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Ładuje pliki dźwiękowe i tworzy odtwarzacze @async. 
+
+Wczytuje pliki audio z zasobów aplikacji i przypisuje je do listy odtwarzaczy. 
+
+Definition at line \textbf{ 64} of file \textbf{ Page6.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page6@{gra\_rpg.Page6}!nutka1\_Clicked@{nutka1\_Clicked}}
+\index{nutka1\_Clicked@{nutka1\_Clicked}!gra\_rpg.Page6@{gra\_rpg.Page6}}
+\doxysubsubsection{nutka1\_Clicked()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page6_a2338e25eaedceaa9c4e74b9df080ac9f} 
+async void gra\+\_\+rpg.\+Page6.\+nutka1\+\_\+\+Clicked (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Obsługuje kliknięcie nutki przez użytkownika. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & Źródło zdarzenia (kliknięty przycisk) \\
+\hline
+{\em e} & Argumenty zdarzenia @async\\
+\hline
+\end{DoxyParams}
+Ukrywa klikniętą nutkę, zwiększa licznik, odtwarza odpowiedni dźwięk oraz po zebraniu wszystkich nut uruchamia cutscenkę i przechodzi do kolejnej strony. 
+
+Definition at line \textbf{ 31} of file \textbf{ Page6.\+xaml.\+cs}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{gra\_rpg.Page6@{gra\_rpg.Page6}!nutki@{nutki}}
+\index{nutki@{nutki}!gra\_rpg.Page6@{gra\_rpg.Page6}}
+\doxysubsubsection{nutki}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page6_ad2bd91899e7af1e559b8b5e4a7d22c79} 
+int gra\+\_\+rpg.\+Page6.\+nutki = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Licznik zebranych nutek. 
+
+
+
+Definition at line \textbf{ 12} of file \textbf{ Page6.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page6@{gra\_rpg.Page6}!players@{players}}
+\index{players@{players}!gra\_rpg.Page6@{gra\_rpg.Page6}}
+\doxysubsubsection{players}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page6_a4bd7ca7eb832ae331829559e370e15f0} 
+List$<$IAudio\+Player$>$ gra\+\_\+rpg.\+Page6.\+players = new()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lista odtwarzaczy dźwięków dla nut. 
+
+
+
+Definition at line \textbf{ 15} of file \textbf{ Page6.\+xaml.\+cs}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Page6.\+xaml.\+cs}\end{DoxyCompactItemize}

@@ -21,6 +21,38 @@ Inheritance diagram for gra\+\_\+rpg.\+Page5:\+\begin{figure}[H]
 \item 
 override void \textbf{ On\+Appearing} ()
 \begin{DoxyCompactList}\small\item\em Wywoływane przy pojawieniu się strony. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async void \textbf{ On\+Pan\+Updated} (object sender, Pan\+Updated\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Obsługa przeciągania postaci. \end{DoxyCompactList}\item 
+async Task \textbf{ Move\+Character} (Image character, double newX, double newY, bool check\+Collision)
+\begin{DoxyCompactList}\small\item\em Przesuwa postać po labiryncie. \end{DoxyCompactList}\item 
+async void \textbf{ Check\+Mirror\+Collection} ()
+\begin{DoxyCompactList}\small\item\em Sprawdza zbieranie luster. @async. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \textbf{ Is\+Blocked} (double x, double y, double width, double height)
+\begin{DoxyCompactList}\small\item\em Sprawdza kolizje ze ścianami. \end{DoxyCompactList}\item 
+async void \textbf{ Play} ()
+\begin{DoxyCompactList}\small\item\em Odtwarza dźwięk zebrania lustra. @async. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ step} = 10
+\begin{DoxyCompactList}\small\item\em Krok ruchu postaci. \end{DoxyCompactList}\item 
+double \textbf{ startX}
+\begin{DoxyCompactList}\small\item\em Początkowa pozycja X przy przeciąganiu. \end{DoxyCompactList}\item 
+double \textbf{ startY}
+\begin{DoxyCompactList}\small\item\em Początkowa pozycja Y przy przeciąganiu. \end{DoxyCompactList}\item 
+bool \textbf{ is\+Navigating} = false
+\begin{DoxyCompactList}\small\item\em Flaga zapobiegająca wielokrotnej nawigacji. \end{DoxyCompactList}\item 
+IAudio\+Player? \textbf{ player}
+\begin{DoxyCompactList}\small\item\em Odtwarzacz audio dla efektów dźwiękowych. \end{DoxyCompactList}\item 
+int \textbf{ collected\+Mirrors} = 0
+\begin{DoxyCompactList}\small\item\em Liczba zebranych luster. \end{DoxyCompactList}\item 
+List$<$ Image $>$ \textbf{ active\+Mirrors} = new List$<$Image$>$()
+\begin{DoxyCompactList}\small\item\em Lista aktywnych luster na mapie. \end{DoxyCompactList}\item 
+List$<$ Rect $>$ \textbf{ blocked\+Areas} = new List$<$Rect$>$()
+\begin{DoxyCompactList}\small\item\em Lista obszarów kolizyjnych (ściany labiryntu). \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -56,6 +88,81 @@ Definition at line \textbf{ 48} of file \textbf{ Page5.\+xaml.\+cs}.
 
 \label{doc-func-members}
 \doxysubsection{Member Function Documentation}
+\index{gra\_rpg.Page5@{gra\_rpg.Page5}!CheckMirrorCollection@{CheckMirrorCollection}}
+\index{CheckMirrorCollection@{CheckMirrorCollection}!gra\_rpg.Page5@{gra\_rpg.Page5}}
+\doxysubsubsection{CheckMirrorCollection()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page5_a71d6ef98afdf78c8741dea4be1f6fe0d} 
+async void gra\+\_\+rpg.\+Page5.\+Check\+Mirror\+Collection (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Sprawdza zbieranie luster. @async. 
+
+
+\begin{DoxyItemize}
+\item wykrywa kolizję z lustrem
+\item odtwarza dźwięk
+\item aktualizuje licznik
+\item kończy poziom po zebraniu wszystkich 
+\end{DoxyItemize}Aktualizacja UI licznika.
+
+Warunek ukończenia poziomu.
+
+Definition at line \textbf{ 253} of file \textbf{ Page5.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page5@{gra\_rpg.Page5}!IsBlocked@{IsBlocked}}
+\index{IsBlocked@{IsBlocked}!gra\_rpg.Page5@{gra\_rpg.Page5}}
+\doxysubsubsection{IsBlocked()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page5_aa4ce05d38f2e179b0226193d777e8e9f} 
+async Task$<$ bool $>$ gra\+\_\+rpg.\+Page5.\+Is\+Blocked (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{double}]{y}{, }\item[{double}]{width}{, }\item[{double}]{height}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Sprawdza kolizje ze ścianami. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Pozycja X. \\
+\hline
+{\em y} & Pozycja Y. \\
+\hline
+{\em width} & Szerokość postaci. \\
+\hline
+{\em height} & Wysokość postaci. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True jeśli ruch zablokowany. @async 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 294} of file \textbf{ Page5.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page5@{gra\_rpg.Page5}!MoveCharacter@{MoveCharacter}}
+\index{MoveCharacter@{MoveCharacter}!gra\_rpg.Page5@{gra\_rpg.Page5}}
+\doxysubsubsection{MoveCharacter()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page5_a477056bbcfdec3a302b7fcb1185cbf38} 
+async Task gra\+\_\+rpg.\+Page5.\+Move\+Character (\begin{DoxyParamCaption}\item[{Image}]{character}{, }\item[{double}]{newX}{, }\item[{double}]{newY}{, }\item[{bool}]{check\+Collision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Przesuwa postać po labiryncie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em character} & Postać. \\
+\hline
+{\em newX} & Nowa pozycja X. \\
+\hline
+{\em newY} & Nowa pozycja Y. \\
+\hline
+{\em check\+Collision} & Czy sprawdzać kolizje. @async\\
+\hline
+\end{DoxyParams}
+Sprawdza granice mapy oraz kolizje. 
+
+Definition at line \textbf{ 203} of file \textbf{ Page5.\+xaml.\+cs}.
+
 \index{gra\_rpg.Page5@{gra\_rpg.Page5}!OnAppearing@{OnAppearing}}
 \index{OnAppearing@{OnAppearing}!gra\_rpg.Page5@{gra\_rpg.Page5}}
 \doxysubsubsection{OnAppearing()}
@@ -68,10 +175,161 @@ Wywoływane przy pojawieniu się strony.
 
 Ustawia początkową pozycję gracza. 
 
-Definition at line \textbf{ 136} of file \textbf{ Page5.\+xaml.\+cs}.
+Definition at line \textbf{ 188} of file \textbf{ Page5.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page5@{gra\_rpg.Page5}!OnPanUpdated@{OnPanUpdated}}
+\index{OnPanUpdated@{OnPanUpdated}!gra\_rpg.Page5@{gra\_rpg.Page5}}
+\doxysubsubsection{OnPanUpdated()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page5_a9b5ae60324c9685d34ccb4fbf432814c} 
+async void gra\+\_\+rpg.\+Page5.\+On\+Pan\+Updated (\begin{DoxyParamCaption}\item[{object}]{sender}{, }\item[{Pan\+Updated\+Event\+Args}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Obsługa przeciągania postaci. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & Obiekt przeciągany. \\
+\hline
+{\em e} & Dane gestu.\\
+\hline
+\end{DoxyParams}
+Pozwala poruszać postać myszką (bez kolizji). 
+
+Definition at line \textbf{ 167} of file \textbf{ Page5.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page5@{gra\_rpg.Page5}!Play@{Play}}
+\index{Play@{Play}!gra\_rpg.Page5@{gra\_rpg.Page5}}
+\doxysubsubsection{Play()}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page5_a440d0b6eba7d21e4f519fc05135dc7a4} 
+async void gra\+\_\+rpg.\+Page5.\+Play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Odtwarza dźwięk zebrania lustra. @async. 
+
+Ładuje plik "{}mirror.\+mp3"{} i odtwarza efekt. 
+
+Definition at line \textbf{ 310} of file \textbf{ Page5.\+xaml.\+cs}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{gra\_rpg.Page5@{gra\_rpg.Page5}!activeMirrors@{activeMirrors}}
+\index{activeMirrors@{activeMirrors}!gra\_rpg.Page5@{gra\_rpg.Page5}}
+\doxysubsubsection{activeMirrors}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page5_a9faaea9755cf04e8c88128874cc74ee0} 
+List$<$Image$>$ gra\+\_\+rpg.\+Page5.\+active\+Mirrors = new List$<$Image$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lista aktywnych luster na mapie. 
+
+
+
+Definition at line \textbf{ 41} of file \textbf{ Page5.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page5@{gra\_rpg.Page5}!blockedAreas@{blockedAreas}}
+\index{blockedAreas@{blockedAreas}!gra\_rpg.Page5@{gra\_rpg.Page5}}
+\doxysubsubsection{blockedAreas}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page5_ad05f42fd4e5751b856a7ede3c1f0ba35} 
+List$<$Rect$>$ gra\+\_\+rpg.\+Page5.\+blocked\+Areas = new List$<$Rect$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lista obszarów kolizyjnych (ściany labiryntu). 
+
+
+
+Definition at line \textbf{ 44} of file \textbf{ Page5.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page5@{gra\_rpg.Page5}!collectedMirrors@{collectedMirrors}}
+\index{collectedMirrors@{collectedMirrors}!gra\_rpg.Page5@{gra\_rpg.Page5}}
+\doxysubsubsection{collectedMirrors}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page5_afa2d68421e82d0d3d10cde0163cfb0e8} 
+int gra\+\_\+rpg.\+Page5.\+collected\+Mirrors = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Liczba zebranych luster. 
+
+
+
+Definition at line \textbf{ 38} of file \textbf{ Page5.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page5@{gra\_rpg.Page5}!isNavigating@{isNavigating}}
+\index{isNavigating@{isNavigating}!gra\_rpg.Page5@{gra\_rpg.Page5}}
+\doxysubsubsection{isNavigating}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page5_aa91942fce0150b46a9286a1da1dc8115} 
+bool gra\+\_\+rpg.\+Page5.\+is\+Navigating = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flaga zapobiegająca wielokrotnej nawigacji. 
+
+
+
+Definition at line \textbf{ 32} of file \textbf{ Page5.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page5@{gra\_rpg.Page5}!player@{player}}
+\index{player@{player}!gra\_rpg.Page5@{gra\_rpg.Page5}}
+\doxysubsubsection{player}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page5_aa5f759197a67206a7955fc6fe8e72297} 
+IAudio\+Player? gra\+\_\+rpg.\+Page5.\+player\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Odtwarzacz audio dla efektów dźwiękowych. 
+
+
+
+Definition at line \textbf{ 35} of file \textbf{ Page5.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page5@{gra\_rpg.Page5}!startX@{startX}}
+\index{startX@{startX}!gra\_rpg.Page5@{gra\_rpg.Page5}}
+\doxysubsubsection{startX}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page5_a661c964c087d91035b21761a386a32ea} 
+double gra\+\_\+rpg.\+Page5.\+startX\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Początkowa pozycja X przy przeciąganiu. 
+
+
+
+Definition at line \textbf{ 26} of file \textbf{ Page5.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page5@{gra\_rpg.Page5}!startY@{startY}}
+\index{startY@{startY}!gra\_rpg.Page5@{gra\_rpg.Page5}}
+\doxysubsubsection{startY}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page5_adf1634fb472a2de1d9f20a1aea9b7b05} 
+double gra\+\_\+rpg.\+Page5.\+startY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Początkowa pozycja Y przy przeciąganiu. 
+
+
+
+Definition at line \textbf{ 29} of file \textbf{ Page5.\+xaml.\+cs}.
+
+\index{gra\_rpg.Page5@{gra\_rpg.Page5}!step@{step}}
+\index{step@{step}!gra\_rpg.Page5@{gra\_rpg.Page5}}
+\doxysubsubsection{step}
+{\footnotesize\ttfamily \label{classgra__rpg_1_1_page5_a9da8963ede91163e6d943cb0af218b62} 
+double gra\+\_\+rpg.\+Page5.\+step = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Krok ruchu postaci. 
+
+
+
+Definition at line \textbf{ 23} of file \textbf{ Page5.\+xaml.\+cs}.
 
 
 
 The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-gra\+\_\+rpg-\/master/\+gra\+\_\+rpg/\+\textbf{ Page5.\+xaml.\+cs}\end{DoxyCompactItemize}
+\textbf{ Page5.\+xaml.\+cs}\end{DoxyCompactItemize}
