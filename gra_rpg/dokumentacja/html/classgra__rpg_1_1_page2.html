@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>GraRPG2: gra_rpg.Page2 Class Reference</title>
+<title>GraRPG: gra_rpg.Page2 Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">GraRPG2
+   <div id="projectname">GraRPG
    </div>
   </td>
  </tr>
@@ -78,12 +78,14 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classgra__rpg_1_1_page2-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">gra_rpg.Page2 Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Scena ze skrzyni� i zagadk�.  
+<p>Scena ze skrzynią i zagadką.  
  <a href="#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for gra_rpg.Page2:</div>
@@ -100,11 +102,31 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:af17a7c96455a0358dc5047c80b545381" id="r_af17a7c96455a0358dc5047c80b545381"><td class="memItemLeft">override void&#160;</td><td class="memItemRight"><a class="el" href="#af17a7c96455a0358dc5047c80b545381">OnAppearing</a> ()</td></tr>
-<tr class="memdesc:af17a7c96455a0358dc5047c80b545381"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wywo�ywane przy pojawieniu si� strony.  <br /></td></tr>
+<tr class="memdesc:af17a7c96455a0358dc5047c80b545381"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wywoływane przy pojawieniu się strony.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a0ac925aed2452bdcbbf394159a8f98ba" id="r_a0ac925aed2452bdcbbf394159a8f98ba"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0ac925aed2452bdcbbf394159a8f98ba">CodeEntry1_TextChanged</a> (object sender, TextChangedEventArgs e)</td></tr>
+<tr class="memdesc:a0ac925aed2452bdcbbf394159a8f98ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obsługa zmiany pierwszego pola kodu.  <br /></td></tr>
+<tr class="memitem:a70b447dcd553910703c9a6a69fa13278" id="r_a70b447dcd553910703c9a6a69fa13278"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a70b447dcd553910703c9a6a69fa13278">CodeEntry2_TextChanged</a> (object sender, TextChangedEventArgs e)</td></tr>
+<tr class="memdesc:a70b447dcd553910703c9a6a69fa13278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obsługa zmiany drugiego pola kodu.  <br /></td></tr>
+<tr class="memitem:a93cecf76777beec00f014e5ce72ab367" id="r_a93cecf76777beec00f014e5ce72ab367"><td class="memItemLeft">async void&#160;</td><td class="memItemRight"><a class="el" href="#a93cecf76777beec00f014e5ce72ab367">CodeEntry3_TextChanged</a> (object sender, TextChangedEventArgs e)</td></tr>
+<tr class="memdesc:a93cecf76777beec00f014e5ce72ab367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obsługa trzeciego pola kodu.  <br /></td></tr>
+<tr class="memitem:a4dacea74a0704def5f3cc45e51f29e0c" id="r_a4dacea74a0704def5f3cc45e51f29e0c"><td class="memItemLeft">async void&#160;</td><td class="memItemRight"><a class="el" href="#a4dacea74a0704def5f3cc45e51f29e0c">OnBreadClicked</a> (object sender, EventArgs e)</td></tr>
+<tr class="memdesc:a4dacea74a0704def5f3cc45e51f29e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obsługa kliknięcia chleba (loot). @async.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:acd854cf68d19688f3726331900d74fa5" id="r_acd854cf68d19688f3726331900d74fa5"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#acd854cf68d19688f3726331900d74fa5">step</a> = 10</td></tr>
+<tr class="memdesc:acd854cf68d19688f3726331900d74fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Krok ruchu.  <br /></td></tr>
+<tr class="memitem:ac645561c36668fa0b8715a228e64d46a" id="r_ac645561c36668fa0b8715a228e64d46a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac645561c36668fa0b8715a228e64d46a">isNavigating</a> = false</td></tr>
+<tr class="memdesc:ac645561c36668fa0b8715a228e64d46a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flaga nawigacji.  <br /></td></tr>
+<tr class="memitem:a025c4366144ea4d55008be9aa2f4b6c2" id="r_a025c4366144ea4d55008be9aa2f4b6c2"><td class="memItemLeft">IAudioPlayer?&#160;</td><td class="memItemRight"><a class="el" href="#a025c4366144ea4d55008be9aa2f4b6c2">player</a></td></tr>
+<tr class="memdesc:a025c4366144ea4d55008be9aa2f4b6c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Odtwarzacz audio.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Scena ze skrzyni� i zagadk�. </p>
-<p>Gracz mo�e otworzy� skrzyni� wpisuj�c poprawny kod. </p>
+<div class="textblock"><p>Scena ze skrzynią i zagadką. </p>
+<p>Gracz może otworzyć skrzynię wpisując poprawny kod. </p>
 
 <p class="definition">Definition at line <a class="el" href="_page2_8xaml_8cs_source.html#l00025">25</a> of file <a class="el" href="_page2_8xaml_8cs_source.html">Page2.xaml.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -138,6 +160,108 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a0ac925aed2452bdcbbf394159a8f98ba" name="a0ac925aed2452bdcbbf394159a8f98ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ac925aed2452bdcbbf394159a8f98ba">&#9670;&#160;</a></span>CodeEntry1_TextChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gra_rpg.Page2.CodeEntry1_TextChanged </td>
+          <td>(</td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>sender</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TextChangedEventArgs</td>          <td class="paramname"><span class="paramname"><em>e</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obsługa zmiany pierwszego pola kodu. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page2_8xaml_8cs_source.html#l00145">145</a> of file <a class="el" href="_page2_8xaml_8cs_source.html">Page2.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a id="a70b447dcd553910703c9a6a69fa13278" name="a70b447dcd553910703c9a6a69fa13278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70b447dcd553910703c9a6a69fa13278">&#9670;&#160;</a></span>CodeEntry2_TextChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gra_rpg.Page2.CodeEntry2_TextChanged </td>
+          <td>(</td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>sender</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TextChangedEventArgs</td>          <td class="paramname"><span class="paramname"><em>e</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obsługa zmiany drugiego pola kodu. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page2_8xaml_8cs_source.html#l00154">154</a> of file <a class="el" href="_page2_8xaml_8cs_source.html">Page2.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a id="a93cecf76777beec00f014e5ce72ab367" name="a93cecf76777beec00f014e5ce72ab367"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93cecf76777beec00f014e5ce72ab367">&#9670;&#160;</a></span>CodeEntry3_TextChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async void gra_rpg.Page2.CodeEntry3_TextChanged </td>
+          <td>(</td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>sender</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TextChangedEventArgs</td>          <td class="paramname"><span class="paramname"><em>e</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obsługa trzeciego pola kodu. </p>
+<p>Sprawdza poprawność kodu (158). @async </p>
+<p>Odtwarza dźwięk sukcesu.</p>
+<p>Odtwarza dźwięk błędu.</p>
+
+<p class="definition">Definition at line <a class="el" href="_page2_8xaml_8cs_source.html#l00165">165</a> of file <a class="el" href="_page2_8xaml_8cs_source.html">Page2.xaml.cs</a>.</p>
+
+</div>
+</div>
 <a id="af17a7c96455a0358dc5047c80b545381" name="af17a7c96455a0358dc5047c80b545381"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af17a7c96455a0358dc5047c80b545381">&#9670;&#160;</a></span>OnAppearing()</h2>
 
@@ -161,15 +285,128 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Wywo�ywane przy pojawieniu si� strony. </p>
-<p>Ustawia pozycje element�w UI. </p>
+<p>Wywoływane przy pojawieniu się strony. </p>
+<p>Ustawia pozycje elementów UI. </p>
 
 <p class="definition">Definition at line <a class="el" href="_page2_8xaml_8cs_source.html#l00112">112</a> of file <a class="el" href="_page2_8xaml_8cs_source.html">Page2.xaml.cs</a>.</p>
 
 </div>
 </div>
+<a id="a4dacea74a0704def5f3cc45e51f29e0c" name="a4dacea74a0704def5f3cc45e51f29e0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dacea74a0704def5f3cc45e51f29e0c">&#9670;&#160;</a></span>OnBreadClicked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async void gra_rpg.Page2.OnBreadClicked </td>
+          <td>(</td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>sender</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EventArgs</td>          <td class="paramname"><span class="paramname"><em>e</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obsługa kliknięcia chleba (loot). @async. </p>
+<p>Dodaje przedmiot do ekwipunku i wraca do mapy. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page2_8xaml_8cs_source.html#l00227">227</a> of file <a class="el" href="_page2_8xaml_8cs_source.html">Page2.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ac645561c36668fa0b8715a228e64d46a" name="ac645561c36668fa0b8715a228e64d46a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac645561c36668fa0b8715a228e64d46a">&#9670;&#160;</a></span>isNavigating</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gra_rpg.Page2.isNavigating = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flaga nawigacji. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page2_8xaml_8cs_source.html#l00031">31</a> of file <a class="el" href="_page2_8xaml_8cs_source.html">Page2.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a id="a025c4366144ea4d55008be9aa2f4b6c2" name="a025c4366144ea4d55008be9aa2f4b6c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a025c4366144ea4d55008be9aa2f4b6c2">&#9670;&#160;</a></span>player</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IAudioPlayer? gra_rpg.Page2.player</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Odtwarzacz audio. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page2_8xaml_8cs_source.html#l00034">34</a> of file <a class="el" href="_page2_8xaml_8cs_source.html">Page2.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a id="acd854cf68d19688f3726331900d74fa5" name="acd854cf68d19688f3726331900d74fa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd854cf68d19688f3726331900d74fa5">&#9670;&#160;</a></span>step</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gra_rpg.Page2.step = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Krok ruchu. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page2_8xaml_8cs_source.html#l00028">28</a> of file <a class="el" href="_page2_8xaml_8cs_source.html">Page2.xaml.cs</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>gra_rpg-master/gra_rpg/<a class="el" href="_page2_8xaml_8cs_source.html">Page2.xaml.cs</a></li>
+<li><a class="el" href="_page2_8xaml_8cs_source.html">Page2.xaml.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

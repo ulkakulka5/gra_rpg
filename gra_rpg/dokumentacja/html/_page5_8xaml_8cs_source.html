@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>GraRPG2: gra_rpg-master/gra_rpg/Page5.xaml.cs Source File</title>
+<title>GraRPG: Page5.xaml.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">GraRPG2
+   <div id="projectname">GraRPG
    </div>
   </td>
  </tr>
@@ -47,6 +47,8 @@ $(function() {
 });
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -68,12 +70,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a href="dir_4e084dec71b64dbc0d31d2906844e70c.html">gra_rpg-master</a></li><li class="navelem"><a href="dir_0afe54d71e67f67654ea587505c292ca.html">gra_rpg</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="headertitle"><div class="title">Page5.xaml.cs</div></div>
 </div><!--header-->
@@ -96,198 +92,286 @@ $(function() {
 <div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html">   20</a></span><span class="keyword">public</span> <span class="keyword">partial class </span><a class="code hl_function" href="classgra__rpg_1_1_page5.html#abe675ed7a8fce12b1c63838a24464140">Page5</a> : ContentPage</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">double</span> step = 10;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#a9da8963ede91163e6d943cb0af218b62">   23</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a9da8963ede91163e6d943cb0af218b62">step</a> = 10;</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">double</span> startX;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#a661c964c087d91035b21761a386a32ea">   26</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a661c964c087d91035b21761a386a32ea">startX</a>;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">double</span> startY;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#adf1634fb472a2de1d9f20a1aea9b7b05">   29</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#adf1634fb472a2de1d9f20a1aea9b7b05">startY</a>;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">bool</span> isNavigating = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#aa91942fce0150b46a9286a1da1dc8115">   32</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#aa91942fce0150b46a9286a1da1dc8115">isNavigating</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    IAudioPlayer? player;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#aa5f759197a67206a7955fc6fe8e72297">   35</a></span>    IAudioPlayer? <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#aa5f759197a67206a7955fc6fe8e72297">player</a>;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">int</span> collectedMirrors = 0;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#afa2d68421e82d0d3d10cde0163cfb0e8">   38</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#afa2d68421e82d0d3d10cde0163cfb0e8">collectedMirrors</a> = 0;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    List&lt;Image&gt; activeMirrors = <span class="keyword">new</span> List&lt;Image&gt;();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#a9faaea9755cf04e8c88128874cc74ee0">   41</a></span>    List&lt;Image&gt; <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a9faaea9755cf04e8c88128874cc74ee0">activeMirrors</a> = <span class="keyword">new</span> List&lt;Image&gt;();</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    List&lt;Rect&gt; blockedAreas = <span class="keyword">new</span> List&lt;Rect&gt;();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">   44</a></span>    List&lt;Rect&gt; <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a> = <span class="keyword">new</span> List&lt;Rect&gt;();</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
 <div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#abe675ed7a8fce12b1c63838a24464140">   48</a></span>    <span class="keyword">public</span> <a class="code hl_function" href="classgra__rpg_1_1_page5.html#abe675ed7a8fce12b1c63838a24464140">Page5</a>()</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        InitializeComponent();</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        activeMirrors.Add(mirror1);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        activeMirrors.Add(mirror2);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        activeMirrors.Add(mirror3);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        activeMirrors.Add(mirror4);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        activeMirrors.Add(mirror5);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        activeMirrors.Add(mirror6);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a9faaea9755cf04e8c88128874cc74ee0">activeMirrors</a>.Add(mirror1);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a9faaea9755cf04e8c88128874cc74ee0">activeMirrors</a>.Add(mirror2);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a9faaea9755cf04e8c88128874cc74ee0">activeMirrors</a>.Add(mirror3);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a9faaea9755cf04e8c88128874cc74ee0">activeMirrors</a>.Add(mirror4);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a9faaea9755cf04e8c88128874cc74ee0">activeMirrors</a>.Add(mirror5);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a9faaea9755cf04e8c88128874cc74ee0">activeMirrors</a>.Add(mirror6);</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        blockedAreas.Add(<span class="keyword">new</span> Rect(0, 0, 100, 832));</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="comment">// ... (pozostałe Recty bez zmian)</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#if WINDOWS</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        Loaded += OnLoaded;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
-</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(0, 0, 100, 832));</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(0, 200, 180, 30));</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(0, 320, 180, 30));</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(230, 600, 60, 200));</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(230, 590, 160, 30));</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(360, 590, 30, 100));</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(440, 470, 60, 240));</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#if WINDOWS</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keyword">private</span> <span class="keywordtype">void</span> OnLoaded(<span class="keywordtype">object</span> sender, EventArgs e)</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        var mauiWindow = Application.Current!.Windows[0];</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        var winuiWindow = mauiWindow.Handler?.PlatformView as Microsoft.UI.Xaml.Window;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">if</span> (winuiWindow != <span class="keyword">null</span>)</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            var content = winuiWindow.Content as Microsoft.UI.Xaml.UIElement;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="keywordflow">if</span> (content != <span class="keyword">null</span>)</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                content.KeyDown += Content_KeyDown;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                content.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            }</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keyword">private</span> <span class="keywordtype">void</span> Content_KeyDown(<span class="keywordtype">object</span> sender, KeyRoutedEventArgs e)</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    {</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordtype">double</span> newX = jozio.TranslationX;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordtype">double</span> newY = jozio.TranslationY;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">switch</span> (e.Key)</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        {</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="keywordflow">case</span> VirtualKey.Left:  newX -= step; <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="keywordflow">case</span> VirtualKey.Right: newX += step; <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <span class="keywordflow">case</span> VirtualKey.Up:    newY -= step; <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <span class="keywordflow">case</span> VirtualKey.Down:  newY += step; <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        }</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        MoveCharacter(jozio, newX, newY, <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keyword">private</span> <span class="keywordtype">void</span> OnPanUpdated(<span class="keywordtype">object</span> sender, PanUpdatedEventArgs e)</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    {</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        var obrazek = sender as Image;</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">if</span> (obrazek == <span class="keyword">null</span>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">if</span> (e.StatusType == GestureStatus.Started)</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        {</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            startX = obrazek.TranslationX;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            startY = obrazek.TranslationY;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        }</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (e.StatusType == GestureStatus.Running)</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            <span class="keywordtype">double</span> newX = startX + e.TotalX;</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            <span class="keywordtype">double</span> newY = startY + e.TotalY;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            MoveCharacter(obrazek, newX, newY, <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        }</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    }</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span></div>
-<div class="foldopen" id="foldopen00136" data-start="{" data-end="}">
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#abcaf83e41a179611f687df1ab130f18b">  136</a></span>    <span class="keyword">protected</span> <span class="keyword">override</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgra__rpg_1_1_page5.html#abcaf83e41a179611f687df1ab130f18b">OnAppearing</a>()</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    {</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        base.OnAppearing();</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        jozio.TranslationX = 560;</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        jozio.TranslationY = 730;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="comment">// Środek i dolne partie</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(490, 370, 60, 120));</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(580, 590, 30, 120));</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(490, 690, 120, 20));</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(530, 370, 90, 20));</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(230, 360, 150, 20));</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(230, 520, 150, 20));</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(230, 360, 60, 160));</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(360, 360, 20, 50));</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(360, 470, 20, 50));</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(660, 470, 50, 20));</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(660, 360, 180, 20));</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(660, 360, 50, 120));</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(790, 360, 50, 320));</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(790, 670, 180, 20));</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(940, 590, 70, 100));</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(940, 360, 80, 170));</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(960, 360, 120, 20));</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(660, 590, 50, 200));</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(660, 589, 100, 20));</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="comment">// Zawiłości w górnej części</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(230, 40, 60, 260));</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(240, 270, 140, 30));</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(370, 250, 20, 50));</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(390, 40, 20, 120));</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(270, 40, 120, 20));</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(660, 0, 60, 90));</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(450, 0, 60, 210));</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(600, 160, 20, 50));</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(370, 250, 210, 20));</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(450, 190, 150, 20));</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(660, 300, 150, 20));</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="comment">// Prawa strona</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(980, 0, 50, 290));</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(820, 0, 60, 120));</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(660, 170, 60, 150));</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(980, 270, 100, 20));</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(1150, 0, 140, 320));</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(790, 200, 60, 120));</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(1150, 370, 140, 430));</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="comment">// Dolna granica mapy</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(660, 790, 640, 20));</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>.Add(<span class="keyword">new</span> Rect(0, 790, 520, 20));</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#if WINDOWS</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        Loaded += OnLoaded;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
 </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keyword">private</span> async <span class="keywordtype">void</span> MoveCharacter(Image character, <span class="keywordtype">double</span> newX, <span class="keywordtype">double</span> newY, <span class="keywordtype">bool</span> checkCollision)</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    {</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordflow">if</span> (isNavigating)</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keywordflow">if</span> (MainGrid.Width &lt;= 0 || MainGrid.Height &lt;= 0)</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        {</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            character.TranslationX = newX;</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            character.TranslationY = newY;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        }</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="keywordtype">double</span> maxX = MainGrid.Width - character.WidthRequest;</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keywordtype">double</span> maxY = MainGrid.Height - character.HeightRequest;</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        newX = Math.Max(0, Math.Min(newX, maxX));</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        newY = Math.Max(0, Math.Min(newY, maxY));</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keywordtype">double</span> charWidth = character.WidthRequest &gt; 0 ? character.WidthRequest : 30;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordtype">double</span> charHeight = character.HeightRequest &gt; 0 ? character.HeightRequest : 30;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="preprocessor">#if WINDOWS</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keyword">private</span> <span class="keywordtype">void</span> OnLoaded(<span class="keywordtype">object</span> sender, EventArgs e)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        var mauiWindow = Application.Current!.Windows[0];</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        var winuiWindow = mauiWindow.Handler?.PlatformView as Microsoft.UI.Xaml.Window;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordflow">if</span> (winuiWindow != <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            var content = winuiWindow.Content as Microsoft.UI.Xaml.UIElement;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <span class="keywordflow">if</span> (content != <span class="keyword">null</span>)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                content.KeyDown += Content_KeyDown;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                content.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            }</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        }</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    }</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keyword">private</span> async <span class="keywordtype">void</span> Content_KeyDown(<span class="keywordtype">object</span> sender, KeyRoutedEventArgs e)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordtype">double</span> newX = rozia.TranslationX;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordtype">double</span> newY = rozia.TranslationY;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">switch</span> (e.Key)</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            <span class="keywordflow">case</span> VirtualKey.Left:  newX -= <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a9da8963ede91163e6d943cb0af218b62">step</a>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            <span class="keywordflow">case</span> VirtualKey.Right: newX += <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a9da8963ede91163e6d943cb0af218b62">step</a>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            <span class="keywordflow">case</span> VirtualKey.Up:    newY -= <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a9da8963ede91163e6d943cb0af218b62">step</a>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            <span class="keywordflow">case</span> VirtualKey.Down:  newY += <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a9da8963ede91163e6d943cb0af218b62">step</a>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        }</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        await <a class="code hl_function" href="classgra__rpg_1_1_page5.html#a477056bbcfdec3a302b7fcb1185cbf38">MoveCharacter</a>(rozia, newX, newY, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    }</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span></div>
+<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#a9b5ae60324c9685d34ccb4fbf432814c">  167</a></span>    <span class="keyword">private</span> async <span class="keywordtype">void</span> <a class="code hl_function" href="classgra__rpg_1_1_page5.html#a9b5ae60324c9685d34ccb4fbf432814c">OnPanUpdated</a>(<span class="keywordtype">object</span> sender, PanUpdatedEventArgs e)</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    {</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        var obrazek = sender as Image;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordflow">if</span> (obrazek == <span class="keyword">null</span>) <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keywordflow">if</span> (!checkCollision || !await IsBlocked(newX, newY, charWidth, charHeight))</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keywordflow">if</span> (e.StatusType == GestureStatus.Started)</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        {</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            character.TranslationX = newX;</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            character.TranslationY = newY;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            <span class="keywordflow">if</span> (character == jozio)</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            {</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                CheckMirrorCollection();</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            }</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        }</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    }</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span></div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keyword">private</span> async <span class="keywordtype">void</span> CheckMirrorCollection()</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    {</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <span class="keywordtype">double</span> charWidth = jozio.WidthRequest &gt; 0 ? jozio.WidthRequest : 30;</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keywordtype">double</span> charHeight = jozio.HeightRequest &gt; 0 ? jozio.HeightRequest : 30;</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        Rect jozioRect = <span class="keyword">new</span> Rect(jozio.TranslationX, jozio.TranslationY, charWidth, charHeight);</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordflow">foreach</span> (var mirror <span class="keywordflow">in</span> activeMirrors)</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        {</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>            <span class="keywordflow">if</span> (mirror.IsVisible)</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>            {</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>                Rect mirrorRect = <span class="keyword">new</span> Rect(mirror.Margin.Left, mirror.Margin.Top, mirror.WidthRequest, mirror.WidthRequest);</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                <span class="keywordflow">if</span> (jozioRect.IntersectsWith(mirrorRect))</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                {</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                    Play();</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                    mirror.IsVisible = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                    collectedMirrors++;</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span></div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                    MirrorCounter.Source = $<span class="stringliteral">&quot;lustro_licznik{collectedMirrors}.png&quot;</span>;</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span></div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                    <span class="keywordflow">if</span> (collectedMirrors &gt;= 6)</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                    {</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                        await Shell.Current.GoToAsync(nameof(Page4));</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                    }</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                }</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>            }</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        }</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    }</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span></div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="keyword">private</span> async Task&lt;bool&gt; IsBlocked(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> width, <span class="keywordtype">double</span> height)</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    {</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        Rect characterRect = <span class="keyword">new</span> Rect(x, y, width, height);</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordflow">foreach</span> (var area <span class="keywordflow">in</span> blockedAreas)</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        {</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            <span class="keywordflow">if</span> (characterRect.IntersectsWith(area))</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        }</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    }</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span></div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    async <span class="keywordtype">void</span> Play()</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    {</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        var audioManager = AudioManager.Current;</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        var stream = await FileSystem.OpenAppPackageFileAsync(<span class="stringliteral">&quot;mirror.mp3&quot;</span>);</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        player = audioManager.CreatePlayer(stream);</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        player.Loop = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        player.Play();</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    }</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>}</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a661c964c087d91035b21761a386a32ea">startX</a> = obrazek.TranslationX;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#adf1634fb472a2de1d9f20a1aea9b7b05">startY</a> = obrazek.TranslationY;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        }</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (e.StatusType == GestureStatus.Running)</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            <span class="keywordtype">double</span> newX = <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a661c964c087d91035b21761a386a32ea">startX</a> + e.TotalX;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            <span class="keywordtype">double</span> newY = <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#adf1634fb472a2de1d9f20a1aea9b7b05">startY</a> + e.TotalY;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            await <a class="code hl_function" href="classgra__rpg_1_1_page5.html#a477056bbcfdec3a302b7fcb1185cbf38">MoveCharacter</a>(obrazek, newX, newY, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        }</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    }</div>
 </div>
-<div class="ttc" id="aclassgra__rpg_1_1_page5_html_abcaf83e41a179611f687df1ab130f18b"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#abcaf83e41a179611f687df1ab130f18b">gra_rpg.Page5.OnAppearing</a></div><div class="ttdeci">override void OnAppearing()</div><div class="ttdoc">Wywoływane przy pojawieniu się strony.</div><div class="ttdef"><b>Definition</b> <a href="#l00136">Page5.xaml.cs:136</a></div></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span></div>
+<div class="foldopen" id="foldopen00188" data-start="{" data-end="}">
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#abcaf83e41a179611f687df1ab130f18b">  188</a></span>    <span class="keyword">protected</span> <span class="keyword">override</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgra__rpg_1_1_page5.html#abcaf83e41a179611f687df1ab130f18b">OnAppearing</a>()</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    {</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        base.OnAppearing();</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        rozia.TranslationX = 560;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        rozia.TranslationY = 730;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    }</div>
+</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span></div>
+<div class="foldopen" id="foldopen00203" data-start="{" data-end="}">
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#a477056bbcfdec3a302b7fcb1185cbf38">  203</a></span>    <span class="keyword">private</span> async Task <a class="code hl_function" href="classgra__rpg_1_1_page5.html#a477056bbcfdec3a302b7fcb1185cbf38">MoveCharacter</a>(Image character, <span class="keywordtype">double</span> newX, <span class="keywordtype">double</span> newY, <span class="keywordtype">bool</span> checkCollision)</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classgra__rpg_1_1_page5.html#aa91942fce0150b46a9286a1da1dc8115">isNavigating</a>)</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <span class="keywordflow">if</span> (MainGrid.Width &lt;= 0 || MainGrid.Height &lt;= 0)</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        {</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>            character.TranslationX = newX;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>            character.TranslationY = newY;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        }</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordtype">double</span> maxX = MainGrid.Width - character.WidthRequest;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <span class="keywordtype">double</span> maxY = MainGrid.Height - character.HeightRequest;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        newX = Math.Max(0, Math.Min(newX, maxX));</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        newY = Math.Max(0, Math.Min(newY, maxY));</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <span class="keywordtype">double</span> charWidth = character.WidthRequest &gt; 0 ? character.WidthRequest : 30;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keywordtype">double</span> charHeight = character.HeightRequest &gt; 0 ? character.HeightRequest : 30;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordflow">if</span> (!checkCollision || !await <a class="code hl_function" href="classgra__rpg_1_1_page5.html#aa4ce05d38f2e179b0226193d777e8e9f">IsBlocked</a>(newX, newY, charWidth, charHeight))</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        {</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>            <span class="comment">// Animate movement for smoother walking. Duration scales with distance.</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>            <span class="keywordtype">double</span> dx = newX - character.TranslationX;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            <span class="keywordtype">double</span> dy = newY - character.TranslationY;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            <span class="keywordtype">double</span> dist = Math.Sqrt(dx * dx + dy * dy);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>            <span class="comment">// duration between 60ms and 350ms depending on distance</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            uint duration = (uint)Math.Max(60, Math.Min(350, (<span class="keywordtype">int</span>)(dist * 4)));</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>                await character.TranslateTo(newX, newY, duration, Easing.CubicOut);</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            }</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            <span class="keywordflow">catch</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            {</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                <span class="comment">// If animation is canceled or fails, fallback to direct placement</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                character.TranslationX = newX;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                character.TranslationY = newY;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            }</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        }</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    }</div>
+</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span></div>
+<div class="foldopen" id="foldopen00253" data-start="{" data-end="}">
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#a71d6ef98afdf78c8741dea4be1f6fe0d">  253</a></span>    <span class="keyword">private</span> async <span class="keywordtype">void</span> <a class="code hl_function" href="classgra__rpg_1_1_page5.html#a71d6ef98afdf78c8741dea4be1f6fe0d">CheckMirrorCollection</a>()</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    {</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <span class="keywordtype">double</span> charWidth = rozia.WidthRequest &gt; 0 ? rozia.WidthRequest : 30;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keywordtype">double</span> charHeight = rozia.HeightRequest &gt; 0 ? rozia.HeightRequest : 30;</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        Rect roziaRect = <span class="keyword">new</span> Rect(rozia.TranslationX, rozia.TranslationY, charWidth, charHeight);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordflow">foreach</span> (var mirror <span class="keywordflow">in</span> <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#a9faaea9755cf04e8c88128874cc74ee0">activeMirrors</a>)</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        {</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            <span class="keywordflow">if</span> (mirror.IsVisible)</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            {</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                Rect mirrorRect = <span class="keyword">new</span> Rect(mirror.Margin.Left, mirror.Margin.Top, mirror.WidthRequest, mirror.WidthRequest);</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                <span class="keywordflow">if</span> (roziaRect.IntersectsWith(mirrorRect))</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>                {</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                    <a class="code hl_function" href="classgra__rpg_1_1_page5.html#a440d0b6eba7d21e4f519fc05135dc7a4">Play</a>();</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>                    mirror.IsVisible = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>                    <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#afa2d68421e82d0d3d10cde0163cfb0e8">collectedMirrors</a>++;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>                    MirrorCounter.Source = $<span class="stringliteral">&quot;lustro_licznik{collectedMirrors}.png&quot;</span>;</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>                    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classgra__rpg_1_1_page5.html#afa2d68421e82d0d3d10cde0163cfb0e8">collectedMirrors</a> &gt;= 6)</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>                    {</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>                        <a class="code hl_property" href="classgra__rpg_1_1_levels.html#aa2b88a417264803f4fe3c6b7ebe328d6">Levels.Level</a> = 4;</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>                        await Shell.Current.GoToAsync(nameof(<a class="code hl_class" href="classgra__rpg_1_1_page4.html">Page4</a>));</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>                    }</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                }</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            }</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        }</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    }</div>
+</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span></div>
+<div class="foldopen" id="foldopen00294" data-start="{" data-end="}">
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#aa4ce05d38f2e179b0226193d777e8e9f">  294</a></span>    <span class="keyword">private</span> async Task&lt;bool&gt; <a class="code hl_function" href="classgra__rpg_1_1_page5.html#aa4ce05d38f2e179b0226193d777e8e9f">IsBlocked</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> width, <span class="keywordtype">double</span> height)</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    {</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        Rect characterRect = <span class="keyword">new</span> Rect(x, y, width, height);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        <span class="keywordflow">foreach</span> (var area <span class="keywordflow">in</span> <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">blockedAreas</a>)</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        {</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>            <span class="keywordflow">if</span> (characterRect.IntersectsWith(area))</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        }</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    }</div>
+</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span></div>
+<div class="foldopen" id="foldopen00310" data-start="{" data-end="}">
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno"><a class="line" href="classgra__rpg_1_1_page5.html#a440d0b6eba7d21e4f519fc05135dc7a4">  310</a></span>    async <span class="keywordtype">void</span> <a class="code hl_function" href="classgra__rpg_1_1_page5.html#a440d0b6eba7d21e4f519fc05135dc7a4">Play</a>()</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    {</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        var audioManager = AudioManager.Current;</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        var stream = await FileSystem.OpenAppPackageFileAsync(<span class="stringliteral">&quot;mirror.mp3&quot;</span>);</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#aa5f759197a67206a7955fc6fe8e72297">player</a> = audioManager.CreatePlayer(stream);</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        player.Loop = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        <a class="code hl_variable" href="classgra__rpg_1_1_page5.html#aa5f759197a67206a7955fc6fe8e72297">player</a>.Play();</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    }</div>
+</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>}</div>
+</div>
+<div class="ttc" id="aclassgra__rpg_1_1_levels_html_aa2b88a417264803f4fe3c6b7ebe328d6"><div class="ttname"><a href="classgra__rpg_1_1_levels.html#aa2b88a417264803f4fe3c6b7ebe328d6">gra_rpg.Levels.Level</a></div><div class="ttdeci">static double Level</div><div class="ttdef"><b>Definition</b> <a href="_levels_8cs_source.html#l00011">Levels.cs:11</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page4_html"><div class="ttname"><a href="classgra__rpg_1_1_page4.html">gra_rpg.Page4</a></div><div class="ttdoc">Lokacja z domem i jeziorem.</div><div class="ttdef"><b>Definition</b> <a href="_page4_8xaml_8cs_source.html#l00019">Page4.xaml.cs:20</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_a440d0b6eba7d21e4f519fc05135dc7a4"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#a440d0b6eba7d21e4f519fc05135dc7a4">gra_rpg.Page5.Play</a></div><div class="ttdeci">async void Play()</div><div class="ttdoc">Odtwarza dźwięk zebrania lustra. @async.</div><div class="ttdef"><b>Definition</b> <a href="#l00310">Page5.xaml.cs:310</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_a477056bbcfdec3a302b7fcb1185cbf38"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#a477056bbcfdec3a302b7fcb1185cbf38">gra_rpg.Page5.MoveCharacter</a></div><div class="ttdeci">async Task MoveCharacter(Image character, double newX, double newY, bool checkCollision)</div><div class="ttdoc">Przesuwa postać po labiryncie.</div><div class="ttdef"><b>Definition</b> <a href="#l00203">Page5.xaml.cs:203</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_a661c964c087d91035b21761a386a32ea"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#a661c964c087d91035b21761a386a32ea">gra_rpg.Page5.startX</a></div><div class="ttdeci">double startX</div><div class="ttdoc">Początkowa pozycja X przy przeciąganiu.</div><div class="ttdef"><b>Definition</b> <a href="#l00026">Page5.xaml.cs:26</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_a71d6ef98afdf78c8741dea4be1f6fe0d"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#a71d6ef98afdf78c8741dea4be1f6fe0d">gra_rpg.Page5.CheckMirrorCollection</a></div><div class="ttdeci">async void CheckMirrorCollection()</div><div class="ttdoc">Sprawdza zbieranie luster. @async.</div><div class="ttdef"><b>Definition</b> <a href="#l00253">Page5.xaml.cs:253</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_a9b5ae60324c9685d34ccb4fbf432814c"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#a9b5ae60324c9685d34ccb4fbf432814c">gra_rpg.Page5.OnPanUpdated</a></div><div class="ttdeci">async void OnPanUpdated(object sender, PanUpdatedEventArgs e)</div><div class="ttdoc">Obsługa przeciągania postaci.</div><div class="ttdef"><b>Definition</b> <a href="#l00167">Page5.xaml.cs:167</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_a9da8963ede91163e6d943cb0af218b62"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#a9da8963ede91163e6d943cb0af218b62">gra_rpg.Page5.step</a></div><div class="ttdeci">double step</div><div class="ttdoc">Krok ruchu postaci.</div><div class="ttdef"><b>Definition</b> <a href="#l00023">Page5.xaml.cs:23</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_a9faaea9755cf04e8c88128874cc74ee0"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#a9faaea9755cf04e8c88128874cc74ee0">gra_rpg.Page5.activeMirrors</a></div><div class="ttdeci">List&lt; Image &gt; activeMirrors</div><div class="ttdoc">Lista aktywnych luster na mapie.</div><div class="ttdef"><b>Definition</b> <a href="#l00041">Page5.xaml.cs:41</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_aa4ce05d38f2e179b0226193d777e8e9f"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#aa4ce05d38f2e179b0226193d777e8e9f">gra_rpg.Page5.IsBlocked</a></div><div class="ttdeci">async Task&lt; bool &gt; IsBlocked(double x, double y, double width, double height)</div><div class="ttdoc">Sprawdza kolizje ze ścianami.</div><div class="ttdef"><b>Definition</b> <a href="#l00294">Page5.xaml.cs:294</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_aa5f759197a67206a7955fc6fe8e72297"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#aa5f759197a67206a7955fc6fe8e72297">gra_rpg.Page5.player</a></div><div class="ttdeci">IAudioPlayer? player</div><div class="ttdoc">Odtwarzacz audio dla efektów dźwiękowych.</div><div class="ttdef"><b>Definition</b> <a href="#l00035">Page5.xaml.cs:35</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_aa91942fce0150b46a9286a1da1dc8115"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#aa91942fce0150b46a9286a1da1dc8115">gra_rpg.Page5.isNavigating</a></div><div class="ttdeci">bool isNavigating</div><div class="ttdoc">Flaga zapobiegająca wielokrotnej nawigacji.</div><div class="ttdef"><b>Definition</b> <a href="#l00032">Page5.xaml.cs:32</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_abcaf83e41a179611f687df1ab130f18b"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#abcaf83e41a179611f687df1ab130f18b">gra_rpg.Page5.OnAppearing</a></div><div class="ttdeci">override void OnAppearing()</div><div class="ttdoc">Wywoływane przy pojawieniu się strony.</div><div class="ttdef"><b>Definition</b> <a href="#l00188">Page5.xaml.cs:188</a></div></div>
 <div class="ttc" id="aclassgra__rpg_1_1_page5_html_abe675ed7a8fce12b1c63838a24464140"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#abe675ed7a8fce12b1c63838a24464140">gra_rpg.Page5.Page5</a></div><div class="ttdeci">Page5()</div><div class="ttdoc">Konstruktor strony.</div><div class="ttdef"><b>Definition</b> <a href="#l00048">Page5.xaml.cs:48</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_ad05f42fd4e5751b856a7ede3c1f0ba35"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#ad05f42fd4e5751b856a7ede3c1f0ba35">gra_rpg.Page5.blockedAreas</a></div><div class="ttdeci">List&lt; Rect &gt; blockedAreas</div><div class="ttdoc">Lista obszarów kolizyjnych (ściany labiryntu).</div><div class="ttdef"><b>Definition</b> <a href="#l00044">Page5.xaml.cs:44</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_adf1634fb472a2de1d9f20a1aea9b7b05"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#adf1634fb472a2de1d9f20a1aea9b7b05">gra_rpg.Page5.startY</a></div><div class="ttdeci">double startY</div><div class="ttdoc">Początkowa pozycja Y przy przeciąganiu.</div><div class="ttdef"><b>Definition</b> <a href="#l00029">Page5.xaml.cs:29</a></div></div>
+<div class="ttc" id="aclassgra__rpg_1_1_page5_html_afa2d68421e82d0d3d10cde0163cfb0e8"><div class="ttname"><a href="classgra__rpg_1_1_page5.html#afa2d68421e82d0d3d10cde0163cfb0e8">gra_rpg.Page5.collectedMirrors</a></div><div class="ttdeci">int collectedMirrors</div><div class="ttdoc">Liczba zebranych luster.</div><div class="ttdef"><b>Definition</b> <a href="#l00038">Page5.xaml.cs:38</a></div></div>
 <div class="ttc" id="anamespacegra__rpg_html"><div class="ttname"><a href="namespacegra__rpg.html">gra_rpg</a></div><div class="ttdef"><b>Definition</b> <a href="_app_8xaml_8cs_source.html#l00003">App.xaml.cs:4</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

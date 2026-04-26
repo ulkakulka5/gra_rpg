@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>GraRPG2: gra_rpg.Page4 Class Reference</title>
+<title>GraRPG: gra_rpg.Page4 Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">GraRPG2
+   <div id="projectname">GraRPG
    </div>
   </td>
  </tr>
@@ -78,6 +78,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classgra__rpg_1_1_page4-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">gra_rpg.Page4 Class Reference</div></div>
 </div><!--header-->
@@ -101,12 +103,39 @@ Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a0a95d6c0a55ad2eea2ba3f1e6f1a8138" id="r_a0a95d6c0a55ad2eea2ba3f1e6f1a8138"><td class="memItemLeft">override void&#160;</td><td class="memItemRight"><a class="el" href="#a0a95d6c0a55ad2eea2ba3f1e6f1a8138">OnAppearing</a> ()</td></tr>
 <tr class="memdesc:a0a95d6c0a55ad2eea2ba3f1e6f1a8138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wywoływane przy pojawieniu się strony.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a3a8a7bb34ae377d72f91b22a2a115802" id="r_a3a8a7bb34ae377d72f91b22a2a115802"><td class="memItemLeft">async void&#160;</td><td class="memItemRight"><a class="el" href="#a3a8a7bb34ae377d72f91b22a2a115802">OnPanUpdated</a> (object sender, PanUpdatedEventArgs e)</td></tr>
+<tr class="memdesc:a3a8a7bb34ae377d72f91b22a2a115802"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obsługa przeciągania postaci.  <br /></td></tr>
+<tr class="memitem:abe171c5cb7f9fb19a0679c69225668f6" id="r_abe171c5cb7f9fb19a0679c69225668f6"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#abe171c5cb7f9fb19a0679c69225668f6">MoveCharacter</a> (Image character, double newX, double newY, bool checkCollision)</td></tr>
+<tr class="memdesc:abe171c5cb7f9fb19a0679c69225668f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przesuwa postać.  <br /></td></tr>
+<tr class="memitem:afb248843fb1853a27c8b4cfa01d2651f" id="r_afb248843fb1853a27c8b4cfa01d2651f"><td class="memItemLeft">async Task&lt; bool &gt;&#160;</td><td class="memItemRight"><a class="el" href="#afb248843fb1853a27c8b4cfa01d2651f">IsBlocked</a> (double x, double y, double width, double height)</td></tr>
+<tr class="memdesc:afb248843fb1853a27c8b4cfa01d2651f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza kolizje oraz przejścia między lokacjami.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a6418230c6bdc4d9c056d6a6eff007a62" id="r_a6418230c6bdc4d9c056d6a6eff007a62"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a6418230c6bdc4d9c056d6a6eff007a62">step</a> = 10</td></tr>
+<tr class="memdesc:a6418230c6bdc4d9c056d6a6eff007a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Krok ruchu postaci.  <br /></td></tr>
+<tr class="memitem:aa5dce003593e3048702f889dc7233a96" id="r_aa5dce003593e3048702f889dc7233a96"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#aa5dce003593e3048702f889dc7233a96">startX</a></td></tr>
+<tr class="memdesc:aa5dce003593e3048702f889dc7233a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Początkowa pozycja X przy przeciąganiu.  <br /></td></tr>
+<tr class="memitem:aa66cb2f0113749dc6426b8001921dc59" id="r_aa66cb2f0113749dc6426b8001921dc59"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#aa66cb2f0113749dc6426b8001921dc59">startY</a></td></tr>
+<tr class="memdesc:aa66cb2f0113749dc6426b8001921dc59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Początkowa pozycja Y przy przeciąganiu.  <br /></td></tr>
+<tr class="memitem:a6353c8e93bf8e1927c0652ffc9bf7c6a" id="r_a6353c8e93bf8e1927c0652ffc9bf7c6a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6353c8e93bf8e1927c0652ffc9bf7c6a">isNavigating</a> = false</td></tr>
+<tr class="memdesc:a6353c8e93bf8e1927c0652ffc9bf7c6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flaga blokująca wielokrotne przejścia między stronami.  <br /></td></tr>
+<tr class="memitem:ac74925540c48dad1c071b8651084d41e" id="r_ac74925540c48dad1c071b8651084d41e"><td class="memItemLeft">List&lt; Rect &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac74925540c48dad1c071b8651084d41e">blockedAreas</a> = new List&lt;Rect&gt;()</td></tr>
+<tr class="memdesc:ac74925540c48dad1c071b8651084d41e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista obszarów kolizyjnych.  <br /></td></tr>
+<tr class="memitem:abc2854744d6064b113530a5e1d083361" id="r_abc2854744d6064b113530a5e1d083361"><td class="memItemLeft">Rect&#160;</td><td class="memItemRight"><a class="el" href="#abc2854744d6064b113530a5e1d083361">strzalkaBox1</a> = new Rect(1000, 500, 50, 50)</td></tr>
+<tr class="memdesc:abc2854744d6064b113530a5e1d083361"><td class="mdescLeft">&#160;</td><td class="mdescRight">pierwsza pozycja strzałki.  <br /></td></tr>
+<tr class="memitem:ae04368fa0da22c30bb35c5349199da2d" id="r_ae04368fa0da22c30bb35c5349199da2d"><td class="memItemLeft">Rect&#160;</td><td class="memItemRight"><a class="el" href="#ae04368fa0da22c30bb35c5349199da2d">strzalkaBox2</a> = new Rect(800, 500, 50, 50)</td></tr>
+<tr class="memitem:a61d92940595dd95fed6943951b85869a" id="r_a61d92940595dd95fed6943951b85869a"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a61d92940595dd95fed6943951b85869a">licznikStrzalek</a> = 0</td></tr>
+<tr class="memdesc:a61d92940595dd95fed6943951b85869a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Licznik strzałek, używany do sterowania ruchem strzałki na mapie.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Lokacja z domem i jeziorem. </p>
 <p>Strona zawiera rozbudowany system kolizji (ściany, przeszkody, jezioro) oraz przejścia do innych lokacji (<a class="el" href="classgra__rpg_1_1_page5.html" title="Labirynt z mechaniką zbierania przedmiotów.">Page5</a> i powrót do <a class="el" href="classgra__rpg_1_1_page1.html" title="Główna mapa gry.">Page1</a>). </p>
 
-<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00018">18</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00019">19</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8f4427fe8e1ccaa10b64fda0a9cf5580" name="a8f4427fe8e1ccaa10b64fda0a9cf5580"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8f4427fe8e1ccaa10b64fda0a9cf5580">&#9670;&#160;</a></span>Page4()</h2>
@@ -138,11 +167,125 @@ Protected Member Functions</h2></td></tr>
 <p>Dolna część muru (z przejściem)</p>
 <p>Jezioro (obszar niedostępny)</p>
 
-<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00038">38</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00046">46</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="afb248843fb1853a27c8b4cfa01d2651f" name="afb248843fb1853a27c8b4cfa01d2651f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb248843fb1853a27c8b4cfa01d2651f">&#9670;&#160;</a></span>IsBlocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; bool &gt; gra_rpg.Page4.IsBlocked </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>height</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sprawdza kolizje oraz przejścia między lokacjami. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Pozycja X. </td></tr>
+    <tr><td class="paramname">y</td><td>Pozycja Y. </td></tr>
+    <tr><td class="paramname">width</td><td>Szerokość postaci. </td></tr>
+    <tr><td class="paramname">height</td><td>Wysokość postaci. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True jeśli ruch zablokowany. @async</dd></dl>
+<p>Obsługuje:</p><ul>
+<li>wejście do domu (<a class="el" href="classgra__rpg_1_1_page5.html" title="Labirynt z mechaniką zbierania przedmiotów.">Page5</a>)</li>
+<li>powrót do mapy (<a class="el" href="classgra__rpg_1_1_page1.html" title="Główna mapa gry.">Page1</a>)</li>
+<li>kolizje ze ścianami i jeziorem </li>
+</ul>
+<p>Drzwi do domu.</p>
+<p>Wyjście z lokacji.</p>
+<p>Sprawdzanie kolizji z przeszkodami.</p>
+
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00256">256</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a id="abe171c5cb7f9fb19a0679c69225668f6" name="abe171c5cb7f9fb19a0679c69225668f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe171c5cb7f9fb19a0679c69225668f6">&#9670;&#160;</a></span>MoveCharacter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task gra_rpg.Page4.MoveCharacter </td>
+          <td>(</td>
+          <td class="paramtype">Image</td>          <td class="paramname"><span class="paramname"><em>character</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>newX</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>newY</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>checkCollision</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Przesuwa postać. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character</td><td>Obiekt postaci. </td></tr>
+    <tr><td class="paramname">newX</td><td>Nowa pozycja X. </td></tr>
+    <tr><td class="paramname">newY</td><td>Nowa pozycja Y. </td></tr>
+    <tr><td class="paramname">checkCollision</td><td>Czy sprawdzać kolizje. @async</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Ogranicza ruch do granic mapy oraz sprawdza kolizje. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00204">204</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+
+</div>
+</div>
 <a id="a0a95d6c0a55ad2eea2ba3f1e6f1a8138" name="a0a95d6c0a55ad2eea2ba3f1e6f1a8138"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0a95d6c0a55ad2eea2ba3f1e6f1a8138">&#9670;&#160;</a></span>OnAppearing()</h2>
 
@@ -169,12 +312,261 @@ Protected Member Functions</h2></td></tr>
 <p>Wywoływane przy pojawieniu się strony. </p>
 <p>Ustawia początkową pozycję postaci. </p>
 
-<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00131">131</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00157">157</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a id="a3a8a7bb34ae377d72f91b22a2a115802" name="a3a8a7bb34ae377d72f91b22a2a115802"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a8a7bb34ae377d72f91b22a2a115802">&#9670;&#160;</a></span>OnPanUpdated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async void gra_rpg.Page4.OnPanUpdated </td>
+          <td>(</td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>sender</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PanUpdatedEventArgs</td>          <td class="paramname"><span class="paramname"><em>e</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obsługa przeciągania postaci. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>Obiekt przeciągany. </td></tr>
+    <tr><td class="paramname">e</td><td>Dane gestu.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Pozwala przesuwać postać myszką (bez kolizji). </p>
+
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00136">136</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ac74925540c48dad1c071b8651084d41e" name="ac74925540c48dad1c071b8651084d41e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac74925540c48dad1c071b8651084d41e">&#9670;&#160;</a></span>blockedAreas</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;Rect&gt; gra_rpg.Page4.blockedAreas = new List&lt;Rect&gt;()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lista obszarów kolizyjnych. </p>
+<p>Zawiera ściany, przeszkody oraz jezioro. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00035">35</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a id="a6353c8e93bf8e1927c0652ffc9bf7c6a" name="a6353c8e93bf8e1927c0652ffc9bf7c6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6353c8e93bf8e1927c0652ffc9bf7c6a">&#9670;&#160;</a></span>isNavigating</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gra_rpg.Page4.isNavigating = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flaga blokująca wielokrotne przejścia między stronami. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00031">31</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a id="a61d92940595dd95fed6943951b85869a" name="a61d92940595dd95fed6943951b85869a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61d92940595dd95fed6943951b85869a">&#9670;&#160;</a></span>licznikStrzalek</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gra_rpg.Page4.licznikStrzalek = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Licznik strzałek, używany do sterowania ruchem strzałki na mapie. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00042">42</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a id="aa5dce003593e3048702f889dc7233a96" name="aa5dce003593e3048702f889dc7233a96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5dce003593e3048702f889dc7233a96">&#9670;&#160;</a></span>startX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gra_rpg.Page4.startX</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Początkowa pozycja X przy przeciąganiu. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00025">25</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a id="aa66cb2f0113749dc6426b8001921dc59" name="aa66cb2f0113749dc6426b8001921dc59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa66cb2f0113749dc6426b8001921dc59">&#9670;&#160;</a></span>startY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gra_rpg.Page4.startY</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Początkowa pozycja Y przy przeciąganiu. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00028">28</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a id="a6418230c6bdc4d9c056d6a6eff007a62" name="a6418230c6bdc4d9c056d6a6eff007a62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6418230c6bdc4d9c056d6a6eff007a62">&#9670;&#160;</a></span>step</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gra_rpg.Page4.step = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Krok ruchu postaci. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00022">22</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a id="abc2854744d6064b113530a5e1d083361" name="abc2854744d6064b113530a5e1d083361"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc2854744d6064b113530a5e1d083361">&#9670;&#160;</a></span>strzalkaBox1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rect gra_rpg.Page4.strzalkaBox1 = new Rect(1000, 500, 50, 50)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>pierwsza pozycja strzałki. </p>
+
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00038">38</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
+
+</div>
+</div>
+<a id="ae04368fa0da22c30bb35c5349199da2d" name="ae04368fa0da22c30bb35c5349199da2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae04368fa0da22c30bb35c5349199da2d">&#9670;&#160;</a></span>strzalkaBox2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rect gra_rpg.Page4.strzalkaBox2 = new Rect(800, 500, 50, 50)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_page4_8xaml_8cs_source.html#l00039">39</a> of file <a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>gra_rpg-master/gra_rpg/<a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a></li>
+<li><a class="el" href="_page4_8xaml_8cs_source.html">Page4.xaml.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
