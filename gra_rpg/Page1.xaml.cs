@@ -376,7 +376,7 @@ public partial class Page1 : ContentPage
         var door1 = new Rect(139, 323, 5, 5);
         var door2 = new Rect(700, 800, 5, 5);
         var door3 = new Rect(0, 480, 5, 5);
-        var door4 = new Rect(1100, 700, 5, 5);
+        var door4 = new Rect(1100, 700, 30, 30);
         
 
         if (characterRect.IntersectsWith(strzalkaBox1) && !isNavigating && Levels.Level == 1)
@@ -505,6 +505,7 @@ public partial class Page1 : ContentPage
                 strzalka.TranslationX = 800;
                 strzalka.TranslationY = 750;
                 licznikStrzalek = 4;
+                strzalka.Rotation = 90;
             }
             else if (licznikStrzalek == 4)
             {

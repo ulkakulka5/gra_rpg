@@ -258,7 +258,7 @@ public partial class Page4 : ContentPage
         Rect characterRect = new Rect(x, y, width, height);
 
         /// @brief Drzwi do domu.
-        var door1 = new Rect(680, 200, 5, 5);
+        var door1 = new Rect(680, 200, 50, 50);
 
         /// @brief Wyjście z lokacji.
         var door2 = new Rect(1250, 500, 5, 5);

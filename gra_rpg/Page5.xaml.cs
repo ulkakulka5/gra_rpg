@@ -241,6 +241,7 @@ public partial class Page5 : ContentPage
                 character.TranslationY = newY;
             }
         }
+        CheckMirrorCollection();
     }
 
     /// @brief Sprawdza zbieranie luster.
