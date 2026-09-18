@@ -1,31 +1,20 @@
 <Button
-    Content="Edycja bazy danych"
-    Width="500"
-    Height="110"
-    Background="#383B53"
-    Foreground="#D4D6B9"
+    Text="Edycja bazy danych"
+    WidthRequest="500"
+    HeightRequest="110"
+    BackgroundColor="#383B53"
+    TextColor="#D4D6B9"
     FontSize="44"
-    FontFamily="Segoe UI"
-    BorderThickness="0">
+    CornerRadius="55"
+    BorderWidth="0"
+    Padding="0">
 
-    <Button.Effect>
-        <DropShadowEffect
-            Color="#000000"
-            Opacity="0.35"
-            BlurRadius="12"
-            ShadowDepth="7"
-            Direction="315"/>
-    </Button.Effect>
+    <Button.Shadow>
+        <Shadow
+            Brush="#000000"
+            Offset="6,8"
+            Radius="15"
+            Opacity="0.30" />
+    </Button.Shadow>
 
-    <Button.Template>
-        <ControlTemplate TargetType="Button">
-            <Border
-                Background="{TemplateBinding Background}"
-                CornerRadius="55">
-                <ContentPresenter
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"/>
-            </Border>
-        </ControlTemplate>
-    </Button.Template>
 </Button>
