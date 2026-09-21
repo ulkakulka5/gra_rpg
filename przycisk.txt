@@ -18,3 +18,71 @@
     </Button.Shadow>
 
 </Button>
+
+
+
+
+
+
+
+    <Border
+StrokeShape="RoundRectangle 20"
+BackgroundColor="#D9D9D9"
+Grid.Row="1"
+Grid.Column="0"
+Grid.ColumnSpan="2"
+Margin="45,0,0,0">
+
+        <CollectionView
+    x:Name="list"
+    ItemsSource="{Binding Products}"
+    SelectionMode="Single"
+    Style="{StaticResource listStyle}"
+    BackgroundColor="#D9D9D9">
+
+            
+            
+            <CollectionView.Header>
+                <Grid ColumnDefinitions="*,*,*">
+                    <Label
+                        Grid.Column="0"
+                        Text="Numer urządzenia"
+                        TextColor="Black"
+                        FontSize="20"
+                        Margin="20,10,0,10" />
+                    <Label
+                        Grid.Column="1"
+                        Text="Imię, nazwisko, klasa"
+                        TextColor="Black"
+                        FontSize="20"
+                        Margin="20,10,0,10" />
+                    <Label
+                        Grid.Column="2"
+                        Text="Data"
+                        TextColor="Black"
+                        FontSize="20"
+                        Margin="20,10,0,10" />
+                </Grid>
+            </CollectionView.Header>
+            
+
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Border
+                        x:Name="itemBorder"
+                        Padding="10"
+                        BackgroundColor="Transparent">
+                        
+                        <Label
+                            Text="{Binding Name}"
+                            TextColor="Black" />
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Border>
